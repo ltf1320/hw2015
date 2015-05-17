@@ -1,0 +1,12 @@
+
+
+---GAME START @ 2015-5-17-6-23-34---
+wait player time out
+wait player time out
+wait player time out
+wait player time out
+invalid player with unknown ip or port(127.0.0.5, 6005)
+invalid player with unknown ip or port(127.0.0.4, 6004)
+invalid player with unknown ip or port(127.0.0.3, 6003)
+invalid player with unknown ip or port(127.0.0.7, 6007)
+game-over
