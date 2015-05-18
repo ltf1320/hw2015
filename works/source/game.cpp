@@ -10,6 +10,7 @@
 #include <sys/socket.h>
 #include <unistd.h>
 #include <chrono>
+#include <vector>
 
 using namespace std;
 
@@ -19,26 +20,85 @@ int my_id;
 
 FILE* logFile;
 
-//#define LOG(msg,arg...) fprintf(logFile,msg,##arg)
-#define LOG(msg,arg...) printf("[%d]",my_id);printf(msg,##arg);puts("");
+#define LOG(msg,arg...) fprintf(logFile,msg,##arg);fprintf(logFile,"\n");
+//#define LOG(msg,arg...) printf("[%d]",my_id);printf(msg,##arg);puts("");
 
 namespace Action
 {
 	const char* all_in="all_in";
+	const char* check="check";
+	const char* blind="blind";
+	const char* call="call";
+	const char* raise="raise";
+	const char* fold="fold";
 }
 
-
-enum State
+//the color of cards
+namespace Color
 {
-	ALL_IN,
-	JOIN,
-	FOLDED
+	const char* SPADES="SPADES";
+	const char* HEARTS="HEARTS";
+	const char* CLUBS="CLUBS";
+	const char* DIAMONDS="DIAMONDS";
 };
 
-class Turn
+namespace NutHand
+{
+	const char* HIGH_CARD="HIGH_CARD";
+	const char* ONE_PAIR="ONE_PAIR";
+	const char* TWO_PAIR="TWO_PAIR";
+	const char* THREE_OF_A_KIND="THREE_OF_A_KIND";
+	const char* STRAIGHT="STRAIGHT";
+	const char* FLUSH="FLUSH";
+	const char* FULL_HOUSE="FULL_HOUSE";
+	const char* FOUR_OF_A_KIND="FOUR_OF_A_KIND";
+	const char* STRAIGHT_FLUSH="STRAIGHT_FLUSH";
+}
+
+struct Card
+{
+	char* color;
+	int point;
+};
+
+enum PlayerState
+{
+	PlayerState_ALL_IN,
+	PlayerState_JOIN,
+	PlayerState_FOLDED,
+	PlayerState_GAME_OVER
+};
+
+enum TurnState
+{
+	TurnState_START,
+	TurnState_HOLD,
+	TurnState_FLOP,
+	TurnState_TURN,
+	TurnState_RIVER,
+	TurnState_SHOWDOWN
+};
+
+class Player
+{
+public:
+	PlayerState state;
+	int jetton;
+	int monney;
+	int bet;
+	int pid;
+};
+
+class Game
 {
 	public:
-	State state;
+	vector<Player> players;
+	Player me;
+	TurnState turnState;
+	Card hold[2];
+	Card flop[3];
+	Card turn;
+	Card river;
 };
 
 class MessageHandle
@@ -64,11 +124,12 @@ class MessageHandle
 		}
 	protected:
 		int sock;
-		Turn turn;
+		Game game;
 
 		void sendAction(const char* action)
 		{
-			send(sock,action,strlen(action)+1,0);
+			send(sock,action,strlen(action),0);
+			send(sock," \n",2,0);
 		}
 		char* getNextMsg()
 		{
@@ -81,34 +142,94 @@ class MessageHandle
 				}
 			}
 		}
-		void handleInquire(MessageHandle *p)
-		{
-			while(true){
-				char *msg=p->getNextMsg();
-				if(!strcmp(msg,"/inquire"))
-				{
-				//	if(turn.state==JOIN)
-					{
-						sendAction(Action::all_in);
-						turn.state=ALL_IN;
-					}
-					delete [] msg;
-					return;
-				}
-				delete [] msg;
-			}
-		}
 		static void handleMessageThread(MessageHandle *p)
 		{
 			while(true){
 				char *msg=p->getNextMsg();
 				LOG("handle:%s",msg);
 				if(!strcmp(msg,"inquire/"))
-					p->handleInquire(p);
+					p->handleInquire();
+				if(!strcmp(msg,"seat/"))
+					p->handleSeat();
+				if(!strcmp(msg,"blind/"))
+					p->handleBlind();
+				if(!strcmp(msg,"hold/"))
+					p->handleHold();
+				if(!strcmp(msg,"flop/"))
+					p->handleFlop();
+				if(!strcmp(msg,"turn/"))
+					p->handleTurn();
+				if(!strcmp(msg,"river/"))
+					p->handleRiver();
+				if(!strcmp(msg,"showdown/"))
+					p->handleShowdown();
+				if(!strcmp(msg,"pot-win/"))
+					p->handlePotWin();
 				if(!strcmp(msg,"game-over"))
 				{
 					LOG("GAMEOVER RETURN");
 					break;
+				}
+				delete [] msg;
+			}
+		}
+		void handleSeat(){
+			LOG("handle seat");
+			game.players.clear();
+			game.turnState=TurnState_START;
+			char* msg=getNextMsg();
+			while(strcmp(msg,"/seat")){
+				char *p=msg;
+				int pid,jetton,monney;
+				while(*p!=':')
+				{
+					p++;
+					if(*p==0)
+					{
+						p=msg-2;
+						break;
+					}
+				}
+				p+=2;
+				sscanf(msg,"%d %d %d",&pid,&jetton,&monney);
+				LOG("pid:%d,jetton:%d,monney:%d",pid,jetton,monney);
+				if(pid==my_id)
+				{
+					game.me.jetton=jetton;
+					game.me.monney=monney;
+					game.me.state=PlayerState_JOIN;
+				}
+				else
+				{
+					Player player;
+					player.pid=pid;
+					player.jetton=jetton;
+					player.monney=monney;
+					player.state=PlayerState_JOIN;
+					game.players.push_back(player);
+				}
+			}
+		}
+		void handleBlind(){}
+		void handleHold(){}
+		void handleFlop(){}
+		void handleTurn(){}
+		void handleRiver(){}
+		void handleShowdown(){}
+		void handlePotWin(){}
+		void handleInquire()
+		{
+			while(true){
+				char *msg=getNextMsg();
+				if(!strcmp(msg,"/inquire"))
+				{
+				//	if(game.state==JOIN)
+					{
+						sendAction(Action::all_in);
+						game.me.state=PlayerState_ALL_IN;
+					}
+					delete [] msg;
+					return;
 				}
 				delete [] msg;
 			}
