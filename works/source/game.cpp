@@ -23,7 +23,7 @@ FILE* logFile;
 #define LOG(msg,arg...) fprintf(logFile,msg,##arg);fprintf(logFile,"\n");
 //#define LOG(msg,arg...) printf("[%d]",my_id);printf(msg,##arg);puts("");
 
-#define LOOP_MSG_UNTIL(endMsg) for(char* msg=getNextMsg();strcmp(msg,endMsg);msg=getNextMsg())
+#define LOOP_MSG_UNTIL(endMsg) for(char* msg=getNextMsg();strcmp(msg,endMsg)||((delete [] msg),0);delete [] msg,msg=getNextMsg())
 
 namespace Action
 {
@@ -61,6 +61,11 @@ struct Card
 {
 	char* color;
 	int point;
+	void getCard(char* cardDesc)
+	{
+		color=new char[10];
+		sscanf(cardDesc,"%s %d",color,&point);
+	}
 };
 
 enum PlayerState
@@ -108,6 +113,23 @@ class Game
 	Card flop[3];
 	Card turn;
 	Card river;
+};
+
+class PlayerResult
+{
+public:
+	Card hold[2];
+	char NutHand[10];
+	Player player;
+	int win;
+	int rank;
+};
+
+class GameResult
+{
+public:
+	Game game;
+	map<int,PlayerResult> result;
 };
 
 class MessageHandle
@@ -202,7 +224,7 @@ class MessageHandle
 					}
 				}
 				p+=2;
-				sscanf(p,"%d %d %d",&pid,&jetton,&monney);
+				sscanf(p,"%d %d %d",&pid,&jetton,&monney);			
 				LOG("pid:%d,jetton:%d,monney:%d",pid,jetton,monney);
 				if(pid==my_id)
 				{
@@ -232,29 +254,69 @@ class MessageHandle
 			}
 			LOG("handle blind end");
 		}
-		void handleHold(){}
-		void handleFlop(){}
-		void handleTurn(){}
-		void handleRiver(){}
-		void handleShowdown(){}
-		void handlePotWin(){}
+		void handleHold(){
+			char* msg=getNextMsg();
+			game.hold[0].getCard(msg);
+			delete [] msg;
+			msg=getNextMsg();
+			game.hold[1].getCard(msg);
+			delete [] msg;
+			msg=getNextMsg();
+			delete [] msg;
+		}
+		void handleFlop(){
+			char* msg;
+			for(int i=0;i<3;i++)
+			{
+				msg=getNextMsg();
+				game.flop[i].getCard(msg);
+				delete [] msg;				
+			}
+			msg=getNextMsg();
+			delete [] msg;
+		}
+		void handleTurn(){
+			char *msg=getNextMsg();
+			game.turn.getCard(msg);
+			delete [] msg;
+			msg=getNextMsg();
+			delete [] msg;
+		}
+		void handleRiver(){
+			char *msg=getNextMsg();
+			game.river.getCard(msg);
+			delete [] msg;
+			msg=getNextMsg();
+			delete [] msg;
+		}
+		void handleShowdown(){
+			LOOP_MSG_UNTIL("/common")
+			{
+			}
+			GameResult result;
+			result.game=game;
+			LOOP_MSG_UNTIL("/showdown")
+			{
+				int rank,pid;
+				PlayerResult pres;
+				sscanf(msg,"%d:%d %s %d %s %d %s",&rank,&pid,pres.hold[0].color,&pres.hold[0].point,pres.hold[1].color,&pres.hold[1].point,pres.NutHand);
+				pres.player=game.players[pid];
+				result.result[pid]=pres;
+			}
+		}
+		void handlePotWin(){
+			LOOP_MSG_UNTIL("/pot-win")
+			{
+				int pid,num;
+				sscanf(msg,"%d %d",&pid,&num);
+			}
+		}
 		void handleInquire()
 		{
 			LOG("handle inquire");
-			while(true){
-				char *msg=getNextMsg();
-				if(!strcmp(msg,"/inquire"))
-				{
-				//	if(game.state==JOIN)
-					{
-						sendAction(Action::all_in);
-						game.me.state=PlayerState_ALL_IN;
-					}
-					delete [] msg;
-					break;
-				}
-				delete [] msg;
-			}
+			LOOP_MSG_UNTIL("/inquire")
+				;
+			sendAction(Action::all_in);
 			LOG("handle inquire end");
 		}
 		ThreadSafeQueue<char*> msgQue;
