@@ -11,7 +11,7 @@
 #include <unistd.h>
 #include <chrono>
 #include <vector>
-
+#include <map>
 using namespace std;
 
 const char eol='\n';
@@ -22,6 +22,8 @@ FILE* logFile;
 
 #define LOG(msg,arg...) fprintf(logFile,msg,##arg);fprintf(logFile,"\n");
 //#define LOG(msg,arg...) printf("[%d]",my_id);printf(msg,##arg);puts("");
+
+#define LOOP_MSG_UNTIL(endMsg) for(char* msg=getNextMsg();strcmp(msg,endMsg);msg=getNextMsg())
 
 namespace Action
 {
@@ -87,12 +89,19 @@ public:
 	int monney;
 	int bet;
 	int pid;
+	void dobet(int num)
+	{
+		if(num>jetton)
+			num=jetton;
+		jetton-=num;
+		bet+=num;
+	}
 };
 
 class Game
 {
 	public:
-	vector<Player> players;
+	map<int,Player> players;
 	Player me;
 	TurnState turnState;
 	Card hold[2];
@@ -128,6 +137,7 @@ class MessageHandle
 
 		void sendAction(const char* action)
 		{
+			LOG("Action:%s",action);
 			send(sock,action,strlen(action),0);
 			send(sock," \n",2,0);
 		}
@@ -138,6 +148,7 @@ class MessageHandle
 				this_thread::sleep_for(std::chrono::milliseconds(10));
 				if(r.first)
 				{
+					LOG("handle:%s",r.second);
 					return r.second;
 				}
 			}
@@ -146,7 +157,7 @@ class MessageHandle
 		{
 			while(true){
 				char *msg=p->getNextMsg();
-				LOG("handle:%s",msg);
+				//LOG("handle:%s",msg);
 				if(!strcmp(msg,"inquire/"))
 					p->handleInquire();
 				if(!strcmp(msg,"seat/"))
@@ -177,8 +188,8 @@ class MessageHandle
 			LOG("handle seat");
 			game.players.clear();
 			game.turnState=TurnState_START;
-			char* msg=getNextMsg();
-			while(strcmp(msg,"/seat")){
+		
+			LOOP_MSG_UNTIL("/seat"){
 				char *p=msg;
 				int pid,jetton,monney;
 				while(*p!=':')
@@ -191,7 +202,7 @@ class MessageHandle
 					}
 				}
 				p+=2;
-				sscanf(msg,"%d %d %d",&pid,&jetton,&monney);
+				sscanf(p,"%d %d %d",&pid,&jetton,&monney);
 				LOG("pid:%d,jetton:%d,monney:%d",pid,jetton,monney);
 				if(pid==my_id)
 				{
@@ -206,11 +217,21 @@ class MessageHandle
 					player.jetton=jetton;
 					player.monney=monney;
 					player.state=PlayerState_JOIN;
-					game.players.push_back(player);
+					game.players[pid]=player;
 				}
 			}
+			LOG("handle seat end");
 		}
-		void handleBlind(){}
+		void handleBlind(){
+			LOG("handle blind");
+			LOOP_MSG_UNTIL("/blind")
+			{
+				int pid,bet;
+				sscanf(msg,"%d: %d",&pid,&bet);
+				game.players[pid].dobet(bet);
+			}
+			LOG("handle blind end");
+		}
 		void handleHold(){}
 		void handleFlop(){}
 		void handleTurn(){}
@@ -219,6 +240,7 @@ class MessageHandle
 		void handlePotWin(){}
 		void handleInquire()
 		{
+			LOG("handle inquire");
 			while(true){
 				char *msg=getNextMsg();
 				if(!strcmp(msg,"/inquire"))
@@ -229,10 +251,11 @@ class MessageHandle
 						game.me.state=PlayerState_ALL_IN;
 					}
 					delete [] msg;
-					return;
+					break;
 				}
 				delete [] msg;
 			}
+			LOG("handle inquire end");
 		}
 		ThreadSafeQueue<char*> msgQue;
 		thread th;

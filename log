@@ -1,0 +1,7239 @@
+check the size of works directory ....
+archive the works director
+you can use works.tar.gz for submit
+
+prepare for test..
+start server
+declare -x CLUTTER_IM_MODULE="xim"
+declare -x COLORTERM="gnome-terminal"
+declare -x COMPIZ_CONFIG_PROFILE="ubuntu"
+declare -x DBUS_SESSION_BUS_ADDRESS="unix:abstract=/tmp/dbus-mEb7S69rta"
+declare -x DEFAULTS_PATH="/usr/share/gconf/ubuntu.default.path"
+declare -x DESKTOP_SESSION="ubuntu"
+declare -x DISPLAY=":0"
+declare -x GDMSESSION="ubuntu"
+declare -x GDM_LANG="en_US"
+declare -x GNOME_DESKTOP_SESSION_ID="this-is-deprecated"
+declare -x GNOME_KEYRING_CONTROL="/run/user/1000/keyring-fBx5dh"
+declare -x GNOME_KEYRING_PID="2514"
+declare -x GPG_AGENT_INFO="/run/user/1000/keyring-fBx5dh/gpg:0:1"
+declare -x GTK_IM_MODULE="ibus"
+declare -x GTK_MODULES="overlay-scrollbar:unity-gtk-module"
+declare -x HOME="/home/liu"
+declare -x IM_CONFIG_PHASE="1"
+declare -x INSTANCE="Unity"
+declare -x JOB="gnome-session"
+declare -x LANG="en_US.UTF-8"
+declare -x LANGUAGE="en_US"
+declare -x LESSCLOSE="/usr/bin/lesspipe %s %s"
+declare -x LESSOPEN="| /usr/bin/lesspipe %s"
+declare -x LOGNAME="liu"
+declare -x LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:"
+declare -x MANDATORY_PATH="/usr/share/gconf/ubuntu.mandatory.path"
+declare -x OLDPWD="/home/liu/run_area"
+declare -x PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+declare -x PLAYER1_ID="1111"
+declare -x PLAYER1_IP="127.0.0.1"
+declare -x PLAYER1_PORT="6001"
+declare -x PLAYER2_ID="2222"
+declare -x PLAYER2_IP="127.0.0.2"
+declare -x PLAYER2_PORT="6002"
+declare -x PLAYER3_ID="3333"
+declare -x PLAYER3_IP="127.0.0.3"
+declare -x PLAYER3_PORT="6003"
+declare -x PLAYER4_ID="4444"
+declare -x PLAYER4_IP="127.0.0.4"
+declare -x PLAYER4_PORT="6004"
+declare -x PLAYER5_ID="5555"
+declare -x PLAYER5_IP="127.0.0.5"
+declare -x PLAYER5_PORT="6005"
+declare -x PLAYER6_ID="6666"
+declare -x PLAYER6_IP="127.0.0.6"
+declare -x PLAYER6_PORT="6006"
+declare -x PLAYER7_ID="7777"
+declare -x PLAYER7_IP="127.0.0.7"
+declare -x PLAYER7_PORT="6007"
+declare -x PLAYER8_ID="8888"
+declare -x PLAYER8_IP="127.0.0.8"
+declare -x PLAYER8_PORT="6008"
+declare -x PWD="/home/liu/run_area/server"
+declare -x QT4_IM_MODULE="xim"
+declare -x QT_IM_MODULE="ibus"
+declare -x QT_QPA_PLATFORMTHEME="appmenu-qt5"
+declare -x SELINUX_INIT="YES"
+declare -x SESSIONTYPE="gnome-session"
+declare -x SHELL="/bin/bash"
+declare -x SHLVL="2"
+declare -x SSH_AUTH_SOCK="/run/user/1000/keyring-fBx5dh/ssh"
+declare -x TERM="xterm"
+declare -x TEXTDOMAIN="im-config"
+declare -x TEXTDOMAINDIR="/usr/share/locale/"
+declare -x UPSTART_EVENTS="started starting"
+declare -x UPSTART_INSTANCE=""
+declare -x UPSTART_JOB="unity-settings-daemon"
+declare -x UPSTART_SESSION="unix:abstract=/com/ubuntu/upstart-session/1000/2517"
+declare -x USER="liu"
+declare -x VTE_VERSION="3409"
+declare -x WINDOWID="25170041"
+declare -x XAUTHORITY="/home/liu/.Xauthority"
+declare -x XDG_CONFIG_DIRS="/etc/xdg/xdg-ubuntu:/usr/share/upstart/xdg:/etc/xdg"
+declare -x XDG_CURRENT_DESKTOP="Unity"
+declare -x XDG_DATA_DIRS="/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/"
+declare -x XDG_GREETER_DATA_DIR="/var/lib/lightdm-data/liu"
+declare -x XDG_RUNTIME_DIR="/run/user/1000"
+declare -x XDG_SEAT="seat0"
+declare -x XDG_SEAT_PATH="/org/freedesktop/DisplayManager/Seat0"
+declare -x XDG_SESSION_ID="c2"
+declare -x XDG_SESSION_PATH="/org/freedesktop/DisplayManager/Session0"
+declare -x XDG_VTNR="7"
+declare -x XMODIFIERS="@im=ibus"
+start your program
+
+
+---GAME START @ 2015-5-18-16-17-43---
+
+-0>
+game start(id=replay)reg: 7777 tt 
+
+-1>
+reg: player id=7777 name=tt money=10000reg: 5555 tt 
+
+-2>
+reg: player id=5555 name=tt money=10000reg: 2222 tt 
+
+-3>
+reg: player id=2222 name=tt money=10000reg: 8888 tt 
+
+-4>
+reg: player id=8888 name=tt money=10000reg: 6666 tt 
+
+-5>
+reg: player id=6666 name=tt money=10000reg: 1111 tt 
+
+-6>
+reg: player id=1111 name=tt money=10000reg: 3333 tt 
+
+-7>
+reg: player id=3333 name=tt money=10000reg: 4444 tt 
+
+-8>
+reg: player id=4444 name=tt money=10000
+-----1 Hand-----
+
+----- clean player data in socket -----
+
+-9>
+game(id=replay) new hand 1 start...seat/ 
+button: 2222 2000 8000 
+small blind: 7777 2000 8000 
+big blind: 8888 2000 8000 
+5555 2000 8000 
+1111 2000 8000 
+4444 2000 8000 
+3333 2000 8000 
+6666 2000 8000 
+/seat 
+
+-10>
+seat/ 
+button: 2222 2000 8000 
+small blind: 7777 2000 8000 
+big blind: 8888 2000 8000 
+5555 2000 8000 
+1111 2000 8000 
+4444 2000 8000 
+3333 2000 8000 
+6666 2000 8000 
+/seat 
+
+-11>
+score of 7777: 1 8000 2000 0
+-12>
+score of 8888: 1 8000 2000 0
+-13>
+score of 5555: 1 8000 2000 0
+-14>
+score of 1111: 1 8000 2000 0
+-15>
+score of 4444: 1 8000 2000 0
+-16>
+score of 3333: 1 8000 2000 0
+-17>
+score of 6666: 1 8000 2000 0
+-18>
+score of 2222: 1 8000 2000 0
+-19>
+player 7777 action blind
+-20>
+player 7777 bet 50 rest 1950
+-21>
+pot num 50 current bet 50 least raise 100
+-22>
+player 8888 action blind
+-23>
+player 8888 bet 100 rest 1900
+-24>
+pot num 150 current bet 100 least raise 100blind/ 
+7777: 50 
+8888: 100 
+/blind 
+
+-25>
+player 7777:hold/ 
+CLUBS K 
+CLUBS 10 
+/hold 
+player 7777:hold/ 
+CLUBS K 
+CLUBS 10 
+/hold 
+
+-26>
+player 8888:hold/ 
+HEARTS Q 
+CLUBS Q 
+/hold 
+player 8888:hold/ 
+HEARTS Q 
+CLUBS Q 
+/hold 
+
+-27>
+player 5555:hold/ 
+DIAMONDS 7 
+DIAMONDS 8 
+/hold 
+player 5555:hold/ 
+DIAMONDS 7 
+DIAMONDS 8 
+/hold 
+
+-28>
+player 1111:hold/ 
+DIAMONDS A 
+SPADES 3 
+/hold 
+player 1111:hold/ 
+DIAMONDS A 
+SPADES 3 
+/hold 
+
+-29>
+player 4444:hold/ 
+CLUBS 7 
+CLUBS 9 
+/hold 
+player 4444:hold/ 
+CLUBS 7 
+CLUBS 9 
+/hold 
+
+-30>
+player 3333:hold/ 
+HEARTS A 
+SPADES J 
+/hold 
+player 3333:hold/ 
+HEARTS A 
+SPADES J 
+/hold 
+
+-31>
+player 6666:hold/ 
+HEARTS 7 
+SPADES 2 
+/hold 
+player 6666:hold/ 
+HEARTS 7 
+SPADES 2 
+/hold 
+
+-32>
+player 2222:hold/ 
+DIAMONDS 5 
+HEARTS 5 
+/hold 
+player 2222:hold/ 
+DIAMONDS 5 
+HEARTS 5 
+/hold 
+
+---pre flop round bet---
+valid player: 8, all in player: 0, fold player: 0
+send inquire msg to player 5555 
+inquire/ 
+8888 1900 8000 100 blind 
+7777 1950 8000 50 blind 
+total pot: 150 
+/inquire 
+recv from player 5555: all_in 
+
+
+-33>
+player 5555 action all_in
+-34>
+player 5555 bet 2000 rest 0
+-35>
+pot num 2150 current bet 2000 least raise 1900send inquire msg to player 1111 
+inquire/ 
+5555 0 8000 2000 all_in 
+8888 1900 8000 100 blind 
+7777 1950 8000 50 blind 
+total pot: 2150 
+/inquire 
+recv from player 1111: all_in
+
+-36>
+player 1111 action all_in
+-37>
+player 1111 bet 2000 rest 0
+-38>
+pot num 4150 current bet 2000 least raise 1900send inquire msg to player 4444 
+inquire/ 
+1111 0 8000 2000 all_in 
+5555 0 8000 2000 all_in 
+8888 1900 8000 100 blind 
+7777 1950 8000 50 blind 
+total pot: 4150 
+/inquire 
+recv from player 4444: all_in
+
+-39>
+player 4444 action all_in
+-40>
+player 4444 bet 2000 rest 0
+-41>
+pot num 6150 current bet 2000 least raise 1900send inquire msg to player 3333 
+inquire/ 
+4444 0 8000 2000 all_in 
+1111 0 8000 2000 all_in 
+5555 0 8000 2000 all_in 
+8888 1900 8000 100 blind 
+7777 1950 8000 50 blind 
+total pot: 6150 
+/inquire 
+recv from player 3333: all_in
+
+-42>
+player 3333 action all_in
+-43>
+player 3333 bet 2000 rest 0
+-44>
+pot num 8150 current bet 2000 least raise 1900send inquire msg to player 6666 
+inquire/ 
+3333 0 8000 2000 all_in 
+4444 0 8000 2000 all_in 
+1111 0 8000 2000 all_in 
+5555 0 8000 2000 all_in 
+8888 1900 8000 100 blind 
+7777 1950 8000 50 blind 
+total pot: 8150 
+/inquire 
+recv from player 6666: all_in
+
+-45>
+player 6666 action all_in
+-46>
+player 6666 bet 2000 rest 0
+-47>
+pot num 10150 current bet 2000 least raise 1900send inquire msg to player 2222 
+inquire/ 
+6666 0 8000 2000 all_in 
+3333 0 8000 2000 all_in 
+4444 0 8000 2000 all_in 
+1111 0 8000 2000 all_in 
+5555 0 8000 2000 all_in 
+8888 1900 8000 100 blind 
+7777 1950 8000 50 blind 
+total pot: 10150 
+/inquire 
+recv from player 2222: all_in
+
+-48>
+player 2222 action all_in
+-49>
+player 2222 bet 2000 rest 0
+-50>
+pot num 12150 current bet 2000 least raise 1900send inquire msg to player 7777 
+inquire/ 
+2222 0 8000 2000 all_in 
+6666 0 8000 2000 all_in 
+3333 0 8000 2000 all_in 
+4444 0 8000 2000 all_in 
+1111 0 8000 2000 all_in 
+5555 0 8000 2000 all_in 
+8888 1900 8000 100 blind 
+7777 1950 8000 50 blind 
+total pot: 12150 
+/inquire 
+recv from player 7777: all_in
+
+-51>
+player 7777 action all_in
+-52>
+player 7777 bet 2000 rest 0
+-53>
+pot num 14100 current bet 2000 least raise 1900send inquire msg to player 8888 
+inquire/ 
+7777 0 8000 2000 all_in 
+2222 0 8000 2000 all_in 
+6666 0 8000 2000 all_in 
+3333 0 8000 2000 all_in 
+4444 0 8000 2000 all_in 
+1111 0 8000 2000 all_in 
+5555 0 8000 2000 all_in 
+8888 1900 8000 100 blind 
+total pot: 14100 
+/inquire 
+recv from player 8888: all_in
+
+-54>
+player 8888 action all_in
+-55>
+player 8888 bet 2000 rest 0
+-56>
+pot num 16000 current bet 2000 least raise 1900flop/ 
+DIAMONDS J 
+CLUBS J 
+SPADES 6 
+/flop 
+
+-57>
+flop/ 
+DIAMONDS J 
+CLUBS J 
+SPADES 6 
+/flop 
+
+---flop round bet---
+valid player: 8, all in player: 8, fold player: 0
+turn/ 
+CLUBS 5 
+/turn 
+
+-58>
+turn/ 
+CLUBS 5 
+/turn 
+
+---turn round bet---
+valid player: 8, all in player: 8, fold player: 0
+river/ 
+CLUBS A 
+/river 
+
+-59>
+river/ 
+CLUBS A 
+/river 
+
+---river round bet---
+valid player: 8, all in player: 8, fold player: 0
+
+---show down---
+
+-60>
+player 7777 show down: FLUSH [CLUBS K] [CLUBS 10]
+-61>
+player 8888 show down: TWO_PAIR [HEARTS Q] [CLUBS Q]
+-62>
+player 5555 show down: ONE_PAIR [DIAMONDS 7] [DIAMONDS 8]
+-63>
+player 1111 show down: TWO_PAIR [DIAMONDS A] [SPADES 3]
+-64>
+player 4444 show down: FLUSH [CLUBS 7] [CLUBS 9]
+-65>
+player 3333 show down: FULL_HOUSE [HEARTS A] [SPADES J]
+-66>
+player 6666 show down: ONE_PAIR [HEARTS 7] [SPADES 2]
+-67>
+player 2222 show down: FULL_HOUSE [DIAMONDS 5] [HEARTS 5]showdown/ 
+common/ 
+DIAMONDS J 
+CLUBS J 
+SPADES 6 
+CLUBS 5 
+CLUBS A 
+/common 
+3: 7777 CLUBS K CLUBS 10 FLUSH 
+6: 8888 HEARTS Q CLUBS Q TWO_PAIR 
+7: 5555 DIAMONDS 7 DIAMONDS 8 ONE_PAIR 
+5: 1111 DIAMONDS A SPADES 3 TWO_PAIR 
+4: 4444 CLUBS 7 CLUBS 9 FLUSH 
+1: 3333 HEARTS A SPADES J FULL_HOUSE 
+8: 6666 HEARTS 7 SPADES 2 ONE_PAIR 
+2: 2222 DIAMONDS 5 HEARTS 5 FULL_HOUSE 
+/showdown 
+
+---Allocate pot---
+
+-68>
+player 3333 win pot: 16000pot-win/ 
+3333: 16000 
+/pot-win 
+
+-69>
+score of 7777: 1 8000 0 0
+-70>
+score of 8888: 1 8000 0 0
+-71>
+score of 5555: 1 8000 0 0
+-72>
+score of 1111: 1 8000 0 0
+-73>
+score of 4444: 1 8000 0 0
+-74>
+score of 3333: 1 8000 16000 0
+-75>
+score of 6666: 1 8000 0 0
+-76>
+score of 2222: 1 8000 0 0it is player 7777's turn to be button
+
+-----2 Hand-----
+
+----- clean player data in socket -----
+find residue data from player 8888:  
+
+find residue data from player 1111:  
+
+find residue data from player 4444:  
+
+find residue data from player 3333:  
+
+find residue data from player 6666:  
+
+find residue data from player 2222:  
+
+find residue data from player 7777:  
+
+
+-77>
+game(id=replay) new hand 2 start...seat/ 
+button: 7777 2000 6000 
+small blind: 8888 2000 6000 
+big blind: 5555 2000 6000 
+1111 2000 6000 
+4444 2000 6000 
+3333 16000 8000 
+6666 2000 6000 
+2222 2000 6000 
+/seat 
+
+-78>
+seat/ 
+button: 7777 2000 6000 
+small blind: 8888 2000 6000 
+big blind: 5555 2000 6000 
+1111 2000 6000 
+4444 2000 6000 
+3333 16000 8000 
+6666 2000 6000 
+2222 2000 6000 
+/seat 
+
+-79>
+score of 8888: 2 6000 2000 0
+-80>
+score of 5555: 2 6000 2000 0
+-81>
+score of 1111: 2 6000 2000 0
+-82>
+score of 4444: 2 6000 2000 0
+-83>
+score of 3333: 2 8000 16000 0
+-84>
+score of 6666: 2 6000 2000 0
+-85>
+score of 2222: 2 6000 2000 0
+-86>
+score of 7777: 2 6000 2000 0
+-87>
+player 8888 action blind
+-88>
+player 8888 bet 50 rest 1950
+-89>
+pot num 50 current bet 50 least raise 100
+-90>
+player 5555 action blind
+-91>
+player 5555 bet 100 rest 1900
+-92>
+pot num 150 current bet 100 least raise 100blind/ 
+8888: 50 
+5555: 100 
+/blind 
+
+-93>
+player 8888:hold/ 
+CLUBS 9 
+CLUBS K 
+/hold 
+player 8888:hold/ 
+CLUBS 9 
+CLUBS K 
+/hold 
+
+-94>
+player 5555:hold/ 
+DIAMONDS 6 
+HEARTS Q 
+/hold 
+player 5555:hold/ 
+DIAMONDS 6 
+HEARTS Q 
+/hold 
+
+-95>
+player 1111:hold/ 
+DIAMONDS K 
+DIAMONDS 2 
+/hold 
+player 1111:hold/ 
+DIAMONDS K 
+DIAMONDS 2 
+/hold 
+
+-96>
+player 4444:hold/ 
+DIAMONDS 4 
+SPADES 7 
+/hold 
+player 4444:hold/ 
+DIAMONDS 4 
+SPADES 7 
+/hold 
+
+-97>
+player 3333:hold/ 
+CLUBS A 
+DIAMONDS 8 
+/hold 
+player 3333:hold/ 
+CLUBS A 
+DIAMONDS 8 
+/hold 
+
+-98>
+player 6666:hold/ 
+CLUBS 2 
+SPADES 6 
+/hold 
+player 6666:hold/ 
+CLUBS 2 
+SPADES 6 
+/hold 
+
+-99>
+player 2222:hold/ 
+DIAMONDS J 
+SPADES K 
+/hold 
+player 2222:hold/ 
+DIAMONDS J 
+SPADES K 
+/hold 
+
+-100>
+player 7777:hold/ 
+CLUBS 10 
+SPADES 8 
+/hold 
+player 7777:hold/ 
+CLUBS 10 
+SPADES 8 
+/hold 
+
+---pre flop round bet---
+valid player: 8, all in player: 0, fold player: 0
+send inquire msg to player 1111 
+inquire/ 
+5555 1900 6000 100 blind 
+8888 1950 6000 50 blind 
+total pot: 150 
+/inquire 
+recv from player 1111: all_in 
+
+
+-101>
+player 1111 action all_in
+-102>
+player 1111 bet 2000 rest 0
+-103>
+pot num 2150 current bet 2000 least raise 1900send inquire msg to player 4444 
+inquire/ 
+1111 0 6000 2000 all_in 
+5555 1900 6000 100 blind 
+8888 1950 6000 50 blind 
+total pot: 2150 
+/inquire 
+recv from player 4444: all_in
+
+-104>
+player 4444 action all_in
+-105>
+player 4444 bet 2000 rest 0
+-106>
+pot num 4150 current bet 2000 least raise 1900send inquire msg to player 3333 
+inquire/ 
+4444 0 6000 2000 all_in 
+1111 0 6000 2000 all_in 
+5555 1900 6000 100 blind 
+8888 1950 6000 50 blind 
+total pot: 4150 
+/inquire 
+recv from player 3333: all_in 
+
+
+-107>
+player 3333 action all_in
+-108>
+player 3333 bet 16000 rest 0
+-109>
+pot num 20150 current bet 16000 least raise 14000send inquire msg to player 6666 
+inquire/ 
+3333 0 8000 16000 all_in 
+4444 0 6000 2000 all_in 
+1111 0 6000 2000 all_in 
+5555 1900 6000 100 blind 
+8888 1950 6000 50 blind 
+total pot: 20150 
+/inquire 
+recv from player 6666: all_in 
+
+
+-110>
+player 6666 action all_in
+-111>
+player 6666 bet 2000 rest 0
+-112>
+pot num 22150 current bet 16000 least raise 14000send inquire msg to player 2222 
+inquire/ 
+6666 0 6000 2000 all_in 
+3333 0 8000 16000 all_in 
+4444 0 6000 2000 all_in 
+1111 0 6000 2000 all_in 
+5555 1900 6000 100 blind 
+8888 1950 6000 50 blind 
+total pot: 22150 
+/inquire 
+recv from player 2222: all_in 
+
+
+-113>
+player 2222 action all_in
+-114>
+player 2222 bet 2000 rest 0
+-115>
+pot num 24150 current bet 16000 least raise 14000send inquire msg to player 7777 
+inquire/ 
+2222 0 6000 2000 all_in 
+6666 0 6000 2000 all_in 
+3333 0 8000 16000 all_in 
+4444 0 6000 2000 all_in 
+1111 0 6000 2000 all_in 
+5555 1900 6000 100 blind 
+8888 1950 6000 50 blind 
+total pot: 24150 
+/inquire 
+recv from player 7777: all_in 
+
+
+-116>
+player 7777 action all_in
+-117>
+player 7777 bet 2000 rest 0
+-118>
+pot num 26150 current bet 16000 least raise 14000send inquire msg to player 8888 
+inquire/ 
+7777 0 6000 2000 all_in 
+2222 0 6000 2000 all_in 
+6666 0 6000 2000 all_in 
+3333 0 8000 16000 all_in 
+4444 0 6000 2000 all_in 
+1111 0 6000 2000 all_in 
+5555 1900 6000 100 blind 
+8888 1950 6000 50 blind 
+total pot: 26150 
+/inquire 
+recv from player 8888: all_in
+
+-119>
+player 8888 action all_in
+-120>
+player 8888 bet 2000 rest 0
+-121>
+pot num 28100 current bet 16000 least raise 14000send inquire msg to player 5555 
+inquire/ 
+8888 0 6000 2000 all_in 
+7777 0 6000 2000 all_in 
+2222 0 6000 2000 all_in 
+6666 0 6000 2000 all_in 
+3333 0 8000 16000 all_in 
+4444 0 6000 2000 all_in 
+1111 0 6000 2000 all_in 
+5555 1900 6000 100 blind 
+total pot: 28100 
+/inquire 
+recv from player 5555: all_in 
+
+
+-122>
+player 5555 action all_in
+-123>
+player 5555 bet 2000 rest 0
+-124>
+pot num 30000 current bet 16000 least raise 14000flop/ 
+CLUBS Q 
+SPADES 9 
+CLUBS 8 
+/flop 
+
+-125>
+flop/ 
+CLUBS Q 
+SPADES 9 
+CLUBS 8 
+/flop 
+
+---flop round bet---
+valid player: 8, all in player: 8, fold player: 0
+turn/ 
+HEARTS 2 
+/turn 
+
+-126>
+turn/ 
+HEARTS 2 
+/turn 
+
+---turn round bet---
+valid player: 8, all in player: 8, fold player: 0
+river/ 
+CLUBS 6 
+/river 
+
+-127>
+river/ 
+CLUBS 6 
+/river 
+
+---river round bet---
+valid player: 8, all in player: [8888]connected to server
+[8888]start enter game
+[8888]handle:seat/
+[8888]handle seat
+[8888]handle:button: 2222 2000 8000
+[8888]pid:2222,jetton:2000,monney:8000
+[8888]handle:small blind: 7777 2000 8000
+[8888]handle:big blind: 8888 2000 8000
+[8888]pid:8888,jetton:2000,monney:8000
+[8888]handle:5555 2000 8000
+[8888]handle:1111 2000 8000
+[8888]pid:1111,jetton:2000,monney:8000
+[8888]handle:4444 2000 8000
+[8888]handle:3333 2000 8000
+[8888]pid:3333,jetton:2000,monney:8000
+[8888]handle:6666 2000 8000
+[8888]handle:/seat
+[8888]handle:blind/
+[8888]handle:7777: 50
+[8888]handle:8888: 100
+[8888]handle:/blind
+[8888]handle:hold/
+[8888]handle:HEARTS Q
+[8888]handle:CLUBS Q
+[8888]handle:/hold
+[8888]handle:inquire/
+[8888]handle:7777 0 8000 2000 all_in
+[8888]handle:2222 0 8000 2000 all_in
+[8888]handle:6666 0 8000 2000 all_in
+[8888]handle:3333 0 8000 2000 all_in
+[8888]handle:4444 0 8000 2000 all_in
+[8888]handle:1111 0 8000 2000 all_in
+[8888]handle:5555 0 8000 2000 all_in
+[8888]handle:8888 1900 8000 100 blind
+[8888]handle:total pot: 14100
+[8888]handle:/inquire
+[8888]Action:all_in
+[8888]handle:flop/
+[8888]handle:DIAMONDS J
+[8888]handle:CLUBS J
+[8888]handle:SPADES 6
+[8888]handle:/flop
+[8888]handle:turn/
+[8888]handle:CLUBS 5
+[8888]handle:/turn
+[8888]handle:river/
+[8888]handle:CLUBS A
+[8888]handle:/river
+[8888]handle:showdown/
+[8888]handle:common/
+[8888]handle:DIAMONDS J
+[8888]handle:CLUBS J
+[8888]handle:SPADES 6
+[8888]handle:CLUBS 5
+[8888]handle:CLUBS A
+[8888]handle:/common
+[8888]handle:3: 7777 CLUBS K CLUBS 10 FLUSH
+[8888]handle:6: 8888 HEARTS Q CLUBS Q TWO_PAIR
+[8888]handle:7: 5555 DIAMONDS 7 DIAMONDS 8 ONE_PAIR
+[8888]handle:5: 1111 DIAMONDS A SPADES 3 TWO_PAIR
+[8888]handle:4: 4444 CLUBS 7 CLUBS 9 FLUSH
+[8888]handle:1: 3333 HEARTS A SPADES J FULL_HOUSE
+[8888]handle:8: 6666 HEARTS 7 SPADES 2 ONE_PAIR
+[8888]handle:2: 2222 DIAMONDS 5 HEARTS 5 FULL_HOUSE
+[8888]handle:/showdown
+[8888]handle:pot-win/
+[8888]handle:3333: 16000
+[8888]handle:/pot-win
+[8888]handle:seat/
+[8888]handle seat
+[8888]handle:button: 7777 2000 6000
+[8888]pid:7777,jetton:2000,monney:6000
+[8888]handle:small blind: 8888 2000 6000
+[8888]handle:big blind: 5555 2000 6000
+[8888]pid:5555,jetton:2000,monney:6000
+[8888]handle:1111 2000 6000
+[8888]handle:4444 2000 6000
+[8888]pid:4444,jetton:2000,monney:6000
+[8888]handle:3333 16000 8000
+[8888]handle:6666 2000 6000
+[8888]pid:6666,jetton:2000,monney:6000
+[8888]handle:2222 2000 6000
+[8888]handle:/seat
+[8888]handle:blind/
+[8888]handle:8888: 50
+[8888]handle:5555: 100
+[8888]handle:/blind
+[8888]handle:hold/
+[8888]handle:CLUBS 9
+[8888]handle:CLUBS K
+[8888]handle:/hold
+[8888]handle:inquire/
+[8888]handle:7777 0 6000 2000 all_in
+[8888]handle:2222 0 6000 2000 all_in
+[8888]handle:6666 0 6000 2000 all_in
+[8888]handle:3333 0 8000 16000 all_in
+[8888]handle:4444 0 6000 2000 all_in
+[8888]handle:1111 0 6000 2000 all_in
+[8888]handle:5555 1900 6000 100 blind
+[8888]handle:8888 1950 6000 50 blind
+[8888]handle:total pot: 26150
+[8888]handle:/inquire
+[8888]Action:all_in
+[8888]handle:flop/
+[8888]handle:CLUBS Q
+[8888]handle:SPADES 9
+[8888]handle:CLUBS 8
+[8888]handle:/flop
+[8888]handle:turn/
+[8888]handle:HEARTS 2
+[8888]handle:/turn
+[8888]handle:river/
+[8888]handle:CLUBS 6
+[8888]handle:/river
+[8888]handle:showdown/
+[8888]handle:common/
+[8888]handle:CLUBS Q
+[8888]handle:SPADES 9
+[8888]handle:CLUBS 8
+[8888]handle:HEARTS 2
+[8888]handle:CLUBS 6
+[8888]handle:/common
+[8888]handle:1: 8888 CLUBS 9 CLUBS K FLUSH
+[8888]handle:2: 5555 DIAMONDS 6 HEARTS Q TWO_PAIR
+[8888]handle:6: 1111 DIAMONDS K DIAMONDS 2 ONE_PAIR
+[8888]handle:8: 4444 DIAMONDS 4 SPADES 7 HIGH_CARD
+[8888]handle:4: 3333 CLUBS A DIAMONDS 8 ONE_PAIR
+[8888]handle:3: 6666 CLUBS 2 SPADES 6 TWO_PAIR
+[8888]handle:7: 2222 DIAMONDS J SPADES K HIGH_CARD
+[8888]handle:5: 7777 CLUBS 10 SPADES 8 ONE_PAIR
+[8888]handle:/showdown
+[8888]handle:pot-win/
+[8888]handle:8888: 16000
+[8888]handle:3333: 14000
+[8888]handle:/pot-win
+[8888]handle:seat/
+[8888]handle seat
+[8888]handle:button: 8888 16000 6000
+[8888]pid:8888,jetton:16000,monney:6000
+[8888]handle:small blind: 5555 2000 4000
+[8888]handle:big blind: 1111 2000 4000
+[8888]pid:1111,jetton:[7777]connected to server
+[7777]start enter game
+[7777]handle:seat/
+[7777]handle seat
+[7777]handle:button: 2222 2000 8000
+[7777]pid:2222,jetton:2000,monney:8000
+[7777]handle:small blind: 7777 2000 8000
+[7777]handle:big blind: 8888 2000 8000
+[7777]pid:8888,jetton:2000,monney:8000
+[7777]handle:5555 2000 8000
+[7777]handle:1111 2000 8000
+[7777]pid:1111,jetton:2000,monney:8000
+[7777]handle:4444 2000 8000
+[7777]handle:3333 2000 8000
+[7777]pid:3333,jetton:2000,monney:8000
+[7777]handle:6666 2000 8000
+[7777]handle:/seat
+[7777]handle:blind/
+[7777]handle:7777: 50
+[7777]handle:8888: 100
+[7777]handle:/blind
+[7777]handle:hold/
+[7777]handle:CLUBS K
+[7777]handle:CLUBS 10
+[7777]handle:/hold
+[7777]handle:inquire/
+[7777]handle:2222 0 8000 2000 all_in
+[7777]handle:6666 0 8000 2000 all_in
+[7777]handle:3333 0 8000 2000 all_in
+[7777]handle:4444 0 8000 2000 all_in
+[7777]handle:1111 0 8000 2000 all_in
+[7777]handle:5555 0 8000 2000 all_in
+[7777]handle:8888 1900 8000 100 blind
+[7777]handle:7777 1950 8000 50 blind
+[7777]handle:total pot: 12150
+[7777]handle:/inquire
+[7777]Action:all_in
+[7777]handle:flop/
+[7777]handle:DIAMONDS J
+[7777]handle:CLUBS J
+[7777]handle:SPADES 6
+[7777]handle:/flop
+[7777]handle:turn/
+[7777]handle:CLUBS 5
+[7777]handle:/turn
+[7777]handle:river/
+[7777]handle:CLUBS A
+[7777]handle:/river
+[7777]handle:showdown/
+[7777]handle:common/
+[7777]handle:DIAMONDS J
+[7777]handle:CLUBS J
+[7777]handle:SPADES 6
+[7777]handle:CLUBS 5
+[7777]handle:CLUBS A
+[7777]handle:/common
+[7777]handle:3: 7777 CLUBS K CLUBS 10 FLUSH
+[7777]handle:6: 8888 HEARTS Q CLUBS Q TWO_PAIR
+[7777]handle:7: 5555 DIAMONDS 7 DIAMONDS 8 ONE_PAIR
+[7777]handle:5: 1111 DIAMONDS A SPADES 3 TWO_PAIR
+[7777]handle:4: 4444 CLUBS 7 CLUBS 9 FLUSH
+[7777]handle:1: 3333 HEARTS A SPADES J FULL_HOUSE
+[7777]handle:8: 6666 HEARTS 7 SPADES 2 ONE_PAIR
+[7777]handle:2: 2222 DIAMONDS 5 HEARTS 5 FULL_HOUSE
+[7777]handle:/showdown
+[7777]handle:pot-win/
+[7777]handle:3333: 16000
+[7777]handle:/pot-win
+[7777]handle:seat/
+[7777]handle seat
+[7777]handle:button: 7777 2000 6000
+[7777]pid:7777,jetton:2000,monney:6000
+[7777]handle:small blind: 8888 2000 6000
+[7777]handle:big blind: 5555 2000 6000
+[7777]pid:5555,jetton:2000,monney:6000
+[7777]handle:1111 2000 6000
+[7777]handle:4444 2000 6000
+[7777]pid:4444,jetton:2000,monney:6000
+[7777]handle:3333 16000 8000
+[7777]handle:6666 2000 6000
+[7777]pid:6666,jetton:2000,monney:6000
+[7777]handle:2222 2000 6000
+[7777]handle:/seat
+[7777]handle:blind/
+[7777]handle:8888: 50
+[7777]handle:5555: 100
+[7777]handle:/blind
+[7777]handle:hold/
+[7777]handle:CLUBS 10
+[7777]handle:SPADES 8
+[7777]handle:/hold
+[7777]handle:inquire/
+[7777]handle:2222 0 6000 2000 all_in
+[7777]handle:6666 0 6000 2000 all_in
+[7777]handle:3333 0 8000 16000 all_in
+[7777]handle:4444 0 6000 2000 all_in
+[7777]handle:1111 0 6000 2000 all_in
+[7777]handle:5555 1900 6000 100 blind
+[7777]handle:8888 1950 6000 50 blind
+[7777]handle:total pot: 24150
+[7777]handle:/inquire
+[7777]Action:all_in
+[7777]handle:flop/
+[7777]handle:CLUBS Q
+[7777]handle:SPADES 9
+[7777]handle:CLUBS 8
+[7777]handle:/flop
+[7777]handle:turn/
+[7777]handle:HEARTS 2
+[7777]handle:/turn
+[7777]handle:river/
+[7777]handle:CLUBS 6
+[7777]handle:/river
+[7777]handle:showdown/
+[7777]handle:common/
+[7777]handle:CLUBS Q
+[7777]handle:SPADES 9
+[7777]handle:CLUBS 8
+[7777]handle:HEARTS 2
+[7777]handle:CLUBS 6
+[7777]handle:/common
+[7777]handle:1: 8888 CLUBS 9 CLUBS K FLUSH
+[7777]handle:2: 5555 DIAMONDS 6 HEARTS Q TWO_PAIR
+[7777]handle:6: 1111 DIAMONDS K DIAMONDS 2 ONE_PAIR
+[7777]handle:8: 4444 DIAMONDS 4 SPADES 7 HIGH_CARD
+[7777]handle:4: 3333 CLUBS A DIAMONDS 8 ONE_PAIR
+[7777]handle:3: 6666 CLUBS 2 SPADES 6 TWO_PAIR
+[7777]handle:7: 2222 DIAMONDS J SPADES K HIGH_CARD
+[7777]handle:5: 7777 CLUBS 10 SPADES 8 ONE_PAIR
+[7777]handle:/showdown
+[7777]handle:pot-win/
+[7777]handle:8888: 16000
+[7777]handle:3333: 14000
+[7777]handle:/pot-win
+[7777]handle:seat/
+[7777]handle seat
+[7777]handle:button: 8888 16000 6000
+[7777]pid:8888,jetton:16000,monney:6000
+[7777]handle:small blind: 5555 2000 4000
+[7777]handle:big blind: 1111 2000 4000
+[7777]pid:1111,jetton:2000,monney:4000
+[7777]handle:4444 [2222]connected to server
+[2222]start enter game
+[2222]handle:seat/
+[2222]handle seat
+[2222]handle:button: 2222 2000 8000
+[2222]pid:2222,jetton:2000,monney:8000
+[2222]handle:small blind: 7777 2000 8000
+[2222]handle:big blind: 8888 2000 8000
+[2222]pid:8888,jetton:2000,monney:8000
+[2222]handle:5555 2000 8000
+[2222]handle:1111 2000 8000
+[2222]pid:1111,jetton:2000,monney:8000
+[2222]handle:4444 2000 8000
+[2222]handle:3333 2000 8000
+[2222]pid:3333,jetton:2000,monney:8000
+[2222]handle:6666 2000 8000
+[2222]handle:/seat
+[2222]handle:blind/
+[2222]handle:7777: 50
+[2222]handle:8888: 100
+[2222]handle:/blind
+[2222]handle:hold/
+[2222]handle:DIAMONDS 5
+[2222]handle:HEARTS 5
+[2222]handle:/hold
+[2222]handle:inquire/
+[2222]handle:6666 0 8000 2000 all_in
+[2222]handle:3333 0 8000 2000 all_in
+[2222]handle:4444 0 8000 2000 all_in
+[2222]handle:1111 0 8000 2000 all_in
+[2222]handle:5555 0 8000 2000 all_in
+[2222]handle:8888 1900 8000 100 blind
+[2222]handle:7777 1950 8000 50 blind
+[2222]handle:total pot: 10150
+[2222]handle:/inquire
+[2222]Action:all_in
+[2222]handle:flop/
+[2222]handle:DIAMONDS J
+[2222]handle:CLUBS J
+[2222]handle:SPADES 6
+[2222]handle:/flop
+[2222]handle:turn/
+[2222]handle:CLUBS 5
+[2222]handle:/turn
+[2222]handle:river/
+[2222]handle:CLUBS A
+[2222]handle:/river
+[2222]handle:showdown/
+[2222]handle:common/
+[2222]handle:DIAMONDS J
+[2222]handle:CLUBS J
+[2222]handle:SPADES 6
+[2222]handle:CLUBS 5
+[2222]handle:CLUBS A
+[2222]handle:/common
+[2222]handle:3: 7777 CLUBS K CLUBS 10 FLUSH
+[2222]handle:6: 8888 HEARTS Q CLUBS Q TWO_PAIR
+[2222]handle:7: 5555 DIAMONDS 7 DIAMONDS 8 ONE_PAIR
+[2222]handle:5: 1111 DIAMONDS A SPADES 3 TWO_PAIR
+[2222]handle:4: 4444 CLUBS 7 CLUBS 9 FLUSH
+[2222]handle:1: 3333 HEARTS A SPADES J FULL_HOUSE
+[2222]handle:8: 6666 HEARTS 7 SPADES 2 ONE_PAIR
+[2222]handle:2: 2222 DIAMONDS 5 HEARTS 5 FULL_HOUSE
+[2222]handle:/showdown
+[2222]handle:pot-win/
+[2222]handle:3333: 16000
+[2222]handle:/pot-win
+[2222]handle:seat/
+[2222]handle seat
+[2222]handle:button: 7777 2000 6000
+[2222]pid:7777,jetton:2000,monney:6000
+[2222]handle:small blind: 8888 2000 6000
+[2222]handle:big blind: 5555 2000 6000
+[2222]pid:5555,jetton:2000,monney:6000
+[2222]handle:1111 2000 6000
+[2222]handle:4444 2000 6000
+[2222]pid:4444,jetton:2000,monney:6000
+[2222]handle:3333 16000 8000
+[2222]handle:6666 2000 6000
+[2222]pid:6666,jetton:2000,monney:6000
+[2222]handle:2222 2000 6000
+[2222]handle:/seat
+[2222]handle:blind/
+[2222]handle:8888: 50
+[2222]handle:5555: 100
+[2222]handle:/blind
+[2222]handle:hold/
+[2222]handle:DIAMONDS J
+[2222]handle:SPADES K
+[2222]handle:/hold
+[2222]handle:inquire/
+[2222]handle:6666 0 6000 2000 all_in
+[2222]handle:3333 0 8000 16000 all_in
+[2222]handle:4444 0 6000 2000 all_in
+[2222]handle:1111 0 6000 2000 all_in
+[2222]handle:5555 1900 6000 100 blind
+[2222]handle:8888 1950 6000 50 blind
+[2222]handle:total pot: 22150
+[2222]handle:/inquire
+[2222]Action:all_in
+[2222]handle:flop/
+[2222]handle:CLUBS Q
+[2222]handle:SPADES 9
+[2222]handle:CLUBS 8
+[2222]handle:/flop
+[2222]handle:turn/
+[2222]handle:HEARTS 2
+[2222]handle:/turn
+[2222]handle:river/
+[2222]handle:CLUBS 6
+[2222]handle:/river
+[2222]handle:showdown/
+[2222]handle:common/
+[2222]handle:CLUBS Q
+[2222]handle:SPADES 9
+[2222]handle:CLUBS 8
+[2222]handle:HEARTS 2
+[2222]handle:CLUBS 6
+[2222]handle:/common
+[2222]handle:1: 8888 CLUBS 9 CLUBS K FLUSH
+[2222]handle:2: 5555 DIAMONDS 6 HEARTS Q TWO_PAIR
+[2222]handle:6: 1111 DIAMONDS K DIAMONDS 2 ONE_PAIR
+[2222]handle:8: 4444 DIAMONDS 4 SPADES 7 HIGH_CARD
+[2222]handle:4: 3333 CLUBS A DIAMONDS 8 ONE_PAIR
+[2222]handle:3: 6666 CLUBS 2 SPADES 6 TWO_PAIR
+[2222]handle:7: 2222 DIAMONDS J SPADES K HIGH_CARD
+[2222]handle:5: 7777 CLUBS 10 SPADES 8 ONE_PAIR
+[2222]handle:/showdown
+[2222]handle:pot-win/
+[2222]handle:8888: 16000
+[2222]handle:3333: 14000
+[2222]handle:/pot-win
+[2222]handle:seat/
+[2222]handle seat
+[2222]handle:button: 8888 16000 6000
+[2222]pid:8888,jetton:16000,monney:6000
+[2222]handle:small blind: 5555 2000 4000
+[2222]handle:big blind: 1111 2000 4000
+[2222]pid:1111,jetton:2000,monney:4000
+[2222]handle:4444 2000 4000
+[2222]handle:3333 14000 8000
+[2222]pid:3333,jetton:14000,mo[6666]connected to server
+[6666]start enter game
+[6666]handle:seat/
+[6666]handle seat
+[6666]handle:button: 2222 2000 8000
+[6666]pid:2222,jetton:2000,monney:8000
+[6666]handle:small blind: 7777 2000 8000
+[6666]handle:big blind: 8888 2000 8000
+[6666]pid:8888,jetton:2000,monney:8000
+[6666]handle:5555 2000 8000
+[6666]handle:1111 2000 8000
+[6666]pid:1111,jetton:2000,monney:8000
+[6666]handle:4444 2000 8000
+[6666]handle:3333 2000 8000
+[6666]pid:3333,jetton:2000,monney:8000
+[6666]handle:6666 2000 8000
+[6666]handle:/seat
+[6666]handle:blind/
+[6666]handle:7777: 50
+[6666]handle:8888: 100
+[6666]handle:/blind
+[6666]handle:hold/
+[6666]handle:HEARTS 7
+[6666]handle:SPADES 2
+[6666]handle:/hold
+[6666]handle:inquire/
+[6666]handle:3333 0 8000 2000 all_in
+[6666]handle:4444 0 8000 2000 all_in
+[6666]handle:1111 0 8000 2000 all_in
+[6666]handle:5555 0 8000 2000 all_in
+[6666]handle:8888 1900 8000 100 blind
+[6666]handle:7777 1950 8000 50 blind
+[6666]handle:total pot: 8150
+[6666]handle:/inquire
+[6666]Action:all_in
+[6666]handle:flop/
+[6666]handle:DIAMONDS J
+[6666]handle:CLUBS J
+[6666]handle:SPADES 6
+[6666]handle:/flop
+[6666]handle:turn/
+[6666]handle:CLUBS 5
+[6666]handle:/turn
+[6666]handle:river/
+[6666]handle:CLUBS A
+[6666]handle:/river
+[6666]handle:showdown/
+[6666]handle:common/
+[6666]handle:DIAMONDS J
+[6666]handle:CLUBS J
+[6666]handle:SPADES 6
+[6666]handle:CLUBS 5
+[6666]handle:CLUBS A
+[6666]handle:/common
+[6666]handle:3: 7777 CLUBS K CLUBS 10 FLUSH
+[6666]handle:6: 8888 HEARTS Q CLUBS Q TWO_PAIR
+[6666]handle:7: 5555 DIAMONDS 7 DIAMONDS 8 ONE_PAIR
+[6666]handle:5: 1111 DIAMONDS A SPADES 3 TWO_PAIR
+[6666]handle:4: 4444 CLUBS 7 CLUBS 9 FLUSH
+[6666]handle:1: 3333 HEARTS A SPADES J FULL_HOUSE
+[6666]handle:8: 6666 HEARTS 7 SPADES 2 ONE_PAIR
+[6666]handle:2: 2222 DIAMONDS 5 HEARTS 5 FULL_HOUSE
+[6666]handle:/showdown
+[6666]handle:pot-win/
+[6666]handle:3333: 16000
+[6666]handle:/pot-win
+[6666]handle:seat/
+[6666]handle seat
+[6666]handle:button: 7777 2000 6000
+[6666]pid:7777,jetton:2000,monney:6000
+[6666]handle:small blind: 8888 2000 6000
+[6666]handle:big blind: 5555 2000 6000
+[6666]pid:5555,jetton:2000,monney:6000
+[6666]handle:1111 2000 6000
+[6666]handle:4444 2000 6000
+[6666]pid:4444,jetton:2000,monney:6000
+[6666]handle:3333 16000 8000
+[6666]handle:6666 2000 6000
+[6666]pid:6666,jetton:2000,monney:6000
+[6666]handle:2222 2000 6000
+[6666]handle:/seat
+[6666]handle:blind/
+[6666]handle:8888: 50
+[6666]handle:5555: 100
+[6666]handle:/blind
+[6666]handle:hold/
+[6666]handle:CLUBS 2
+[6666]handle:SPADES 6
+[6666]handle:/hold
+[6666]handle:inquire/
+[6666]handle:3333 0 8000 16000 all_in
+[6666]handle:4444 0 6000 2000 all_in
+[6666]handle:1111 0 6000 2000 all_in
+[6666]handle:5555 1900 6000 100 blind
+[6666]handle:8888 1950 6000 50 blind
+[6666]handle:total pot: 20150
+[6666]handle:/inquire
+[6666]Action:all_in
+[6666]handle:flop/
+[6666]handle:CLUBS Q
+[6666]handle:SPADES 9
+[6666]handle:CLUBS 8
+[6666]handle:/flop
+[6666]handle:turn/
+[6666]handle:HEARTS 2
+[6666]handle:/turn
+[6666]handle:river/
+[6666]handle:CLUBS 6
+[6666]handle:/river
+[6666]handle:showdown/
+[6666]handle:common/
+[6666]handle:CLUBS Q
+[6666]handle:SPADES 9
+[6666]handle:CLUBS 8
+[6666]handle:HEARTS 2
+[6666]handle:CLUBS 6
+[6666]handle:/common
+[6666]handle:1: 8888 CLUBS 9 CLUBS K FLUSH
+[6666]handle:2: 5555 DIAMONDS 6 HEARTS Q TWO_PAIR
+[6666]handle:6: 1111 DIAMONDS K DIAMONDS 2 ONE_PAIR
+[6666]handle:8: 4444 DIAMONDS 4 SPADES 7 HIGH_CARD
+[6666]handle:4: 3333 CLUBS A DIAMONDS 8 ONE_PAIR
+[6666]handle:3: 6666 CLUBS 2 SPADES 6 TWO_PAIR
+[6666]handle:7: 2222 DIAMONDS J SPADES K HIGH_CARD
+[6666]handle:5: 7777 CLUBS 10 SPADES 8 ONE_PAIR
+[6666]handle:/showdown
+[6666]handle:pot-win/
+[6666]handle:8888: 16000
+[6666]handle:3333: 14000
+[6666]handle:/pot-win
+[6666]handle:seat/
+[6666]handle seat
+[6666]handle:button: 8888 16000 6000
+[6666]pid:8888,jetton:16000,monney:6000
+[6666]handle:small blind: 5555 2000 4000
+[6666]handle:big blind: 1111 2000 4000
+[6666]pid:1111,jetton:2000,monney:4000
+[6666]handle:4444 2000 4000
+[6666]handle:3333 14000 8000
+[6666]pid:3333,jetton:14000,monney:8000
+[6666]handle:6666 2000 4000
+[6666]handle:2222 2000 4000
+[6666]pid:2222[5555]connected to server
+[5555]start enter game
+[5555]handle:seat/
+[5555]handle seat
+[5555]handle:button: 2222 2000 8000
+[5555]pid:2222,jetton:2000,monney:8000
+[5555]handle:small blind: 7777 2000 8000
+[5555]handle:big blind: 8888 2000 8000
+[5555]pid:8888,jetton:2000,monney:8000
+[5555]handle:5555 2000 8000
+[5555]handle:1111 2000 8000
+[5555]pid:1111,jetton:2000,monney:8000
+[5555]handle:4444 2000 8000
+[5555]handle:3333 2000 8000
+[5555]pid:3333,jetton:2000,monney:8000
+[5555]handle:6666 2000 8000
+[5555]handle:/seat
+[5555]handle:blind/
+[5555]handle:7777: 50
+[5555]handle:8888: 100
+[5555]handle:/blind
+[5555]handle:hold/
+[5555]handle:DIAMONDS 7
+[5555]handle:DIAMONDS 8
+[5555]handle:/hold
+[5555]handle:inquire/
+[5555]handle:8888 1900 8000 100 blind
+[5555]handle:7777 1950 8000 50 blind
+[5555]handle:total pot: 150
+[5555]handle:/inquire
+[5555]Action:all_in
+[5555]handle:flop/
+[5555]handle:DIAMONDS J
+[5555]handle:CLUBS J
+[5555]handle:SPADES 6
+[5555]handle:/flop
+[5555]handle:turn/
+[5555]handle:CLUBS 5
+[5555]handle:/turn
+[5555]handle:river/
+[5555]handle:CLUBS A
+[5555]handle:/river
+[5555]handle:showdown/
+[5555]handle:common/
+[5555]handle:DIAMONDS J
+[5555]handle:CLUBS J
+[5555]handle:SPADES 6
+[5555]handle:CLUBS 5
+[5555]handle:CLUBS A
+[5555]handle:/common
+[5555]handle:3: 7777 CLUBS K CLUBS 10 FLUSH
+[5555]handle:6: 8888 HEARTS Q CLUBS Q TWO_PAIR
+[5555]handle:7: 5555 DIAMONDS 7 DIAMONDS 8 ONE_PAIR
+[5555]handle:5: 1111 DIAMONDS A SPADES 3 TWO_PAIR
+[5555]handle:4: 4444 CLUBS 7 CLUBS 9 FLUSH
+[5555]handle:1: 3333 HEARTS A SPADES J FULL_HOUSE
+[5555]handle:8: 6666 HEARTS 7 SPADES 2 ONE_PAIR
+[5555]handle:2: 2222 DIAMONDS 5 HEARTS 5 FULL_HOUSE
+[5555]handle:/showdown
+[5555]handle:pot-win/
+[5555]handle:3333: 16000
+[5555]handle:/pot-win
+[5555]handle:seat/
+[5555]handle seat
+[5555]handle:button: 7777 2000 6000
+[5555]pid:7777,jetton:2000,monney:6000
+[5555]handle:small blind: 8888 2000 6000
+[5555]handle:big blind: 5555 2000 6000
+[5555]pid:5555,jetton:2000,monney:6000
+[5555]handle:1111 2000 6000
+[5555]handle:4444 2000 6000
+[5555]pid:4444,jetton:2000,monney:6000
+[5555]handle:3333 16000 8000
+[5555]handle:6666 2000 6000
+[5555]pid:6666,jetton:2000,monney:6000
+[5555]handle:2222 2000 6000
+[5555]handle:/seat
+[5555]handle:blind/
+[5555]handle:8888: 50
+[5555]handle:5555: 100
+[5555]handle:/blind
+[5555]handle:hold/
+[5555]handle:DIAMONDS 6
+[5555]handle:HEARTS Q
+[5555]handle:/hold
+[5555]handle:inquire/
+[5555]handle:8888 0 6000 2000 all_in
+[5555]handle:7777 0 6000 2000 all_in
+[5555]handle:2222 0 6000 2000 all_in
+[5555]handle:6666 0 6000 2000 all_in
+[5555]handle:3333 0 8000 16000 all_in
+[5555]handle:4444 0 6000 2000 all_in
+[5555]handle:1111 0 6000 2000 all_in
+[5555]handle:5555 1900 6000 100 blind
+[5555]handle:total pot: 28100
+[5555]handle:/inquire
+[5555]Action:all_in
+[5555]handle:flop/
+[5555]handle:CLUBS Q
+[5555]handle:SPADES 9
+[5555]handle:CLUBS 8
+[5555]handle:/flop
+[5555]handle:turn/
+[5555]handle:HEARTS 2
+[5555]handle:/turn
+[5555]handle:river/
+[5555]handle:CLUBS 6
+[5555]handle:/river
+[5555]handle:showdown/
+[5555]handle:common/
+[5555]handle:CLUBS Q
+[5555]handle:SPADES 9
+[5555]handle:CLUBS 8
+[5555]handle:HEARTS 2
+[5555]handle:CLUBS 6
+[5555]handle:/common
+[5555]handle:1: 8888 CLUBS 9 CLUBS K FLUSH
+[5555]handle:2: 5555 DIAMONDS 6 HEARTS Q TWO_PAIR
+[5555]handle:6: 1111 DIAMONDS K DIAMONDS 2 ONE_PAIR
+[5555]handle:8: 4444 DIAMONDS 4 SPADES 7 HIGH_CARD
+[5555]handle:4: 3333 CLUBS A DIAMONDS 8 ONE_PAIR
+[5555]handle:3: 6666 CLUBS 2 SPADES 6 TWO_PAIR
+[5555]handle:7: 2222 DIAMONDS J SPADES K HIGH_CARD
+[5555]handle:5: 7777 CLUBS 10 SPADES 8 ONE_PAIR
+[5555]handle:/showdown
+[5555]handle:pot-win/
+[5555]handle:8888: 16000
+[5555]handle:3333: 14000
+[5555]handle:/pot-win
+[5555]handle:seat/
+[5555]handle seat
+[5555]handle:button: 8888 16000 6000
+[5555]pid:8888,jetton:16000,monney:6000
+[5555]handle:small blind: 5555 2000 4000
+[5555]handle:big blind: 1111 2000 4000
+[5555]pid:1111,jetton:2000,monney:4000
+[5555]handle:4444 2000 4000
+[5555]handle:3333 14000 8000
+[5555]pid:3333,jetton:14000,monney:8000
+[5555]handle:6666 2000 4000
+[5555]handle:2222 2000 4000
+[5555]pid:2222,jetton:2000,monney:4000
+[5555][3333]connected to server
+[3333]start enter game
+[3333]handle:seat/
+[3333]handle seat
+[3333]handle:button: 2222 2000 8000
+[3333]pid:2222,jetton:2000,monney:8000
+[3333]handle:small blind: 7777 2000 8000
+[3333]handle:big blind: 8888 2000 8000
+[3333]pid:8888,jetton:2000,monney:8000
+[3333]handle:5555 2000 8000
+[3333]handle:1111 2000 8000
+[3333]pid:1111,jetton:2000,monney:8000
+[3333]handle:4444 2000 8000
+[3333]handle:3333 2000 8000
+[3333]pid:3333,jetton:2000,monney:8000
+[3333]handle:6666 2000 8000
+[3333]handle:/seat
+[3333]handle:blind/
+[3333]handle:7777: 50
+[3333]handle:8888: 100
+[3333]handle:/blind
+[3333]handle:hold/
+[3333]handle:HEARTS A
+[3333]handle:SPADES J
+[3333]handle:/hold
+[3333]handle:inquire/
+[3333]handle:4444 0 8000 2000 all_in
+[3333]handle:1111 0 8000 2000 all_in
+[3333]handle:5555 0 8000 2000 all_in
+[3333]handle:8888 1900 8000 100 blind
+[3333]handle:7777 1950 8000 50 blind
+[3333]handle:total pot: 6150
+[3333]handle:/inquire
+[3333]Action:all_in
+[3333]handle:flop/
+[3333]handle:DIAMONDS J
+[3333]handle:CLUBS J
+[3333]handle:SPADES 6
+[3333]handle:/flop
+[3333]handle:turn/
+[3333]handle:CLUBS 5
+[3333]handle:/turn
+[3333]handle:river/
+[3333]handle:CLUBS A
+[3333]handle:/river
+[3333]handle:showdown/
+[3333]handle:common/
+[3333]handle:DIAMONDS J
+[3333]handle:CLUBS J
+[3333]handle:SPADES 6
+[3333]handle:CLUBS 5
+[3333]handle:CLUBS A
+[3333]handle:/common
+[3333]handle:3: 7777 CLUBS K CLUBS 10 FLUSH
+[3333]handle:6: 8888 HEARTS Q CLUBS Q TWO_PAIR
+[3333]handle:7: 5555 DIAMONDS 7 DIAMONDS 8 ONE_PAIR
+[3333]handle:5: 1111 DIAMONDS A SPADES 3 TWO_PAIR
+[3333]handle:4: 4444 CLUBS 7 CLUBS 9 FLUSH
+[3333]handle:1: 3333 HEARTS A SPADES J FULL_HOUSE
+[3333]handle:8: 6666 HEARTS 7 SPADES 2 ONE_PAIR
+[3333]handle:2: 2222 DIAMONDS 5 HEARTS 5 FULL_HOUSE
+[3333]handle:/showdown
+[3333]handle:pot-win/
+[3333]handle:3333: 16000
+[3333]handle:/pot-win
+[3333]handle:seat/
+[3333]handle seat
+[3333]handle:button: 7777 2000 6000
+[3333]pid:7777,jetton:2000,monney:6000
+[3333]handle:small blind: 8888 2000 6000
+[3333]handle:big blind: 5555 2000 6000
+[3333]pid:5555,jetton:2000,monney:6000
+[3333]handle:1111 2000 6000
+[3333]handle:4444 2000 6000
+[3333]pid:4444,jetton:2000,monney:6000
+[3333]handle:3333 16000 8000
+[3333]handle:6666 2000 6000
+[3333]pid:6666,jetton:2000,monney:6000
+[3333]handle:2222 2000 6000
+[3333]handle:/seat
+[3333]handle:blind/
+[3333]handle:8888: 50
+[3333]handle:5555: 100
+[3333]handle:/blind
+[3333]handle:hold/
+[3333]handle:CLUBS A
+[3333]handle:DIAMONDS 8
+[3333]handle:/hold
+[3333]handle:inquire/
+[3333]handle:4444 0 6000 2000 all_in
+[3333]handle:1111 0 6000 2000 all_in
+[3333]handle:5555 1900 6000 100 blind
+[3333]handle:8888 1950 6000 50 blind
+[3333]handle:total pot: 4150
+[3333]handle:/inquire
+[3333]Action:all_in
+[3333]handle:flop/
+[3333]handle:CLUBS Q
+[3333]handle:SPADES 9
+[3333]handle:CLUBS 8
+[3333]handle:/flop
+[3333]handle:turn/
+[3333]handle:HEARTS 2
+[3333]handle:/turn
+[3333]handle:river/
+[3333]handle:CLUBS 6
+[3333]handle:/river
+[3333]handle:showdown/
+[3333]handle:common/
+[3333]handle:CLUBS Q
+[3333]handle:SPADES 9
+[3333]handle:CLUBS 8
+[3333]handle:HEARTS 2
+[3333]handle:CLUBS 6
+[3333]handle:/common
+[3333]handle:1: 8888 CLUBS 9 CLUBS K FLUSH
+[3333]handle:2: 5555 DIAMONDS 6 HEARTS Q TWO_PAIR
+[3333]handle:6: 1111 DIAMONDS K DIAMONDS 2 ONE_PAIR
+[3333]handle:8: 4444 DIAMONDS 4 SPADES 7 HIGH_CARD
+[3333]handle:4: 3333 CLUBS A DIAMONDS 8 ONE_PAIR
+[3333]handle:3: 6666 CLUBS 2 SPADES 6 TWO_PAIR
+[3333]handle:7: 2222 DIAMONDS J SPADES K HIGH_CARD
+[3333]handle:5: 7777 CLUBS 10 SPADES 8 ONE_PAIR
+[3333]handle:/showdown
+[3333]handle:pot-win/
+[3333]handle:8888: 16000
+[3333]handle:3333: 14000
+[3333]handle:/pot-win
+[3333]handle:seat/
+[3333]handle seat
+[3333]handle:button: 8888 16000 6000
+[3333]pid:8888,jetton:16000,monney:6000
+[3333]handle:small blind: 5555 2000 4000
+[3333]handle:big blind: 1111 2000 4000
+[3333]pid:1111,jetton:2000,monney:4000
+[3333]handle:4444 2000 4000
+[3333]handle:3333 14000 8000
+[3333]pid:3333,jetton:14000,monney:8000
+[3333]handle:6666 2000 4000
+[3333]handle:2222 2000 4000
+[3333]pid:2222,jetton:2000,monney:4000
+[3333]handle:7777 2000 4000
+[3333]handle:/seat
+[3[4444]connected to server
+[4444]start enter game
+[4444]handle:seat/
+[4444]handle seat
+[4444]handle:button: 2222 2000 8000
+[4444]pid:2222,jetton:2000,monney:8000
+[4444]handle:small blind: 7777 2000 8000
+[4444]handle:big blind: 8888 2000 8000
+[4444]pid:8888,jetton:2000,monney:8000
+[4444]handle:5555 2000 8000
+[4444]handle:1111 2000 8000
+[4444]pid:1111,jetton:2000,monney:8000
+[4444]handle:4444 2000 8000
+[4444]handle:3333 2000 8000
+[4444]pid:3333,jetton:2000,monney:8000
+[4444]handle:6666 2000 8000
+[4444]handle:/seat
+[4444]handle:blind/
+[4444]handle:7777: 50
+[4444]handle:8888: 100
+[4444]handle:/blind
+[4444]handle:hold/
+[4444]handle:CLUBS 7
+[4444]handle:CLUBS 9
+[4444]handle:/hold
+[4444]handle:inquire/
+[4444]handle:1111 0 8000 2000 all_in
+[4444]handle:5555 0 8000 2000 all_in
+[4444]handle:8888 1900 8000 100 blind
+[4444]handle:7777 1950 8000 50 blind
+[4444]handle:total pot: 4150
+[4444]handle:/inquire
+[4444]Action:all_in
+[4444]handle:flop/
+[4444]handle:DIAMONDS J
+[4444]handle:CLUBS J
+[4444]handle:SPADES 6
+[4444]handle:/flop
+[4444]handle:turn/
+[4444]handle:CLUBS 5
+[4444]handle:/turn
+[4444]handle:river/
+[4444]handle:CLUBS A
+[4444]handle:/river
+[4444]handle:showdown/
+[4444]handle:common/
+[4444]handle:DIAMONDS J
+[4444]handle:CLUBS J
+[4444]handle:SPADES 6
+[4444]handle:CLUBS 5
+[4444]handle:CLUBS A
+[4444]handle:/common
+[4444]handle:3: 7777 CLUBS K CLUBS 10 FLUSH
+[4444]handle:6: 8888 HEARTS Q CLUBS Q TWO_PAIR
+[4444]handle:7: 5555 DIAMONDS 7 DIAMONDS 8 ONE_PAIR
+[4444]handle:5: 1111 DIAMONDS A SPADES 3 TWO_PAIR
+[4444]handle:4: 4444 CLUBS 7 CLUBS 9 FLUSH
+[4444]handle:1: 3333 HEARTS A SPADES J FULL_HOUSE
+[4444]handle:8: 6666 HEARTS 7 SPADES 2 ONE_PAIR
+[4444]handle:2: 2222 DIAMONDS 5 HEARTS 5 FULL_HOUSE
+[4444]handle:/showdown
+[4444]handle:pot-win/
+[4444]handle:3333: 16000
+[4444]handle:/pot-win
+[4444]handle:seat/
+[4444]handle seat
+[4444]handle:button: 7777 2000 6000
+[4444]pid:7777,jetton:2000,monney:6000
+[4444]handle:small blind: 8888 2000 6000
+[4444]handle:big blind: 5555 2000 6000
+[4444]pid:5555,jetton:2000,monney:6000
+[4444]handle:1111 2000 6000
+[4444]handle:4444 2000 6000
+[4444]pid:4444,jetton:2000,monney:6000
+[4444]handle:3333 16000 8000
+[4444]handle:6666 2000 6000
+[4444]pid:6666,jetton:2000,monney:6000
+[4444]handle:2222 2000 6000
+[4444]handle:/seat
+[4444]handle:blind/
+[4444]handle:8888: 50
+[4444]handle:5555: 100
+[4444]handle:/blind
+[4444]handle:hold/
+[4444]handle:DIAMONDS 4
+[4444]handle:SPADES 7
+[4444]handle:/hold
+[4444]handle:inquire/
+[4444]handle:1111 0 6000 2000 all_in
+[4444]handle:5555 1900 6000 100 blind
+[4444]handle:8888 1950 6000 50 blind
+[4444]handle:total pot: 2150
+[4444]handle:/inquire
+[4444]Action:all_in
+[4444]handle:flop/
+[4444]handle:CLUBS Q
+[4444]handle:SPADES 9
+[4444]handle:CLUBS 8
+[4444]handle:/flop
+[4444]handle:turn/
+[4444]handle:HEARTS 2
+[4444]handle:/turn
+[4444]handle:river/
+[4444]handle:CLUBS 6
+[4444]handle:/river
+[4444]handle:showdown/
+[4444]handle:common/
+[4444]handle:CLUBS Q
+[4444]handle:SPADES 9
+[4444]handle:CLUBS 8
+[4444]handle:HEARTS 2
+[4444]handle:CLUBS 6
+[4444]handle:/common
+[4444]handle:1: 8888 CLUBS 9 CLUBS K FLUSH
+[4444]handle:2: 5555 DIAMONDS 6 HEARTS Q TWO_PAIR
+[4444]handle:6: 1111 DIAMONDS K DIAMONDS 2 ONE_PAIR
+[4444]handle:8: 4444 DIAMONDS 4 SPADES 7 HIGH_CARD
+[4444]handle:4: 3333 CLUBS A DIAMONDS 8 ONE_PAIR
+[4444]handle:3: 6666 CLUBS 2 SPADES 6 TWO_PAIR
+[4444]handle:7: 2222 DIAMONDS J SPADES K HIGH_CARD
+[4444]handle:5: 7777 CLUBS 10 SPADES 8 ONE_PAIR
+[4444]handle:/showdown
+[4444]handle:pot-win/
+[4444]handle:8888: 16000
+[4444]handle:3333: 14000
+[4444]handle:/pot-win
+[4444]handle:seat/
+[4444]handle seat
+[4444]handle:button: 8888 16000 6000
+[4444]pid:8888,jetton:16000,monney:6000
+[4444]handle:small blind: 5555 2000 4000
+[4444]handle:big blind: 1111 2000 4000
+[4444]pid:1111,jetton:2000,monney:4000
+[4444]handle:4444 2000 4000
+[4444]handle:3333 14000 8000
+[4444]pid:3333,jetton:14000,monney:8000
+[4444]handle:6666 2000 4000
+[4444]handle:2222 2000 4000
+[4444]pid:2222,jetton:2000,monney:4000
+[4444]handle:7777 2000 4000
+[4444]handle:/seat
+[4444]handle:blind/
+[4444]handle:5555: 50
+[4444]handle:1111: 100
+[4444]handle[1111]connected to server
+[1111]start enter game
+[1111]handle:seat/
+[1111]handle seat
+[1111]handle:button: 2222 2000 8000
+[1111]pid:2222,jetton:2000,monney:8000
+[1111]handle:small blind: 7777 2000 8000
+[1111]handle:big blind: 8888 2000 8000
+[1111]pid:8888,jetton:2000,monney:8000
+[1111]handle:5555 2000 8000
+[1111]handle:1111 2000 8000
+[1111]pid:1111,jetton:2000,monney:8000
+[1111]handle:4444 2000 8000
+[1111]handle:3333 2000 8000
+[1111]pid:3333,jetton:2000,monney:8000
+[1111]handle:6666 2000 8000
+[1111]handle:/seat
+[1111]handle:blind/
+[1111]handle:7777: 50
+[1111]handle:8888: 100
+[1111]handle:/blind
+[1111]handle:hold/
+[1111]handle:DIAMONDS A
+[1111]handle:SPADES 3
+[1111]handle:/hold
+[1111]handle:inquire/
+[1111]handle:5555 0 8000 2000 all_in
+[1111]handle:8888 1900 8000 100 blind
+[1111]handle:7777 1950 8000 50 blind
+[1111]handle:total pot: 2150
+[1111]handle:/inquire
+[1111]Action:all_in
+[1111]handle:flop/
+[1111]handle:DIAMONDS J
+[1111]handle:CLUBS J
+[1111]handle:SPADES 6
+[1111]handle:/flop
+[1111]handle:turn/
+[1111]handle:CLUBS 5
+[1111]handle:/turn
+[1111]handle:river/
+[1111]handle:CLUBS A
+[1111]handle:/river
+[1111]handle:showdown/
+[1111]handle:common/
+[1111]handle:DIAMONDS J
+[1111]handle:CLUBS J
+[1111]handle:SPADES 6
+[1111]handle:CLUBS 5
+[1111]handle:CLUBS A
+[1111]handle:/common
+[1111]handle:3: 7777 CLUBS K CLUBS 10 FLUSH
+[1111]handle:6: 8888 HEARTS Q CLUBS Q TWO_PAIR
+[1111]handle:7: 5555 DIAMONDS 7 DIAMONDS 8 ONE_PAIR
+[1111]handle:5: 1111 DIAMONDS A SPADES 3 TWO_PAIR
+[1111]handle:4: 4444 CLUBS 7 CLUBS 9 FLUSH
+[1111]handle:1: 3333 HEARTS A SPADES J FULL_HOUSE
+[1111]handle:8: 6666 HEARTS 7 SPADES 2 ONE_PAIR
+[1111]handle:2: 2222 DIAMONDS 5 HEARTS 5 FULL_HOUSE
+[1111]handle:/showdown
+[1111]handle:pot-win/
+[1111]handle:3333: 16000
+[1111]handle:/pot-win
+[1111]handle:seat/
+[1111]handle seat
+[1111]handle:button: 7777 2000 6000
+[1111]pid:7777,jetton:2000,monney:6000
+[1111]handle:small blind: 8888 2000 6000
+[1111]handle:big blind: 5555 2000 6000
+[1111]pid:5555,jetton:2000,monney:6000
+[1111]handle:1111 2000 6000
+[1111]handle:4444 2000 6000
+[1111]pid:4444,jetton:2000,monney:6000
+[1111]handle:3333 16000 8000
+[1111]handle:6666 2000 6000
+[1111]pid:6666,jetton:2000,monney:6000
+[1111]handle:2222 2000 6000
+[1111]handle:/seat
+[1111]handle:blind/
+[1111]handle:8888: 50
+[1111]handle:5555: 100
+[1111]handle:/blind
+[1111]handle:hold/
+[1111]handle:DIAMONDS K
+[1111]handle:DIAMONDS 2
+[1111]handle:/hold
+[1111]handle:inquire/
+[1111]handle:5555 1900 6000 100 blind
+[1111]handle:8888 1950 6000 50 blind
+[1111]handle:total pot: 150
+[1111]handle:/inquire
+[1111]Action:all_in
+[1111]handle:flop/
+[1111]handle:CLUBS Q
+[1111]handle:SPADES 9
+[1111]handle:CLUBS 8
+[1111]handle:/flop
+[1111]handle:turn/
+[1111]handle:HEARTS 2
+[1111]handle:/turn
+[1111]handle:river/
+[1111]handle:CLUBS 6
+[1111]handle:/river
+[1111]handle:showdown/
+[1111]handle:common/
+[1111]handle:CLUBS Q
+[1111]handle:SPADES 9
+[1111]handle:CLUBS 8
+[1111]handle:HEARTS 2
+[1111]handle:CLUBS 6
+[1111]handle:/common
+[1111]handle:1: 8888 CLUBS 9 CLUBS K FLUSH
+[1111]handle:2: 5555 DIAMONDS 6 HEARTS Q TWO_PAIR
+[1111]handle:6: 1111 DIAMONDS K DIAMONDS 2 ONE_PAIR
+[1111]handle:8: 4444 DIAMONDS 4 SPADES 7 HIGH_CARD
+[1111]handle:4: 3333 CLUBS A DIAMONDS 8 ONE_PAIR
+[1111]handle:3: 6666 CLUBS 2 SPADES 6 TWO_PAIR
+[1111]handle:7: 2222 DIAMONDS J SPADES K HIGH_CARD
+[1111]handle:5: 7777 CLUBS 10 SPADES 8 ONE_PAIR
+[1111]handle:/showdown
+[1111]handle:pot-win/
+[1111]handle:8888: 16000
+[1111]handle:3333: 14000
+[1111]handle:/pot-win
+[1111]handle:seat/
+[1111]handle seat
+[1111]handle:button: 8888 16000 6000
+[1111]pid:8888,jetton:16000,monney:6000
+[1111]handle:small blind: 5555 2000 4000
+[1111]handle:big blind: 1111 2000 4000
+[1111]pid:1111,jetton:2000,monney:4000
+[1111]handle:4444 2000 4000
+[1111]handle:3333 14000 8000
+[1111]pid:3333,jetton:14000,monney:8000
+[1111]handle:6666 2000 4000
+[1111]handle:2222 2000 4000
+[1111]pid:2222,jetton:2000,monney:4000
+[1111]handle:7777 2000 4000
+[1111]handle:/seat
+[1111]handle:blind/
+[1111]handle:5555: 50
+[1111]handle:1111: 100
+[1111]handle:/blind
+[1111]handle:hold/
+[1111]handle:DIAMONDS Q
+[1111]handle:SPADE8, fold player: 0
+
+---show down---
+
+-128>
+player 8888 show down: FLUSH [CLUBS 9] [CLUBS K]
+-129>
+player 5555 show down: TWO_PAIR [DIAMONDS 6] [HEARTS Q]
+-130>
+player 1111 show down: ONE_PAIR [DIAMONDS K] [DIAMONDS 2]
+-131>
+player 4444 show down: HIGH_CARD [DIAMONDS 4] [SPADES 7]
+-132>
+player 3333 show down: ONE_PAIR [CLUBS A] [DIAMONDS 8]
+-133>
+player 6666 show down: TWO_PAIR [CLUBS 2] [SPADES 6]
+-134>
+player 2222 show down: HIGH_CARD [DIAMONDS J] [SPADES K]
+-135>
+player 7777 show down: ONE_PAIR [CLUBS 10] [SPADES 8]showdown/ 
+common/ 
+CLUBS Q 
+SPADES 9 
+CLUBS 8 
+HEARTS 2 
+CLUBS 6 
+/common 
+1: 8888 CLUBS 9 CLUBS K FLUSH 
+2: 5555 DIAMONDS 6 HEARTS Q TWO_PAIR 
+6: 1111 DIAMONDS K DIAMONDS 2 ONE_PAIR 
+8: 4444 DIAMONDS 4 SPADES 7 HIGH_CARD 
+4: 3333 CLUBS A DIAMONDS 8 ONE_PAIR 
+3: 6666 CLUBS 2 SPADES 6 TWO_PAIR 
+7: 2222 DIAMONDS J SPADES K HIGH_CARD 
+5: 7777 CLUBS 10 SPADES 8 ONE_PAIR 
+/showdown 
+
+---Allocate pot---
+
+-136>
+player 8888 win pot: 16000
+-137>
+player 3333 win pot: 14000pot-win/ 
+8888: 16000 
+3333: 14000 
+/pot-win 
+
+-138>
+score of 8888: 2 6000 16000 0
+-139>
+score of 5555: 2 6000 0 0
+-140>
+score of 1111: 2 6000 0 0
+-141>
+score of 4444: 2 6000 0 0
+-142>
+score of 3333: 2 8000 14000 0
+-143>
+score of 6666: 2 6000 0 0
+-144>
+score of 2222: 2 6000 0 0
+-145>
+score of 7777: 2 6000 0 0it is player 8888's turn to be button
+
+-----3 Hand-----
+
+----- clean player data in socket -----
+find residue data from player 4444:  
+
+find residue data from player 8888:  
+
+
+-146>
+game(id=replay) new hand 3 start...seat/ 
+button: 8888 16000 6000 
+small blind: 5555 2000 4000 
+big blind: 1111 2000 4000 
+4444 2000 4000 
+3333 14000 8000 
+6666 2000 4000 
+2222 2000 4000 
+7777 2000 4000 
+/seat 
+
+-147>
+seat/ 
+button: 8888 16000 6000 
+small blind: 5555 2000 4000 
+big blind: 1111 2000 4000 
+4444 2000 4000 
+3333 14000 8000 
+6666 2000 4000 
+2222 2000 4000 
+7777 2000 4000 
+/seat 
+
+-148>
+score of 5555: 3 4000 2000 0
+-149>
+score of 1111: 3 4000 2000 0
+-150>
+score of 4444: 3 4000 2000 0
+-151>
+score of 3333: 3 8000 14000 0
+-152>
+score of 6666: 3 4000 2000 0
+-153>
+score of 2222: 3 4000 2000 0
+-154>
+score of 7777: 3 4000 2000 0
+-155>
+score of 8888: 3 6000 16000 0
+-156>
+player 5555 action blind
+-157>
+player 5555 bet 50 rest 1950
+-158>
+pot num 50 current bet 50 least raise 100
+-159>
+player 1111 action blind
+-160>
+player 1111 bet 100 rest 1900
+-161>
+pot num 150 current bet 100 least raise 100blind/ 
+5555: 50 
+1111: 100 
+/blind 
+
+-162>
+player 5555:hold/ 
+DIAMONDS 9 
+HEARTS 6 
+/hold 
+player 5555:hold/ 
+DIAMONDS 9 
+HEARTS 6 
+/hold 
+
+-163>
+player 1111:hold/ 
+DIAMONDS Q 
+SPADES A 
+/hold 
+player 1111:hold/ 
+DIAMONDS Q 
+SPADES A 
+/hold 
+
+-164>
+player 4444:hold/ 
+DIAMONDS 8 
+SPADES 3 
+/hold 
+player 4444:hold/ 
+DIAMONDS 8 
+SPADES 3 
+/hold 
+
+-165>
+player 3333:hold/ 
+HEARTS 5 
+CLUBS 4 
+/hold 
+player 3333:hold/ 
+HEARTS 5 
+CLUBS 4 
+/hold 
+
+-166>
+player 6666:hold/ 
+HEARTS 9 
+SPADES 6 
+/hold 
+player 6666:hold/ 
+HEARTS 9 
+SPADES 6 
+/hold 
+
+-167>
+player 2222:hold/ 
+HEARTS J 
+DIAMONDS A 
+/hold 
+player 2222:hold/ 
+HEARTS J 
+DIAMONDS A 
+/hold 
+
+-168>
+player 7777:hold/ 
+SPADES 10 
+HEARTS K 
+/hold 
+player 7777:hold/ 
+SPADES 10 
+HEARTS K 
+/hold 
+
+-169>
+player 8888:hold/ 
+CLUBS A 
+DIAMONDS 4 
+/hold 
+player 8888:hold/ 
+CLUBS A 
+DIAMONDS 4 
+/hold 
+
+---pre flop round bet---
+valid player: 8, all in player: 0, fold player: 0
+send inquire msg to player 4444 
+inquire/ 
+1111 1900 4000 100 blind 
+5555 1950 4000 50 blind 
+total pot: 150 
+/inquire 
+recv from player 4444: all_in 
+
+
+-170>
+player 4444 action all_in
+-171>
+player 4444 bet 2000 rest 0
+-172>
+pot num 2150 current bet 2000 least raise 1900send inquire msg to player 3333 
+inquire/ 
+4444 0 4000 2000 all_in 
+1111 1900 4000 100 blind 
+5555 1950 4000 50 blind 
+total pot: 2150 
+/inquire 
+recv from player 3333: all_in 
+
+
+-173>
+player 3333 action all_in
+-174>
+player 3333 bet 14000 rest 0
+-175>
+pot num 16150 current bet 14000 least raise 12000send inquire msg to player 6666 
+inquire/ 
+3333 0 8000 14000 all_in 
+4444 0 4000 2000 all_in 
+1111 1900 4000 100 blind 
+5555 1950 4000 50 blind 
+total pot: 16150 
+/inquire 
+recv from player 6666: all_in 
+
+
+-176>
+player 6666 action all_in
+-177>
+player 6666 bet 2000 rest 0
+-178>
+pot num 18150 current bet 14000 least raise 12000send inquire msg to player 2222 
+inquire/ 
+6666 0 4000 2000 all_in 
+3333 0 8000 14000 all_in 
+4444 0 4000 2000 all_in 
+1111 1900 4000 100 blind 
+5555 1950 4000 50 blind 
+total pot: 18150 
+/inquire 
+recv from player 2222: all_in 
+
+
+-179>
+player 2222 action all_in
+-180>
+player 2222 bet 2000 rest 0
+-181>
+pot num 20150 current bet 14000 least raise 12000send inquire msg to player 7777 
+inquire/ 
+2222 0 4000 2000 all_in 
+6666 0 4000 2000 all_in 
+3333 0 8000 14000 all_in 
+4444 0 4000 2000 all_in 
+1111 1900 4000 100 blind 
+5555 1950 4000 50 blind 
+total pot: 20150 
+/inquire 
+recv from player 7777: all_in 
+
+
+-182>
+player 7777 action all_in
+-183>
+player 7777 bet 2000 rest 0
+-184>
+pot num 22150 current bet 14000 least raise 12000send inquire msg to player 8888 
+inquire/ 
+7777 0 4000 2000 all_in 
+2222 0 4000 2000 all_in 
+6666 0 4000 2000 all_in 
+3333 0 8000 14000 all_in 
+4444 0 4000 2000 all_in 
+1111 1900 4000 100 blind 
+5555 1950 4000 50 blind 
+total pot: 22150 
+/inquire 
+recv from player 8888: all_in 
+
+
+-185>
+player 8888 action all_in
+-186>
+player 8888 bet 16000 rest 0
+-187>
+pot num 38150 current bet 16000 least raise 12000send inquire msg to player 5555 
+inquire/ 
+8888 0 6000 16000 all_in 
+7777 0 4000 2000 all_in 
+2222 0 4000 2000 all_in 
+6666 0 4000 2000 all_in 
+3333 0 8000 14000 all_in 
+4444 0 4000 2000 all_in 
+1111 1900 4000 100 blind 
+5555 1950 4000 50 blind 
+total pot: 38150 
+/inquire 
+recv from player 5555: all_in
+
+-188>
+player 5555 action all_in
+-189>
+player 5555 bet 2000 rest 0
+-190>
+pot num 40100 current bet 16000 least raise 12000send inquire msg to player 1111 
+inquire/ 
+5555 0 4000 2000 all_in 
+8888 0 6000 16000 all_in 
+7777 0 4000 2000 all_in 
+2222 0 4000 2000 all_in 
+6666 0 4000 2000 all_in 
+3333 0 8000 14000 all_in 
+4444 0 4000 2000 all_in 
+1111 1900 4000 100 blind 
+total pot: 40100 
+/inquire 
+recv from player 1111: all_in 
+
+
+-191>
+player 1111 action all_in
+-192>
+player 1111 bet 2000 rest 0
+-193>
+pot num 42000 current bet 16000 least raise 12000flop/ 
+SPADES J 
+HEARTS Q 
+CLUBS J 
+/flop 
+
+-194>
+flop/ 
+SPADES J 
+HEARTS Q 
+CLUBS J 
+/flop 
+
+---flop round bet---
+valid player: 8, all in player: 8, fold player: 0
+turn/ 
+CLUBS K 
+/turn 
+
+-195>
+turn/ 
+CLUBS K 
+/turn 
+
+---turn round bet---
+valid player: 8, all in player: 8, fold player: 0
+river/ 
+SPADES 5 
+/river 
+
+-196>
+river/ 
+SPADES 5 
+/river 
+
+---river round bet---
+valid player: 8, all in player: 8, fold player: 0
+
+---show down---
+
+-197>
+player 5555 show down: ONE_PAIR [DIAMONDS 9] [HEARTS 6]
+-198>
+player 1111 show down: TWO_PAIR [DIAMONDS Q] [SPADES A]
+-199>
+player 4444 show down: ONE_PAIR [DIAMONDS 8] [SPADES 3]
+-200>
+player 3333 show down: TWO_PAIR [HEARTS 5] [CLUBS 4]
+-201>
+player 6666 show down: ONE_PAIR [HEARTS 9] [SPADES 6]
+-202>
+player 2222 show down: THREE_OF_A_KIND [HEARTS J] [DIAMONDS A]
+-203>
+player 7777 show down: TWO_PAIR [SPADES 10] [HEARTS K]
+-204>
+player 8888 show down: ONE_PAIR [CLUBS A] [DIAMONDS 4]showdown/ 
+common/ 
+SPADES J 
+HEARTS Q 
+CLUBS J 
+CLUBS K 
+SPADES 5 
+/common 
+6: 5555 DIAMONDS 9 HEARTS 6 ONE_PAIR 
+3: 1111 DIAMONDS Q SPADES A TWO_PAIR 
+7: 4444 DIAMONDS 8 SPADES 3 ONE_PAIR 
+4: 3333 HEARTS 5 CLUBS 4 TWO_PAIR 
+6: 6666 HEARTS 9 SPADES 6 ONE_PAIR 
+1: 2222 HEARTS J DIAMONDS A THREE_OF_A_KIND 
+2: 7777 SPADES 10 HEARTS K TWO_PAIR 
+5: 8888 CLUBS A DIAMONDS 4 ONE_PAIR 
+/showdown 
+
+---Allocate pot---
+
+-205>
+player 2222 win pot: 16000
+-206>
+player 3333 win pot: 24000
+-207>
+player 8888 win pot: 2000pot-win/ 
+2222: 16000 
+3333: 24000 
+8888: 2000 
+/pot-win 
+
+-208>
+score of 5555: 3 4000 0 0
+-209>
+score of 1111: 3 4000 0 0
+-210>
+score of 4444: 3 4000 0 0
+-211>
+score of 3333: 3 8000 24000 0
+-212>
+score of 6666: 3 4000 0 0
+-213>
+score of 2222: 3 4000 16000 0
+-214>
+score of 7777: 3 4000 0 0
+-215>
+score of 8888: 3 6000 2000 0it is player 5555's turn to be button
+
+-----4 Hand-----
+
+----- clean player data in socket -----
+find residue data from player 5555:  
+
+
+-216>
+game(id=replay) new hand 4 start...seat/ 
+button: 5555 2000 2000 
+small blind: 1111 2000 2000 
+big blind: 4444 2000 2000 
+3333 24000 8000 
+6666 2000 2000 
+2222 16000 4000 
+7777 2000 2000 
+8888 2000 6000 
+/seat 
+
+-217>
+seat/ 
+button: 5555 2000 2000 
+small blind: 1111 2000 2000 
+big blind: 4444 2000 2000 
+3333 24000 8000 
+6666 2000 2000 
+2222 16000 4000 
+7777 2000 2000 
+8888 2000 6000 
+/seat 
+
+-218>
+score of 1111: 4 2000 2000 0
+-219>
+score of 4444: 4 2000 2000 0
+-220>
+score of 3333: 4 8000 24000 0
+-221>
+score of 6666: 4 2000 2000 0
+-222>
+score of 2222: 4 4000 16000 0
+-223>
+score of 7777: 4 2000 2000 0
+-224>
+score of 8888: 4 6000 2000 0
+-225>
+score of 5555: 4 2000 2000 0
+-226>
+player 1111 action blind
+-227>
+player 1111 bet 50 rest 1950
+-228>
+pot num 50 current bet 50 least raise 100
+-229>
+player 4444 action blind
+-230>
+player 4444 bet 100 rest 1900
+-231>
+pot num 150 current bet 100 least raise 100blind/ 
+1111: 50 
+4444: 100 
+/blind 
+
+-232>
+player 1111:hold/ 
+CLUBS 4 
+HEARTS 9 
+/hold 
+player 1111:hold/ 
+CLUBS 4 
+HEARTS 9 
+/hold 
+
+-233>
+player 4444:hold/ 
+HEARTS 5 
+HEARTS 4 
+/hold 
+player 4444:hold/ 
+HEARTS 5 
+HEARTS 4 
+/hold 
+
+-234>
+player 3333:hold/ 
+DIAMONDS K 
+SPADES Q 
+/hold 
+player 3333:hold/ 
+DIAMONDS K 
+SPADES Q 
+/hold 
+
+-235>
+player 6666:hold/ 
+HEARTS 7 
+CLUBS 8 
+/hold 
+player 6666:hold/ 
+HEARTS 7 
+CLUBS 8 
+/hold 
+
+-236>
+player 2222:hold/ 
+CLUBS A 
+HEARTS 10 
+/hold 
+player 2222:hold/ 
+CLUBS A 
+HEARTS 10 
+/hold 
+
+-237>
+player 7777:hold/ 
+DIAMONDS 2 
+HEARTS A 
+/hold 
+player 7777:hold/ 
+DIAMONDS 2 
+HEARTS A 
+/hold 
+
+-238>
+player 8888:hold/ 
+HEARTS Q 
+SPADES 5 
+/hold 
+player 8888:hold/ 
+HEARTS Q 
+SPADES 5 
+/hold 
+
+-239>
+player 5555:hold/ 
+SPADES K 
+HEARTS 3 
+/hold 
+player 5555:hold/ 
+SPADES K 
+HEARTS 3 
+/hold 
+
+---pre flop round bet---
+valid player: 8, all in player: 0, fold player: 0
+send inquire msg to player 3333 
+inquire/ 
+4444 1900 2000 100 blind 
+1111 1950 2000 50 blind 
+total pot: 150 
+/inquire 
+recv from player 3333: all_in 
+
+
+-240>
+player 3333 action all_in
+-241>
+player 3333 bet 24000 rest 0
+-242>
+pot num 24150 current bet 24000 least raise 23900send inquire msg to player 6666 
+inquire/ 
+3333 0 8000 24000 all_in 
+4444 1900 2000 100 blind 
+1111 1950 2000 50 blind 
+total pot: 24150 
+/inquire 
+recv from player 6666: all_in 
+
+
+-243>
+player 6666 action all_in
+-244>
+player 6666 bet 2000 rest 0
+-245>
+pot num 26150 current bet 24000 least raise 23900send inquire msg to player 2222 
+inquire/ 
+6666 0 2000 2000 all_in 
+3333 0 8000 24000 all_in 
+4444 1900 2000 100 blind 
+1111 1950 2000 50 blind 
+total pot: 26150 
+/inquire 
+recv from player 2222: all_in 
+
+
+-246>
+player 2222 action all_in
+-247>
+player 2222 bet 16000 rest 0
+-248>
+pot num 42150 current bet 24000 least raise 23900send inquire msg to player 7777 
+inquire/ 
+2222 0 4000 16000 all_in 
+6666 0 2000 2000 all_in 
+3333 0 8000 24000 all_in 
+4444 1900 2000 100 blind 
+1111 1950 2000 50 blind 
+total pot: 42150 
+/inquire 
+recv from player 7777: all_in 
+
+
+-249>
+player 7777 action all_in
+-250>
+player 7777 bet 2000 rest 0
+-251>
+pot num 44150 current bet 24000 least raise 23900send inquire msg to player 8888 
+inquire/ 
+7777 0 2000 2000 all_in 
+2222 0 4000 16000 all_in 
+6666 0 2000 2000 all_in 
+3333 0 8000 24000 all_in 
+4444 1900 2000 100 blind 
+1111 1950 2000 50 blind 
+total pot: 44150 
+/inquire 
+recv from player 8888: all_in 
+
+
+-252>
+player 8888 action all_in
+-253>
+player 8888 bet 2000 rest 0
+-254>
+pot num 46150 current bet 24000 least raise 23900send inquire msg to player 5555 
+inquire/ 
+8888 0 6000 2000 all_in 
+7777 0 2000 2000 all_in 
+2222 0 4000 16000 all_in 
+6666 0 2000 2000 all_in 
+3333 0 8000 24000 all_in 
+4444 1900 2000 100 blind 
+1111 1950 2000 50 blind 
+total pot: 46150 
+/inquire 
+recv from player 5555: all_in 
+
+
+-255>
+player 5555 action all_in
+-256>
+player 5555 bet 2000 rest 0
+-257>
+pot num 48150 current bet 24000 least raise 23900send inquire msg to player 1111 
+inquire/ 
+5555 0 2000 2000 all_in 
+8888 0 6000 2000 all_in 
+7777 0 2000 2000 all_in 
+2222 0 4000 16000 all_in 
+6666 0 2000 2000 all_in 
+3333 0 8000 24000 all_in 
+4444 1900 2000 100 blind 
+1111 1950 2000 50 blind 
+total pot: 48150 
+/inquire 
+recv from player 1111: all_in
+
+-258>
+player 1111 action all_in
+-259>
+player 1111 bet 2000 rest 0
+-260>
+pot num 50100 current bet 24000 least raise 23900send inquire msg to player 4444 
+inquire/ 
+1111 0 2000 2000 all_in 
+5555 0 2000 2000 all_in 
+8888 0 6000 2000 all_in 
+7777 0 2000 2000 all_in 
+2222 0 4000 16000 all_in 
+6666 0 2000 2000 all_in 
+3333 0 8000 24000 all_in 
+4444 1900 2000 100 blind 
+total pot: 50100 
+/inquire 
+recv from player 4444: all_in 
+
+
+-261>
+player 4444 action all_in
+-262>
+player 4444 bet 2000 rest 0
+-263>
+pot num 52000 current bet 24000 least raise 23900flop/ 
+SPADES 8 
+CLUBS 6 
+CLUBS Q 
+/flop 
+
+-264>
+flop/ 
+SPADES 8 
+CLUBS 6 
+CLUBS Q 
+/flop 
+
+---flop round bet---
+valid player: 8, all in player: 8, fold player: 0
+turn/ 
+DIAMONDS 7 
+/turn 
+
+-265>
+turn/ 
+DIAMONDS 7 
+/turn 
+
+---turn round bet---
+valid player: 8, all in player: 8, fold player: 0
+river/ 
+SPADES A 
+/river 
+
+-266>
+river/ 
+SPADES A 
+/river 
+
+---river round bet---
+valid player: 8, all in player: 8, fold player: 0
+
+---show down---
+
+-267>
+player 1111 show down: HIGH_CARD [CLUBS 4] [HEARTS 9]
+-268>
+player 4444 show down: STRAIGHT [HEARTS 5] [HEARTS 4]
+-269>
+player 3333 show down: ONE_PAIR [DIAMONDS K] [SPADES Q]
+-270>
+player 6666 show down: TWO_PAIR [HEARTS 7] [CLUBS 8]
+-271>
+player 2222 show down: ONE_PAIR [CLUBS A] [HEARTS 10]
+-272>
+player 7777 show down: ONE_PAIR [DIAMONDS 2] [HEARTS A]
+-273>
+player 8888 show down: ONE_PAIR [HEARTS Q] [SPADES 5]
+-274>
+player 5555 show down: HIGH_CARD [SPADES K] [HEARTS 3]showdown/ 
+common/ 
+SPADES 8 
+CLUBS 6 
+CLUBS Q 
+DIAMONDS 7 
+SPADES A 
+/common 
+8: 1111 CLUBS 4 HEARTS 9 HIGH_CARD 
+1: 4444 HEARTS 5 HEARTS 4 STRAIGHT 
+5: 3333 DIAMONDS K SPADES Q ONE_PAIR 
+2: 6666 HEARTS 7 CLUBS 8 TWO_PAIR 
+3: 2222 CLUBS A HEARTS 10 ONE_PAIR 
+4: 7777 DIAMONDS 2 HEARTS A ONE_PAIR 
+6: 8888 HEARTS Q SPADES 5 ONE_PAIR 
+7: 5555 SPADES K HEARTS 3 HIGH_CARD 
+/showdown 
+
+---Allocate pot---
+
+-275>
+player 4444 win pot: 16000
+-276>
+player 2222 win pot: 28000
+-277>
+player 3333 win pot: 8000pot-win/ 
+4444: 16000 
+2222: 28000 
+3333: 8000 
+/pot-win 
+
+-278>
+score of 1111: 4 2000 0 0
+-279>
+score of 4444: 4 2000 16000 0
+-280>
+score of 3333: 4 8000 8000 0
+-281>
+score of 6666: 4 2000 0 0
+-282>
+score of 2222: 4 4000 28000 0
+-283>
+score of 7777: 4 2000 0 0
+-284>
+score of 8888: 4 6000 0 0
+-285>
+score of 5555: 4 2000 0 0it is player 1111's turn to be button
+
+-----5 Hand-----
+
+----- clean player data in socket -----
+find residue data from player 1111:  
+
+
+-286>
+game(id=replay) new hand 5 start...seat/ 
+button: 1111 2000 0 
+small blind: 4444 16000 2000 
+big blind: 3333 8000 8000 
+6666 2000 0 
+2222 28000 4000 
+7777 2000 0 
+8888 2000 4000 
+5555 2000 0 
+/seat 
+
+-287>
+seat/ 
+button: 1111 2000 0 
+small blind: 4444 16000 2000 
+big blind: 3333 8000 8000 
+6666 2000 0 
+2222 28000 4000 
+7777 2000 0 
+8888 2000 4000 
+5555 2000 0 
+/seat 
+
+-288>
+score of 4444: 5 2000 16000 0
+-289>
+score of 3333: 5 8000 8000 0
+-290>
+score of 6666: 5 0 2000 0
+-291>
+score of 2222: 5 4000 28000 0
+-292>
+score of 7777: 5 0 2000 0
+-293>
+score of 8888: 5 4000 2000 0
+-294>
+score of 5555: 5 0 2000 0
+-295>
+score of 1111: 5 0 2000 0
+-296>
+player 4444 action blind
+-297>
+player 4444 bet 50 rest 15950
+-298>
+pot num 50 current bet 50 least raise 100
+-299>
+player 3333 action blind
+-300>
+player 3333 bet 100 rest 7900
+-301>
+pot num 150 current bet 100 least raise 100blind/ 
+4444: 50 
+3333: 100 
+/blind 
+
+-302>
+player 4444:hold/ 
+DIAMONDS 5 
+CLUBS 6 
+/hold 
+player 4444:hold/ 
+DIAMONDS 5 
+CLUBS 6 
+/hold 
+
+-303>
+player 3333:hold/ 
+DIAMONDS 7 
+CLUBS A 
+/hold 
+player 3333:hold/ 
+DIAMONDS 7 
+CLUBS A 
+/hold 
+
+-304>
+player 6666:hold/ 
+SPADES J 
+CLUBS Q 
+/hold 
+player 6666:hold/ 
+SPADES J 
+CLUBS Q 
+/hold 
+
+-305>
+player 2222:hold/ 
+HEARTS A 
+CLUBS 10 
+/hold 
+player 2222:hold/ 
+HEARTS A 
+CLUBS 10 
+/hold 
+
+-306>
+player 7777:hold/ 
+SPADES 4 
+SPADES 10 
+/hold 
+player 7777:hold/ 
+SPADES 4 
+SPADES 10 
+/hold 
+
+-307>
+player 8888:hold/ 
+DIAMONDS 9 
+HEARTS 8 
+/hold 
+player 8888:hold/ 
+DIAMONDS 9 
+HEARTS 8 
+/hold 
+
+-308>
+player 5555:hold/ 
+SPADES A 
+CLUBS 8 
+/hold 
+player 5555:hold/ 
+SPADES A 
+CLUBS 8 
+/hold 
+
+-309>
+player 1111:hold/ 
+CLUBS J 
+SPADES 8 
+/hold 
+player 1112000,monney:4000
+[8888]handle:4444 2000 4000
+[8888]handle:3333 14000 8000
+[8888]pid:3333,jetton:14000,monney:8000
+[8888]handle:6666 2000 4000
+[8888]handle:2222 2000 4000
+[8888]pid:2222,jetton:2000,monney:4000
+[8888]handle:7777 2000 4000
+[8888]handle:/seat
+[8888]handle:blind/
+[8888]handle:5555: 50
+[8888]handle:1111: 100
+[8888]handle:/blind
+[8888]handle:hold/
+[8888]handle:CLUBS A
+[8888]handle:DIAMONDS 4
+[8888]handle:/hold
+[8888]handle:inquire/
+[8888]handle:7777 0 4000 2000 all_in
+[8888]handle:2222 0 4000 2000 all_in
+[8888]handle:6666 0 4000 2000 all_in
+[8888]handle:3333 0 8000 14000 all_in
+[8888]handle:4444 0 4000 2000 all_in
+[8888]handle:1111 1900 4000 100 blind
+[8888]handle:5555 1950 4000 50 blind
+[8888]handle:total pot: 22150
+[8888]handle:/inquire
+[8888]Action:all_in
+[8888]handle:flop/
+[8888]handle:SPADES J
+[8888]handle:HEARTS Q
+[8888]handle:CLUBS J
+[8888]handle:/flop
+[8888]handle:turn/
+[8888]handle:CLUBS K
+[8888]handle:/turn
+[8888]handle:river/
+[8888]handle:SPADES 5
+[8888]handle:/river
+[8888]handle:showdown/
+[8888]handle:common/
+[8888]handle:SPADES J
+[8888]handle:HEARTS Q
+[8888]handle:CLUBS J
+[8888]handle:CLUBS K
+[8888]handle:SPADES 5
+[8888]handle:/common
+[8888]handle:6: 5555 DIAMONDS 9 HEARTS 6 ONE_PAIR
+[8888]handle:3: 1111 DIAMONDS Q SPADES A TWO_PAIR
+[8888]handle:7: 4444 DIAMONDS 8 SPADES 3 ONE_PAIR
+[8888]handle:4: 3333 HEARTS 5 CLUBS 4 TWO_PAIR
+[8888]handle:6: 6666 HEARTS 9 SPADES 6 ONE_PAIR
+[8888]handle:1: 2222 HEARTS J DIAMONDS A THREE_OF_A_KIND
+[8888]handle:2: 7777 SPADES 10 HEARTS K TWO_PAIR
+[8888]handle:5: 8888 CLUBS A DIAMONDS 4 ONE_PAIR
+[8888]handle:/showdown
+[8888]handle:pot-win/
+[8888]handle:2222: 16000
+[8888]handle:3333: 24000
+[8888]handle:8888: 2000
+[8888]handle:/pot-win
+[8888]handle:seat/
+[8888]handle seat
+[8888]handle:button: 5555 2000 2000
+[8888]pid:5555,jetton:2000,monney:2000
+[8888]handle:small blind: 1111 2000 2000
+[8888]handle:big blind: 4444 2000 2000
+[8888]pid:4444,jetton:2000,monney:2000
+[8888]handle:3333 24000 8000
+[8888]handle:6666 2000 2000
+[8888]pid:6666,jetton:2000,monney:2000
+[8888]handle:2222 16000 4000
+[8888]handle:7777 2000 2000
+[8888]pid:7777,jetton:2000,monney:2000
+[8888]handle:8888 2000 6000
+[8888]handle:/seat
+[8888]handle:blind/
+[8888]handle:1111: 50
+[8888]handle:4444: 100
+[8888]handle:/blind
+[8888]handle:hold/
+[8888]handle:HEARTS Q
+[8888]handle:SPADES 5
+[8888]handle:/hold
+[8888]handle:inquire/
+[8888]handle:7777 0 2000 2000 all_in
+[8888]handle:2222 0 4000 16000 all_in
+[8888]handle:6666 0 2000 2000 all_in
+[8888]handle:3333 0 8000 24000 all_in
+[8888]handle:4444 1900 2000 100 blind
+[8888]handle:1111 1950 2000 50 blind
+[8888]handle:total pot: 44150
+[8888]handle:/inquire
+[8888]Action:all_in
+[8888]handle:flop/
+[8888]handle:SPADES 8
+[8888]handle:CLUBS 6
+[8888]handle:CLUBS Q
+[8888]handle:/flop
+[8888]handle:turn/
+[8888]handle:DIAMONDS 7
+[8888]handle:/turn
+[8888]handle:river/
+[8888]handle:SPADES A
+[8888]handle:/river
+[8888]handle:showdown/
+[8888]handle:common/
+[8888]handle:SPADES 8
+[8888]handle:CLUBS 6
+[8888]handle:CLUBS Q
+[8888]handle:DIAMONDS 7
+[8888]handle:SPADES A
+[8888]handle:/common
+[8888]handle:8: 1111 CLUBS 4 HEARTS 9 HIGH_CARD
+[8888]handle:1: 4444 HEARTS 5 HEARTS 4 STRAIGHT
+[8888]handle:5: 3333 DIAMONDS K SPADES Q ONE_PAIR
+[8888]handle:2: 6666 HEARTS 7 CLUBS 8 TWO_PAIR
+[8888]handle:3: 2222 CLUBS A HEARTS 10 ONE_PAIR
+[8888]handle:4: 7777 DIAMONDS 2 HEARTS A ONE_PAIR
+[8888]handle:6: 8888 HEARTS Q SPADES 5 ONE_PAIR
+[8888]handle:7: 5555 SPADES K HEARTS 3 HIGH_CARD
+[8888]handle:/showdown
+[8888]handle:pot-win/
+[8888]handle:4444: 16000
+[8888]handle:2222: 28000
+[8888]handle:3333: 8000
+[8888]handle:/pot-win
+[8888]handle:seat/
+[8888]handle seat
+[8888]handle:button: 1111 2000 0
+[8888]pid:1111,jetton:2000,monney:0
+[8888]handle:small blind: 4444 16000 2000
+[8888]handle:big blind: 3333 8000 8000
+[8888]pid:3333,jetton:8000,monney:8000
+[8888]handle:6666 2000 0
+[8888]handle:2222 28000 4000
+[8888]pid:2222,jetton:28000,monney:4000
+[8888]handle:7777 2000 0
+[8888]handle:8888 2000 4000
+[8888]pid:8888,jetton:2000,monney:4000
+[8888]handle:5555 2000 0
+[8888]handle:/seat
+[8888]handle:blind/
+[8888]handle:44442000 4000
+[7777]handle:3333 14000 8000
+[7777]pid:3333,jetton:14000,monney:8000
+[7777]handle:6666 2000 4000
+[7777]handle:2222 2000 4000
+[7777]pid:2222,jetton:2000,monney:4000
+[7777]handle:7777 2000 4000
+[7777]handle:/seat
+[7777]handle:blind/
+[7777]handle:5555: 50
+[7777]handle:1111: 100
+[7777]handle:/blind
+[7777]handle:hold/
+[7777]handle:SPADES 10
+[7777]handle:HEARTS K
+[7777]handle:/hold
+[7777]handle:inquire/
+[7777]handle:2222 0 4000 2000 all_in
+[7777]handle:6666 0 4000 2000 all_in
+[7777]handle:3333 0 8000 14000 all_in
+[7777]handle:4444 0 4000 2000 all_in
+[7777]handle:1111 1900 4000 100 blind
+[7777]handle:5555 1950 4000 50 blind
+[7777]handle:total pot: 20150
+[7777]handle:/inquire
+[7777]Action:all_in
+[7777]handle:flop/
+[7777]handle:SPADES J
+[7777]handle:HEARTS Q
+[7777]handle:CLUBS J
+[7777]handle:/flop
+[7777]handle:turn/
+[7777]handle:CLUBS K
+[7777]handle:/turn
+[7777]handle:river/
+[7777]handle:SPADES 5
+[7777]handle:/river
+[7777]handle:showdown/
+[7777]handle:common/
+[7777]handle:SPADES J
+[7777]handle:HEARTS Q
+[7777]handle:CLUBS J
+[7777]handle:CLUBS K
+[7777]handle:SPADES 5
+[7777]handle:/common
+[7777]handle:6: 5555 DIAMONDS 9 HEARTS 6 ONE_PAIR
+[7777]handle:3: 1111 DIAMONDS Q SPADES A TWO_PAIR
+[7777]handle:7: 4444 DIAMONDS 8 SPADES 3 ONE_PAIR
+[7777]handle:4: 3333 HEARTS 5 CLUBS 4 TWO_PAIR
+[7777]handle:6: 6666 HEARTS 9 SPADES 6 ONE_PAIR
+[7777]handle:1: 2222 HEARTS J DIAMONDS A THREE_OF_A_KIND
+[7777]handle:2: 7777 SPADES 10 HEARTS K TWO_PAIR
+[7777]handle:5: 8888 CLUBS A DIAMONDS 4 ONE_PAIR
+[7777]handle:/showdown
+[7777]handle:pot-win/
+[7777]handle:2222: 16000
+[7777]handle:3333: 24000
+[7777]handle:8888: 2000
+[7777]handle:/pot-win
+[7777]handle:seat/
+[7777]handle seat
+[7777]handle:button: 5555 2000 2000
+[7777]pid:5555,jetton:2000,monney:2000
+[7777]handle:small blind: 1111 2000 2000
+[7777]handle:big blind: 4444 2000 2000
+[7777]pid:4444,jetton:2000,monney:2000
+[7777]handle:3333 24000 8000
+[7777]handle:6666 2000 2000
+[7777]pid:6666,jetton:2000,monney:2000
+[7777]handle:2222 16000 4000
+[7777]handle:7777 2000 2000
+[7777]pid:7777,jetton:2000,monney:2000
+[7777]handle:8888 2000 6000
+[7777]handle:/seat
+[7777]handle:blind/
+[7777]handle:1111: 50
+[7777]handle:4444: 100
+[7777]handle:/blind
+[7777]handle:hold/
+[7777]handle:DIAMONDS 2
+[7777]handle:HEARTS A
+[7777]handle:/hold
+[7777]handle:inquire/
+[7777]handle:2222 0 4000 16000 all_in
+[7777]handle:6666 0 2000 2000 all_in
+[7777]handle:3333 0 8000 24000 all_in
+[7777]handle:4444 1900 2000 100 blind
+[7777]handle:1111 1950 2000 50 blind
+[7777]handle:total pot: 42150
+[7777]handle:/inquire
+[7777]Action:all_in
+[7777]handle:flop/
+[7777]handle:SPADES 8
+[7777]handle:CLUBS 6
+[7777]handle:CLUBS Q
+[7777]handle:/flop
+[7777]handle:turn/
+[7777]handle:DIAMONDS 7
+[7777]handle:/turn
+[7777]handle:river/
+[7777]handle:SPADES A
+[7777]handle:/river
+[7777]handle:showdown/
+[7777]handle:common/
+[7777]handle:SPADES 8
+[7777]handle:CLUBS 6
+[7777]handle:CLUBS Q
+[7777]handle:DIAMONDS 7
+[7777]handle:SPADES A
+[7777]handle:/common
+[7777]handle:8: 1111 CLUBS 4 HEARTS 9 HIGH_CARD
+[7777]handle:1: 4444 HEARTS 5 HEARTS 4 STRAIGHT
+[7777]handle:5: 3333 DIAMONDS K SPADES Q ONE_PAIR
+[7777]handle:2: 6666 HEARTS 7 CLUBS 8 TWO_PAIR
+[7777]handle:3: 2222 CLUBS A HEARTS 10 ONE_PAIR
+[7777]handle:4: 7777 DIAMONDS 2 HEARTS A ONE_PAIR
+[7777]handle:6: 8888 HEARTS Q SPADES 5 ONE_PAIR
+[7777]handle:7: 5555 SPADES K HEARTS 3 HIGH_CARD
+[7777]handle:/showdown
+[7777]handle:pot-win/
+[7777]handle:4444: 16000
+[7777]handle:2222: 28000
+[7777]handle:3333: 8000
+[7777]handle:/pot-win
+[7777]handle:seat/
+[7777]handle seat
+[7777]handle:button: 1111 2000 0
+[7777]pid:1111,jetton:2000,monney:0
+[7777]handle:small blind: 4444 16000 2000
+[7777]handle:big blind: 3333 8000 8000
+[7777]pid:3333,jetton:8000,monney:8000
+[7777]handle:6666 2000 0
+[7777]handle:2222 28000 4000
+[7777]pid:2222,jetton:28000,monney:4000
+[7777]handle:7777 2000 0
+[7777]handle:8888 2000 4000
+[7777]pid:8888,jetton:2000,monney:4000
+[7777]handle:5555 2000 0
+[7777]handle:/seat
+[7777]handle:blind/
+[7777]handle:4444: 50
+[7777]handle:3333: 100
+[7777]handle:/blind
+[7777]handle:hold/
+[7777]handle:SPADES 4
+[7777]handle:SPADEnney:8000
+[2222]handle:6666 2000 4000
+[2222]handle:2222 2000 4000
+[2222]pid:2222,jetton:2000,monney:4000
+[2222]handle:7777 2000 4000
+[2222]handle:/seat
+[2222]handle:blind/
+[2222]handle:5555: 50
+[2222]handle:1111: 100
+[2222]handle:/blind
+[2222]handle:hold/
+[2222]handle:HEARTS J
+[2222]handle:DIAMONDS A
+[2222]handle:/hold
+[2222]handle:inquire/
+[2222]handle:6666 0 4000 2000 all_in
+[2222]handle:3333 0 8000 14000 all_in
+[2222]handle:4444 0 4000 2000 all_in
+[2222]handle:1111 1900 4000 100 blind
+[2222]handle:5555 1950 4000 50 blind
+[2222]handle:total pot: 18150
+[2222]handle:/inquire
+[2222]Action:all_in
+[2222]handle:flop/
+[2222]handle:SPADES J
+[2222]handle:HEARTS Q
+[2222]handle:CLUBS J
+[2222]handle:/flop
+[2222]handle:turn/
+[2222]handle:CLUBS K
+[2222]handle:/turn
+[2222]handle:river/
+[2222]handle:SPADES 5
+[2222]handle:/river
+[2222]handle:showdown/
+[2222]handle:common/
+[2222]handle:SPADES J
+[2222]handle:HEARTS Q
+[2222]handle:CLUBS J
+[2222]handle:CLUBS K
+[2222]handle:SPADES 5
+[2222]handle:/common
+[2222]handle:6: 5555 DIAMONDS 9 HEARTS 6 ONE_PAIR
+[2222]handle:3: 1111 DIAMONDS Q SPADES A TWO_PAIR
+[2222]handle:7: 4444 DIAMONDS 8 SPADES 3 ONE_PAIR
+[2222]handle:4: 3333 HEARTS 5 CLUBS 4 TWO_PAIR
+[2222]handle:6: 6666 HEARTS 9 SPADES 6 ONE_PAIR
+[2222]handle:1: 2222 HEARTS J DIAMONDS A THREE_OF_A_KIND
+[2222]handle:2: 7777 SPADES 10 HEARTS K TWO_PAIR
+[2222]handle:5: 8888 CLUBS A DIAMONDS 4 ONE_PAIR
+[2222]handle:/showdown
+[2222]handle:pot-win/
+[2222]handle:2222: 16000
+[2222]handle:3333: 24000
+[2222]handle:8888: 2000
+[2222]handle:/pot-win
+[2222]handle:seat/
+[2222]handle seat
+[2222]handle:button: 5555 2000 2000
+[2222]pid:5555,jetton:2000,monney:2000
+[2222]handle:small blind: 1111 2000 2000
+[2222]handle:big blind: 4444 2000 2000
+[2222]pid:4444,jetton:2000,monney:2000
+[2222]handle:3333 24000 8000
+[2222]handle:6666 2000 2000
+[2222]pid:6666,jetton:2000,monney:2000
+[2222]handle:2222 16000 4000
+[2222]handle:7777 2000 2000
+[2222]pid:7777,jetton:2000,monney:2000
+[2222]handle:8888 2000 6000
+[2222]handle:/seat
+[2222]handle:blind/
+[2222]handle:1111: 50
+[2222]handle:4444: 100
+[2222]handle:/blind
+[2222]handle:hold/
+[2222]handle:CLUBS A
+[2222]handle:HEARTS 10
+[2222]handle:/hold
+[2222]handle:inquire/
+[2222]handle:6666 0 2000 2000 all_in
+[2222]handle:3333 0 8000 24000 all_in
+[2222]handle:4444 1900 2000 100 blind
+[2222]handle:1111 1950 2000 50 blind
+[2222]handle:total pot: 26150
+[2222]handle:/inquire
+[2222]Action:all_in
+[2222]handle:flop/
+[2222]handle:SPADES 8
+[2222]handle:CLUBS 6
+[2222]handle:CLUBS Q
+[2222]handle:/flop
+[2222]handle:turn/
+[2222]handle:DIAMONDS 7
+[2222]handle:/turn
+[2222]handle:river/
+[2222]handle:SPADES A
+[2222]handle:/river
+[2222]handle:showdown/
+[2222]handle:common/
+[2222]handle:SPADES 8
+[2222]handle:CLUBS 6
+[2222]handle:CLUBS Q
+[2222]handle:DIAMONDS 7
+[2222]handle:SPADES A
+[2222]handle:/common
+[2222]handle:8: 1111 CLUBS 4 HEARTS 9 HIGH_CARD
+[2222]handle:1: 4444 HEARTS 5 HEARTS 4 STRAIGHT
+[2222]handle:5: 3333 DIAMONDS K SPADES Q ONE_PAIR
+[2222]handle:2: 6666 HEARTS 7 CLUBS 8 TWO_PAIR
+[2222]handle:3: 2222 CLUBS A HEARTS 10 ONE_PAIR
+[2222]handle:4: 7777 DIAMONDS 2 HEARTS A ONE_PAIR
+[2222]handle:6: 8888 HEARTS Q SPADES 5 ONE_PAIR
+[2222]handle:7: 5555 SPADES K HEARTS 3 HIGH_CARD
+[2222]handle:/showdown
+[2222]handle:pot-win/
+[2222]handle:4444: 16000
+[2222]handle:2222: 28000
+[2222]handle:3333: 8000
+[2222]handle:/pot-win
+[2222]handle:seat/
+[2222]handle seat
+[2222]handle:button: 1111 2000 0
+[2222]pid:1111,jetton:2000,monney:0
+[2222]handle:small blind: 4444 16000 2000
+[2222]handle:big blind: 3333 8000 8000
+[2222]pid:3333,jetton:8000,monney:8000
+[2222]handle:6666 2000 0
+[2222]handle:2222 28000 4000
+[2222]pid:2222,jetton:28000,monney:4000
+[2222]handle:7777 2000 0
+[2222]handle:8888 2000 4000
+[2222]pid:8888,jetton:2000,monney:4000
+[2222]handle:5555 2000 0
+[2222]handle:/seat
+[2222]handle:blind/
+[2222]handle:4444: 50
+[2222]handle:3333: 100
+[2222]handle:/blind
+[2222]handle:hold/
+[2222]handle:HEARTS A
+[2222]handle:CLUBS 10
+[2222]handle:/hold
+[2222]handle:inquire/
+[2222]handle:6666 0 0 2000 all_in
+[2222]handle:3333 7900 8000 100 blind
+[2222]handle:4444 15950 2000handle:7777 2000 4000
+[5555]handle:/seat
+[5555]handle:blind/
+[5555]handle:5555: 50
+[5555]handle:1111: 100
+[5555]handle:/blind
+[5555]handle:hold/
+[5555]handle:DIAMONDS 9
+[5555]handle:HEARTS 6
+[5555]handle:/hold
+[5555]handle:inquire/
+[5555]handle:8888 0 6000 16000 all_in
+[5555]handle:7777 0 4000 2000 all_in
+[5555]handle:2222 0 4000 2000 all_in
+[5555]handle:6666 0 4000 2000 all_in
+[5555]handle:3333 0 8000 14000 all_in
+[5555]handle:4444 0 4000 2000 all_in
+[5555]handle:1111 1900 4000 100 blind
+[5555]handle:5555 1950 4000 50 blind
+[5555]handle:total pot: 38150
+[5555]handle:/inquire
+[5555]Action:all_in
+[5555]handle:flop/
+[5555]handle:SPADES J
+[5555]handle:HEARTS Q
+[5555]handle:CLUBS J
+[5555]handle:/flop
+[5555]handle:turn/
+[5555]handle:CLUBS K
+[5555]handle:/turn
+[5555]handle:river/
+[5555]handle:SPADES 5
+[5555]handle:/river
+[5555]handle:showdown/
+[5555]handle:common/
+[5555]handle:SPADES J
+[5555]handle:HEARTS Q
+[5555]handle:CLUBS J
+[5555]handle:CLUBS K
+[5555]handle:SPADES 5
+[5555]handle:/common
+[5555]handle:6: 5555 DIAMONDS 9 HEARTS 6 ONE_PAIR
+[5555]handle:3: 1111 DIAMONDS Q SPADES A TWO_PAIR
+[5555]handle:7: 4444 DIAMONDS 8 SPADES 3 ONE_PAIR
+[5555]handle:4: 3333 HEARTS 5 CLUBS 4 TWO_PAIR
+[5555]handle:6: 6666 HEARTS 9 SPADES 6 ONE_PAIR
+[5555]handle:1: 2222 HEARTS J DIAMONDS A THREE_OF_A_KIND
+[5555]handle:2: 7777 SPADES 10 HEARTS K TWO_PAIR
+[5555]handle:5: 8888 CLUBS A DIAMONDS 4 ONE_PAIR
+[5555]handle:/showdown
+[5555]handle:pot-win/
+[5555]handle:2222: 16000
+[5555]handle:3333: 24000
+[5555]handle:8888: 2000
+[5555]handle:/pot-win
+[5555]handle:seat/
+[5555]handle seat
+[5555]handle:button: 5555 2000 2000
+[5555]pid:5555,jetton:2000,monney:2000
+[5555]handle:small blind: 1111 2000 2000
+[5555]handle:big blind: 4444 2000 2000
+[5555]pid:4444,jetton:2000,monney:2000
+[5555]handle:3333 24000 8000
+[5555]handle:6666 2000 2000
+[5555]pid:6666,jetton:2000,monney:2000
+[5555]handle:2222 16000 4000
+[5555]handle:7777 2000 2000
+[5555]pid:7777,jetton:2000,monney:2000
+[5555]handle:8888 2000 6000
+[5555]handle:/seat
+[5555]handle:blind/
+[5555]handle:1111: 50
+[5555]handle:4444: 100
+[5555]handle:/blind
+[5555]handle:hold/
+[5555]handle:SPADES K
+[5555]handle:HEARTS 3
+[5555]handle:/hold
+[5555]handle:inquire/
+[5555]handle:8888 0 6000 2000 all_in
+[5555]handle:7777 0 2000 2000 all_in
+[5555]handle:2222 0 4000 16000 all_in
+[5555]handle:6666 0 2000 2000 all_in
+[5555]handle:3333 0 8000 24000 all_in
+[5555]handle:4444 1900 2000 100 blind
+[5555]handle:1111 1950 2000 50 blind
+[5555]handle:total pot: 46150
+[5555]handle:/inquire
+[5555]Action:all_in
+[5555]handle:flop/
+[5555]handle:SPADES 8
+[5555]handle:CLUBS 6
+[5555]handle:CLUBS Q
+[5555]handle:/flop
+[5555]handle:turn/
+[5555]handle:DIAMONDS 7
+[5555]handle:/turn
+[5555]handle:river/
+[5555]handle:SPADES A
+[5555]handle:/river
+[5555]handle:showdown/
+[5555]handle:common/
+[5555]handle:SPADES 8
+[5555]handle:CLUBS 6
+[5555]handle:CLUBS Q
+[5555]handle:DIAMONDS 7
+[5555]handle:SPADES A
+[5555]handle:/common
+[5555]handle:8: 1111 CLUBS 4 HEARTS 9 HIGH_CARD
+[5555]handle:1: 4444 HEARTS 5 HEARTS 4 STRAIGHT
+[5555]handle:5: 3333 DIAMONDS K SPADES Q ONE_PAIR
+[5555]handle:2: 6666 HEARTS 7 CLUBS 8 TWO_PAIR
+[5555]handle:3: 2222 CLUBS A HEARTS 10 ONE_PAIR
+[5555]handle:4: 7777 DIAMONDS 2 HEARTS A ONE_PAIR
+[5555]handle:6: 8888 HEARTS Q SPADES 5 ONE_PAIR
+[5555]handle:7: 5555 SPADES K HEARTS 3 HIGH_CARD
+[5555]handle:/showdown
+[5555]handle:pot-win/
+[5555]handle:4444: 16000
+[5555]handle:2222: 28000
+[5555]handle:3333: 8000
+[5555]handle:/pot-win
+[5555]handle:seat/
+[5555]handle seat
+[5555]handle:button: 1111 2000 0
+[5555]pid:1111,jetton:2000,monney:0
+[5555]handle:small blind: 4444 16000 2000
+[5555]handle:big blind: 3333 8000 8000
+[5555]pid:3333,jetton:8000,monney:8000
+[5555]handle:6666 2000 0
+[5555]handle:2222 28000 4000
+[5555]pid:2222,jetton:28000,monney:4000
+[5555]handle:7777 2000 0
+[5555]handle:8888 2000 4000
+[5555]pid:8888,jetton:2000,monney:4000
+[5555]handle:5555 2000 0
+[5555]handle:/seat
+[5555]handle:blind/
+[5555]handle:4444: 50
+[5555]handle:3333: 100
+[5555]handle:/blind
+[5555]handle:hold/
+[5555]handle:SPADES A
+[5555]handle:CLUBS 8
+[5555]handle:/hold
+[5555]handS A
+[1111]handle:/hold
+[1111]handle:inquire/
+[1111]handle:5555 0 4000 2000 all_in
+[1111]handle:8888 0 6000 16000 all_in
+[1111]handle:7777 0 4000 2000 all_in
+[1111]handle:2222 0 4000 2000 all_in
+[1111]handle:6666 0 4000 2000 all_in
+[1111]handle:3333 0 8000 14000 all_in
+[1111]handle:4444 0 4000 2000 all_in
+[1111]handle:1111 1900 4000 100 blind
+[1111]handle:total pot: 40100
+[1111]handle:/inquire
+[1111]Action:all_in
+[1111]handle:flop/
+[1111]handle:SPADES J
+[1111]handle:HEARTS Q
+[1111]handle:CLUBS J
+[1111]handle:/flop
+[1111]handle:turn/
+[1111]handle:CLUBS K
+[1111]handle:/turn
+[1111]handle:river/
+[1111]handle:SPADES 5
+[1111]handle:/river
+[1111]handle:showdown/
+[1111]handle:common/
+[1111]handle:SPADES J
+[1111]handle:HEARTS Q
+[1111]handle:CLUBS J
+[1111]handle:CLUBS K
+[1111]handle:SPADES 5
+[1111]handle:/common
+[1111]handle:6: 5555 DIAMONDS 9 HEARTS 6 ONE_PAIR
+[1111]handle:3: 1111 DIAMONDS Q SPADES A TWO_PAIR
+[1111]handle:7: 4444 DIAMONDS 8 SPADES 3 ONE_PAIR
+[1111]handle:4: 3333 HEARTS 5 CLUBS 4 TWO_PAIR
+[1111]handle:6: 6666 HEARTS 9 SPADES 6 ONE_PAIR
+[1111]handle:1: 2222 HEARTS J DIAMONDS A THREE_OF_A_KIND
+[1111]handle:2: 7777 SPADES 10 HEARTS K TWO_PAIR
+[1111]handle:5: 8888 CLUBS A DIAMONDS 4 ONE_PAIR
+[1111]handle:/showdown
+[1111]handle:pot-win/
+[1111]handle:2222: 16000
+[1111]handle:3333: 24000
+[1111]handle:8888: 2000
+[1111]handle:/pot-win
+[1111]handle:seat/
+[1111]handle seat
+[1111]handle:button: 5555 2000 2000
+[1111]pid:5555,jetton:2000,monney:2000
+[1111]handle:small blind: 1111 2000 2000
+[1111]handle:big blind: 4444 2000 2000
+[1111]pid:4444,jetton:2000,monney:2000
+[1111]handle:3333 24000 8000
+[1111]handle:6666 2000 2000
+[1111]pid:6666,jetton:2000,monney:2000
+[1111]handle:2222 16000 4000
+[1111]handle:7777 2000 2000
+[1111]pid:7777,jetton:2000,monney:2000
+[1111]handle:8888 2000 6000
+[1111]handle:/seat
+[1111]handle:blind/
+[1111]handle:1111: 50
+[1111]handle:4444: 100
+[1111]handle:/blind
+[1111]handle:hold/
+[1111]handle:CLUBS 4
+[1111]handle:HEARTS 9
+[1111]handle:/hold
+[1111]handle:inquire/
+[1111]handle:5555 0 2000 2000 all_in
+[1111]handle:8888 0 6000 2000 all_in
+[1111]handle:7777 0 2000 2000 all_in
+[1111]handle:2222 0 4000 16000 all_in
+[1111]handle:6666 0 2000 2000 all_in
+[1111]handle:3333 0 8000 24000 all_in
+[1111]handle:4444 1900 2000 100 blind
+[1111]handle:1111 1950 2000 50 blind
+[1111]handle:total pot: 48150
+[1111]handle:/inquire
+[1111]Action:all_in
+[1111]handle:flop/
+[1111]handle:SPADES 8
+[1111]handle:CLUBS 6
+[1111]handle:CLUBS Q
+[1111]handle:/flop
+[1111]handle:turn/
+[1111]handle:DIAMONDS 7
+[1111]handle:/turn
+[1111]handle:river/
+[1111]handle:SPADES A
+[1111]handle:/river
+[1111]handle:showdown/
+[1111]handle:common/
+[1111]handle:SPADES 8
+[1111]handle:CLUBS 6
+[1111]handle:CLUBS Q
+[1111]handle:DIAMONDS 7
+[1111]handle:SPADES A
+[1111]handle:/common
+[1111]handle:8: 1111 CLUBS 4 HEARTS 9 HIGH_CARD
+[1111]handle:1: 4444 HEARTS 5 HEARTS 4 STRAIGHT
+[1111]handle:5: 3333 DIAMONDS K SPADES Q ONE_PAIR
+[1111]handle:2: 6666 HEARTS 7 CLUBS 8 TWO_PAIR
+[1111]handle:3: 2222 CLUBS A HEARTS 10 ONE_PAIR
+[1111]handle:4: 7777 DIAMONDS 2 HEARTS A ONE_PAIR
+[1111]handle:6: 8888 HEARTS Q SPADES 5 ONE_PAIR
+[1111]handle:7: 5555 SPADES K HEARTS 3 HIGH_CARD
+[1111]handle:/showdown
+[1111]handle:pot-win/
+[1111]handle:4444: 16000
+[1111]handle:2222: 28000
+[1111]handle:3333: 8000
+[1111]handle:/pot-win
+[1111]handle:seat/
+[1111]handle seat
+[1111]handle:button: 1111 2000 0
+[1111]pid:1111,jetton:2000,monney:0
+[1111]handle:small blind: 4444 16000 2000
+[1111]handle:big blind: 3333 8000 8000
+[1111]pid:3333,jetton:8000,monney:8000
+[1111]handle:6666 2000 0
+[1111]handle:2222 28000 4000
+[1111]pid:2222,jetton:28000,monney:4000
+[1111]handle:7777 2000 0
+[1111]handle:8888 2000 4000
+[1111]pid:8888,jetton:2000,monney:4000
+[1111]handle:5555 2000 0
+[1111]handle:/seat
+[1111]handle:blind/
+[1111]handle:4444: 50
+[1111]handle:3333: 100
+[1111]handle:/blind
+[1111]handle:hold/
+[1111]handle:CLUBS J
+[1111]handle:SPADES 8
+[1111]handle:/hold
+[1111]handle:inquire/
+[1111]handle:5555 0 0 2000 all_in
+[1111]handle:8888 0 4000 2000 all_in
+[1111]handle:7777 0 0 2000 all_in
+[1111]handle:2222 0 4000 28000 all:/blind
+[4444]handle:hold/
+[4444]handle:DIAMONDS 8
+[4444]handle:SPADES 3
+[4444]handle:/hold
+[4444]handle:inquire/
+[4444]handle:1111 1900 4000 100 blind
+[4444]handle:5555 1950 4000 50 blind
+[4444]handle:total pot: 150
+[4444]handle:/inquire
+[4444]Action:all_in
+[4444]handle:flop/
+[4444]handle:SPADES J
+[4444]handle:HEARTS Q
+[4444]handle:CLUBS J
+[4444]handle:/flop
+[4444]handle:turn/
+[4444]handle:CLUBS K
+[4444]handle:/turn
+[4444]handle:river/
+[4444]handle:SPADES 5
+[4444]handle:/river
+[4444]handle:showdown/
+[4444]handle:common/
+[4444]handle:SPADES J
+[4444]handle:HEARTS Q
+[4444]handle:CLUBS J
+[4444]handle:CLUBS K
+[4444]handle:SPADES 5
+[4444]handle:/common
+[4444]handle:6: 5555 DIAMONDS 9 HEARTS 6 ONE_PAIR
+[4444]handle:3: 1111 DIAMONDS Q SPADES A TWO_PAIR
+[4444]handle:7: 4444 DIAMONDS 8 SPADES 3 ONE_PAIR
+[4444]handle:4: 3333 HEARTS 5 CLUBS 4 TWO_PAIR
+[4444]handle:6: 6666 HEARTS 9 SPADES 6 ONE_PAIR
+[4444]handle:1: 2222 HEARTS J DIAMONDS A THREE_OF_A_KIND
+[4444]handle:2: 7777 SPADES 10 HEARTS K TWO_PAIR
+[4444]handle:5: 8888 CLUBS A DIAMONDS 4 ONE_PAIR
+[4444]handle:/showdown
+[4444]handle:pot-win/
+[4444]handle:2222: 16000
+[4444]handle:3333: 24000
+[4444]handle:8888: 2000
+[4444]handle:/pot-win
+[4444]handle:seat/
+[4444]handle seat
+[4444]handle:button: 5555 2000 2000
+[4444]pid:5555,jetton:2000,monney:2000
+[4444]handle:small blind: 1111 2000 2000
+[4444]handle:big blind: 4444 2000 2000
+[4444]pid:4444,jetton:2000,monney:2000
+[4444]handle:3333 24000 8000
+[4444]handle:6666 2000 2000
+[4444]pid:6666,jetton:2000,monney:2000
+[4444]handle:2222 16000 4000
+[4444]handle:7777 2000 2000
+[4444]pid:7777,jetton:2000,monney:2000
+[4444]handle:8888 2000 6000
+[4444]handle:/seat
+[4444]handle:blind/
+[4444]handle:1111: 50
+[4444]handle:4444: 100
+[4444]handle:/blind
+[4444]handle:hold/
+[4444]handle:HEARTS 5
+[4444]handle:HEARTS 4
+[4444]handle:/hold
+[4444]handle:inquire/
+[4444]handle:1111 0 2000 2000 all_in
+[4444]handle:5555 0 2000 2000 all_in
+[4444]handle:8888 0 6000 2000 all_in
+[4444]handle:7777 0 2000 2000 all_in
+[4444]handle:2222 0 4000 16000 all_in
+[4444]handle:6666 0 2000 2000 all_in
+[4444]handle:3333 0 8000 24000 all_in
+[4444]handle:4444 1900 2000 100 blind
+[4444]handle:total pot: 50100
+[4444]handle:/inquire
+[4444]Action:all_in
+[4444]handle:flop/
+[4444]handle:SPADES 8
+[4444]handle:CLUBS 6
+[4444]handle:CLUBS Q
+[4444]handle:/flop
+[4444]handle:turn/
+[4444]handle:DIAMONDS 7
+[4444]handle:/turn
+[4444]handle:river/
+[4444]handle:SPADES A
+[4444]handle:/river
+[4444]handle:showdown/
+[4444]handle:common/
+[4444]handle:SPADES 8
+[4444]handle:CLUBS 6
+[4444]handle:CLUBS Q
+[4444]handle:DIAMONDS 7
+[4444]handle:SPADES A
+[4444]handle:/common
+[4444]handle:8: 1111 CLUBS 4 HEARTS 9 HIGH_CARD
+[4444]handle:1: 4444 HEARTS 5 HEARTS 4 STRAIGHT
+[4444]handle:5: 3333 DIAMONDS K SPADES Q ONE_PAIR
+[4444]handle:2: 6666 HEARTS 7 CLUBS 8 TWO_PAIR
+[4444]handle:3: 2222 CLUBS A HEARTS 10 ONE_PAIR
+[4444]handle:4: 7777 DIAMONDS 2 HEARTS A ONE_PAIR
+[4444]handle:6: 8888 HEARTS Q SPADES 5 ONE_PAIR
+[4444]handle:7: 5555 SPADES K HEARTS 3 HIGH_CARD
+[4444]handle:/showdown
+[4444]handle:pot-win/
+[4444]handle:4444: 16000
+[4444]handle:2222: 28000
+[4444]handle:3333: 8000
+[4444]handle:/pot-win
+[4444]handle:seat/
+[4444]handle seat
+[4444]handle:button: 1111 2000 0
+[4444]pid:1111,jetton:2000,monney:0
+[4444]handle:small blind: 4444 16000 2000
+[4444]handle:big blind: 3333 8000 8000
+[4444]pid:3333,jetton:8000,monney:8000
+[4444]handle:6666 2000 0
+[4444]handle:2222 28000 4000
+[4444]pid:2222,jetton:28000,monney:4000
+[4444]handle:7777 2000 0
+[4444]handle:8888 2000 4000
+[4444]pid:8888,jetton:2000,monney:4000
+[4444]handle:5555 2000 0
+[4444]handle:/seat
+[4444]handle:blind/
+[4444]handle:4444: 50
+[4444]handle:3333: 100
+[4444]handle:/blind
+[4444]handle:hold/
+[4444]handle:DIAMONDS 5
+[4444]handle:CLUBS 6
+[4444]handle:/hold
+[4444]handle:inquire/
+[4444]handle:1111 0 0 2000 all_in
+[4444]handle:5555 0 0 2000 all_in
+[4444]handle:8888 0 4000 2000 all_in
+[4444]handle:7777 0 0 2000 all_in
+[4444]handle:2222 0 4000 28000 all_in
+[4444]handle:6666 0 0 2000 all_in
+[4444]handle:3333 7900 8000 100 blind
+[4444]handle:4444 15950 2000 50 blind
+[4444]1:hold/ 
+CLUBS J 
+SPADES 8 
+/hold 
+
+---pre flop round bet---
+valid player: 8, all in player: 0, fold player: 0
+send inquire msg to player 6666 
+inquire/ 
+3333 7900 8000 100 blind 
+4444 15950 2000 50 blind 
+total pot: 150 
+/inquire 
+recv from player 6666: all_in 
+
+
+-310>
+player 6666 action all_in
+-311>
+player 6666 bet 2000 rest 0
+-312>
+pot num 2150 current bet 2000 least raise 1900send inquire msg to player 2222 
+inquire/ 
+6666 0 0 2000 all_in 
+3333 7900 8000 100 blind 
+4444 15950 2000 50 blind 
+total pot: 2150 
+/inquire 
+recv from player 2222: all_in 
+
+
+-313>
+player 2222 action all_in
+-314>
+player 2222 bet 28000 rest 0
+-315>
+pot num 30150 current bet 28000 least raise 26000send inquire msg to player 7777 
+inquire/ 
+2222 0 4000 28000 all_in 
+6666 0 0 2000 all_in 
+3333 7900 8000 100 blind 
+4444 15950 2000 50 blind 
+total pot: 30150 
+/inquire 
+recv from player 7777: all_in 
+
+
+-316>
+player 7777 action all_in
+-317>
+player 7777 bet 2000 rest 0
+-318>
+pot num 32150 current bet 28000 least raise 26000send inquire msg to player 8888 
+inquire/ 
+7777 0 0 2000 all_in 
+2222 0 4000 28000 all_in 
+6666 0 0 2000 all_in 
+3333 7900 8000 100 blind 
+4444 15950 2000 50 blind 
+total pot: 32150 
+/inquire 
+recv from player 8888: all_in 
+
+
+-319>
+player 8888 action all_in
+-320>
+player 8888 bet 2000 rest 0
+-321>
+pot num 34150 current bet 28000 least raise 26000send inquire msg to player 5555 
+inquire/ 
+8888 0 4000 2000 all_in 
+7777 0 0 2000 all_in 
+2222 0 4000 28000 all_in 
+6666 0 0 2000 all_in 
+3333 7900 8000 100 blind 
+4444 15950 2000 50 blind 
+total pot: 34150 
+/inquire 
+recv from player 5555: all_in 
+
+
+-322>
+player 5555 action all_in
+-323>
+player 5555 bet 2000 rest 0
+-324>
+pot num 36150 current bet 28000 least raise 26000send inquire msg to player 1111 
+inquire/ 
+5555 0 0 2000 all_in 
+8888 0 4000 2000 all_in 
+7777 0 0 2000 all_in 
+2222 0 4000 28000 all_in 
+6666 0 0 2000 all_in 
+3333 7900 8000 100 blind 
+4444 15950 2000 50 blind 
+total pot: 36150 
+/inquire 
+recv from player 1111: all_in 
+
+
+-325>
+player 1111 action all_in
+-326>
+player 1111 bet 2000 rest 0
+-327>
+pot num 38150 current bet 28000 least raise 26000send inquire msg to player 4444 
+inquire/ 
+1111 0 0 2000 all_in 
+5555 0 0 2000 all_in 
+8888 0 4000 2000 all_in 
+7777 0 0 2000 all_in 
+2222 0 4000 28000 all_in 
+6666 0 0 2000 all_in 
+3333 7900 8000 100 blind 
+4444 15950 2000 50 blind 
+total pot: 38150 
+/inquire 
+recv from player 4444: all_in
+
+-328>
+player 4444 action all_in
+-329>
+player 4444 bet 16000 rest 0
+-330>
+pot num 54100 current bet 28000 least raise 26000send inquire msg to player 3333 
+inquire/ 
+4444 0 2000 16000 all_in 
+1111 0 0 2000 all_in 
+5555 0 0 2000 all_in 
+8888 0 4000 2000 all_in 
+7777 0 0 2000 all_in 
+2222 0 4000 28000 all_in 
+6666 0 0 2000 all_in 
+3333 7900 8000 100 blind 
+total pot: 54100 
+/inquire 
+recv from player 3333: all_in 
+
+
+-331>
+player 3333 action all_in
+-332>
+player 3333 bet 8000 rest 0
+-333>
+pot num 62000 current bet 28000 least raise 26000flop/ 
+DIAMONDS 4 
+HEARTS 10 
+HEARTS J 
+/flop 
+
+-334>
+flop/ 
+DIAMONDS 4 
+HEARTS 10 
+HEARTS J 
+/flop 
+
+---flop round bet---
+valid player: 8, all in player: 8, fold player: 0
+turn/ 
+SPADES 2 
+/turn 
+
+-335>
+turn/ 
+SPADES 2 
+/turn 
+
+---turn round bet---
+valid player: 8, all in player: 8, fold player: 0
+river/ 
+SPADES K 
+/river 
+
+-336>
+river/ 
+SPADES K 
+/river 
+
+---river round bet---
+valid player: 8, all in player: 8, fold player: 0
+
+---show down---
+
+-337>
+player 4444 show down: HIGH_CARD [DIAMONDS 5] [CLUBS 6]
+-338>
+player 3333 show down: HIGH_CARD [DIAMONDS 7] [CLUBS A]
+-339>
+player 6666 show down: ONE_PAIR [SPADES J] [CLUBS Q]
+-340>
+player 2222 show down: ONE_PAIR [HEARTS A] [CLUBS 10]
+-341>
+player 7777 show down: TWO_PAIR [SPADES 4] [SPADES 10]
+-342>
+player 8888 show down: HIGH_CARD [DIAMONDS 9] [HEARTS 8]
+-343>
+player 5555 show down: HIGH_CARD [SPADES A] [CLUBS 8]
+-344>
+player 1111 show down: ONE_PAIR [CLUBS J] [SPADES 8]showdown/ 
+common/ 
+DIAMONDS 4 
+HEARTS 10 
+HEARTS J 
+SPADES 2 
+SPADES K 
+/common 
+8: 4444 DIAMONDS 5 CLUBS 6 HIGH_CARD 
+6: 3333 DIAMONDS 7 CLUBS A HIGH_CARD 
+2: 6666 SPADES J CLUBS Q ONE_PAIR 
+4: 2222 HEARTS A 333]handle:blind/
+[3333]handle:5555: 50
+[3333]handle:1111: 100
+[3333]handle:/blind
+[3333]handle:hold/
+[3333]handle:HEARTS 5
+[3333]handle:CLUBS 4
+[3333]handle:/hold
+[3333]handle:inquire/
+[3333]handle:4444 0 4000 2000 all_in
+[3333]handle:1111 1900 4000 100 blind
+[3333]handle:5555 1950 4000 50 blind
+[3333]handle:total pot: 2150
+[3333]handle:/inquire
+[3333]Action:all_in
+[3333]handle:flop/
+[3333]handle:SPADES J
+[3333]handle:HEARTS Q
+[3333]handle:CLUBS J
+[3333]handle:/flop
+[3333]handle:turn/
+[3333]handle:CLUBS K
+[3333]handle:/turn
+[3333]handle:river/
+[3333]handle:SPADES 5
+[3333]handle:/river
+[3333]handle:showdown/
+[3333]handle:common/
+[3333]handle:SPADES J
+[3333]handle:HEARTS Q
+[3333]handle:CLUBS J
+[3333]handle:CLUBS K
+[3333]handle:SPADES 5
+[3333]handle:/common
+[3333]handle:6: 5555 DIAMONDS 9 HEARTS 6 ONE_PAIR
+[3333]handle:3: 1111 DIAMONDS Q SPADES A TWO_PAIR
+[3333]handle:7: 4444 DIAMONDS 8 SPADES 3 ONE_PAIR
+[3333]handle:4: 3333 HEARTS 5 CLUBS 4 TWO_PAIR
+[3333]handle:6: 6666 HEARTS 9 SPADES 6 ONE_PAIR
+[3333]handle:1: 2222 HEARTS J DIAMONDS A THREE_OF_A_KIND
+[3333]handle:2: 7777 SPADES 10 HEARTS K TWO_PAIR
+[3333]handle:5: 8888 CLUBS A DIAMONDS 4 ONE_PAIR
+[3333]handle:/showdown
+[3333]handle:pot-win/
+[3333]handle:2222: 16000
+[3333]handle:3333: 24000
+[3333]handle:8888: 2000
+[3333]handle:/pot-win
+[3333]handle:seat/
+[3333]handle seat
+[3333]handle:button: 5555 2000 2000
+[3333]pid:5555,jetton:2000,monney:2000
+[3333]handle:small blind: 1111 2000 2000
+[3333]handle:big blind: 4444 2000 2000
+[3333]pid:4444,jetton:2000,monney:2000
+[3333]handle:3333 24000 8000
+[3333]handle:6666 2000 2000
+[3333]pid:6666,jetton:2000,monney:2000
+[3333]handle:2222 16000 4000
+[3333]handle:7777 2000 2000
+[3333]pid:7777,jetton:2000,monney:2000
+[3333]handle:8888 2000 6000
+[3333]handle:/seat
+[3333]handle:blind/
+[3333]handle:1111: 50
+[3333]handle:4444: 100
+[3333]handle:/blind
+[3333]handle:hold/
+[3333]handle:DIAMONDS K
+[3333]handle:SPADES Q
+[3333]handle:/hold
+[3333]handle:inquire/
+[3333]handle:4444 1900 2000 100 blind
+[3333]handle:1111 1950 2000 50 blind
+[3333]handle:total pot: 150
+[3333]handle:/inquire
+[3333]Action:all_in
+[3333]handle:flop/
+[3333]handle:SPADES 8
+[3333]handle:CLUBS 6
+[3333]handle:CLUBS Q
+[3333]handle:/flop
+[3333]handle:turn/
+[3333]handle:DIAMONDS 7
+[3333]handle:/turn
+[3333]handle:river/
+[3333]handle:SPADES A
+[3333]handle:/river
+[3333]handle:showdown/
+[3333]handle:common/
+[3333]handle:SPADES 8
+[3333]handle:CLUBS 6
+[3333]handle:CLUBS Q
+[3333]handle:DIAMONDS 7
+[3333]handle:SPADES A
+[3333]handle:/common
+[3333]handle:8: 1111 CLUBS 4 HEARTS 9 HIGH_CARD
+[3333]handle:1: 4444 HEARTS 5 HEARTS 4 STRAIGHT
+[3333]handle:5: 3333 DIAMONDS K SPADES Q ONE_PAIR
+[3333]handle:2: 6666 HEARTS 7 CLUBS 8 TWO_PAIR
+[3333]handle:3: 2222 CLUBS A HEARTS 10 ONE_PAIR
+[3333]handle:4: 7777 DIAMONDS 2 HEARTS A ONE_PAIR
+[3333]handle:6: 8888 HEARTS Q SPADES 5 ONE_PAIR
+[3333]handle:7: 5555 SPADES K HEARTS 3 HIGH_CARD
+[3333]handle:/showdown
+[3333]handle:pot-win/
+[3333]handle:4444: 16000
+[3333]handle:2222: 28000
+[3333]handle:3333: 8000
+[3333]handle:/pot-win
+[3333]handle:seat/
+[3333]handle seat
+[3333]handle:button: 1111 2000 0
+[3333]pid:1111,jetton:2000,monney:0
+[3333]handle:small blind: 4444 16000 2000
+[3333]handle:big blind: 3333 8000 8000
+[3333]pid:3333,jetton:8000,monney:8000
+[3333]handle:6666 2000 0
+[3333]handle:2222 28000 4000
+[3333]pid:2222,jetton:28000,monney:4000
+[3333]handle:7777 2000 0
+[3333]handle:8888 2000 4000
+[3333]pid:8888,jetton:2000,monney:4000
+[3333]handle:5555 2000 0
+[3333]handle:/seat
+[3333]handle:blind/
+[3333]handle:4444: 50
+[3333]handle:3333: 100
+[3333]handle:/blind
+[3333]handle:hold/
+[3333]handle:DIAMONDS 7
+[3333]handle:CLUBS A
+[3333]handle:/hold
+[3333]handle:inquire/
+[3333]handle:4444 0 2000 16000 all_in
+[3333]handle:1111 0 0 2000 all_in
+[3333]handle:5555 0 0 2000 all_in
+[3333]handle:8888 0 4000 2000 all_in
+[3333]handle:7777 0 0 2000 all_in
+[3333]handle:2222 0 4000 28000 all_in
+[3333]handle:6666 0 0 2000 all_in
+[3333]handle:3333 7900 8000 100 blind
+[3333]handle:total pot: 54100
+[3333]handle:/inquire
+[3333]Action:all_in
+[3333]handle:flop/
+[3333]handle:DIAMONDS 4
+[3333,jetton:2000,monney:4000
+[6666]handle:7777 2000 4000
+[6666]handle:/seat
+[6666]handle:blind/
+[6666]handle:5555: 50
+[6666]handle:1111: 100
+[6666]handle:/blind
+[6666]handle:hold/
+[6666]handle:HEARTS 9
+[6666]handle:SPADES 6
+[6666]handle:/hold
+[6666]handle:inquire/
+[6666]handle:3333 0 8000 14000 all_in
+[6666]handle:4444 0 4000 2000 all_in
+[6666]handle:1111 1900 4000 100 blind
+[6666]handle:5555 1950 4000 50 blind
+[6666]handle:total pot: 16150
+[6666]handle:/inquire
+[6666]Action:all_in
+[6666]handle:flop/
+[6666]handle:SPADES J
+[6666]handle:HEARTS Q
+[6666]handle:CLUBS J
+[6666]handle:/flop
+[6666]handle:turn/
+[6666]handle:CLUBS K
+[6666]handle:/turn
+[6666]handle:river/
+[6666]handle:SPADES 5
+[6666]handle:/river
+[6666]handle:showdown/
+[6666]handle:common/
+[6666]handle:SPADES J
+[6666]handle:HEARTS Q
+[6666]handle:CLUBS J
+[6666]handle:CLUBS K
+[6666]handle:SPADES 5
+[6666]handle:/common
+[6666]handle:6: 5555 DIAMONDS 9 HEARTS 6 ONE_PAIR
+[6666]handle:3: 1111 DIAMONDS Q SPADES A TWO_PAIR
+[6666]handle:7: 4444 DIAMONDS 8 SPADES 3 ONE_PAIR
+[6666]handle:4: 3333 HEARTS 5 CLUBS 4 TWO_PAIR
+[6666]handle:6: 6666 HEARTS 9 SPADES 6 ONE_PAIR
+[6666]handle:1: 2222 HEARTS J DIAMONDS A THREE_OF_A_KIND
+[6666]handle:2: 7777 SPADES 10 HEARTS K TWO_PAIR
+[6666]handle:5: 8888 CLUBS A DIAMONDS 4 ONE_PAIR
+[6666]handle:/showdown
+[6666]handle:pot-win/
+[6666]handle:2222: 16000
+[6666]handle:3333: 24000
+[6666]handle:8888: 2000
+[6666]handle:/pot-win
+[6666]handle:seat/
+[6666]handle seat
+[6666]handle:button: 5555 2000 2000
+[6666]pid:5555,jetton:2000,monney:2000
+[6666]handle:small blind: 1111 2000 2000
+[6666]handle:big blind: 4444 2000 2000
+[6666]pid:4444,jetton:2000,monney:2000
+[6666]handle:3333 24000 8000
+[6666]handle:6666 2000 2000
+[6666]pid:6666,jetton:2000,monney:2000
+[6666]handle:2222 16000 4000
+[6666]handle:7777 2000 2000
+[6666]pid:7777,jetton:2000,monney:2000
+[6666]handle:8888 2000 6000
+[6666]handle:/seat
+[6666]handle:blind/
+[6666]handle:1111: 50
+[6666]handle:4444: 100
+[6666]handle:/blind
+[6666]handle:hold/
+[6666]handle:HEARTS 7
+[6666]handle:CLUBS 8
+[6666]handle:/hold
+[6666]handle:inquire/
+[6666]handle:3333 0 8000 24000 all_in
+[6666]handle:4444 1900 2000 100 blind
+[6666]handle:1111 1950 2000 50 blind
+[6666]handle:total pot: 24150
+[6666]handle:/inquire
+[6666]Action:all_in
+[6666]handle:flop/
+[6666]handle:SPADES 8
+[6666]handle:CLUBS 6
+[6666]handle:CLUBS Q
+[6666]handle:/flop
+[6666]handle:turn/
+[6666]handle:DIAMONDS 7
+[6666]handle:/turn
+[6666]handle:river/
+[6666]handle:SPADES A
+[6666]handle:/river
+[6666]handle:showdown/
+[6666]handle:common/
+[6666]handle:SPADES 8
+[6666]handle:CLUBS 6
+[6666]handle:CLUBS Q
+[6666]handle:DIAMONDS 7
+[6666]handle:SPADES A
+[6666]handle:/common
+[6666]handle:8: 1111 CLUBS 4 HEARTS 9 HIGH_CARD
+[6666]handle:1: 4444 HEARTS 5 HEARTS 4 STRAIGHT
+[6666]handle:5: 3333 DIAMONDS K SPADES Q ONE_PAIR
+[6666]handle:2: 6666 HEARTS 7 CLUBS 8 TWO_PAIR
+[6666]handle:3: 2222 CLUBS A HEARTS 10 ONE_PAIR
+[6666]handle:4: 7777 DIAMONDS 2 HEARTS A ONE_PAIR
+[6666]handle:6: 8888 HEARTS Q SPADES 5 ONE_PAIR
+[6666]handle:7: 5555 SPADES K HEARTS 3 HIGH_CARD
+[6666]handle:/showdown
+[6666]handle:pot-win/
+[6666]handle:4444: 16000
+[6666]handle:2222: 28000
+[6666]handle:3333: 8000
+[6666]handle:/pot-win
+[6666]handle:seat/
+[6666]handle seat
+[6666]handle:button: 1111 2000 0
+[6666]pid:1111,jetton:2000,monney:0
+[6666]handle:small blind: 4444 16000 2000
+[6666]handle:big blind: 3333 8000 8000
+[6666]pid:3333,jetton:8000,monney:8000
+[6666]handle:6666 2000 0
+[6666]handle:2222 28000 4000
+[6666]pid:2222,jetton:28000,monney:4000
+[6666]handle:7777 2000 0
+[6666]handle:8888 2000 4000
+[6666]pid:8888,jetton:2000,monney:4000
+[6666]handle:5555 2000 0
+[6666]handle:/seat
+[6666]handle:blind/
+[6666]handle:4444: 50
+[6666]handle:3333: 100
+[6666]handle:/blind
+[6666]handle:hold/
+[6666]handle:SPADES J
+[6666]handle:CLUBS Q
+[6666]handle:/hold
+[6666]handle:inquire/
+[6666]handle:3333 7900 8000 100 blind
+[6666]handle:4444 15950 2000 50 blind
+[6666]handle:total pot: 150
+[6666]handle:/inquire
+[6666]Action:all_in
+[6666]handle:flop/
+[6666]handle:DIAMONDS 4
+[6666]handle:HEARTS 10
+[6666]handle:HEARTS J
+[6666]handle:/flop
+[6666CLUBS 10 ONE_PAIR 
+1: 7777 SPADES 4 SPADES 10 TWO_PAIR 
+7: 8888 DIAMONDS 9 HEARTS 8 HIGH_CARD 
+5: 5555 SPADES A CLUBS 8 HIGH_CARD 
+3: 1111 CLUBS J SPADES 8 ONE_PAIR 
+/showdown 
+
+---Allocate pot---
+
+-345>
+player 7777 win pot: 16000
+-346>
+player 2222 win pot: 46000pot-win/ 
+7777: 16000 
+2222: 46000 
+/pot-win 
+
+-347>
+score of 4444: 5 2000 0 0
+-348>
+score of 3333: 5 8000 0 0
+-349>
+score of 6666: 5 0 0 0
+-350>
+score of 2222: 5 4000 46000 0
+-351>
+score of 7777: 5 0 16000 0
+-352>
+score of 8888: 5 4000 0 0
+-353>
+score of 5555: 5 0 0 0
+-354>
+score of 1111: 5 0 0 0it is player 4444's turn to be button
+
+-----6 Hand-----
+
+----- clean player data in socket -----
+find residue data from player 4444:  
+
+
+-355>
+game(id=replay) new hand 6 start...seat/ 
+button: 4444 2000 0 
+small blind: 3333 2000 6000 
+big blind: 2222 46000 4000 
+7777 16000 0 
+8888 2000 2000 
+/seat 
+
+-356>
+seat/ 
+button: 4444 2000 0 
+small blind: 3333 2000 6000 
+big blind: 2222 46000 4000 
+7777 16000 0 
+8888 2000 2000 
+/seat 
+
+-357>
+score of 3333: 6 6000 2000 0
+-358>
+score of 2222: 6 4000 46000 0
+-359>
+score of 7777: 6 0 16000 0
+-360>
+score of 8888: 6 2000 2000 0
+-361>
+score of 4444: 6 0 2000 0
+-362>
+player 3333 action blind
+-363>
+player 3333 bet 50 rest 1950
+-364>
+pot num 50 current bet 50 least raise 100
+-365>
+player 2222 action blind
+-366>
+player 2222 bet 100 rest 45900
+-367>
+pot num 150 current bet 100 least raise 100blind/ 
+3333: 50 
+2222: 100 
+/blind 
+
+-368>
+player 3333:hold/ 
+SPADES K 
+SPADES 3 
+/hold 
+player 3333:hold/ 
+SPADES K 
+SPADES 3 
+/hold 
+
+-369>
+player 2222:hold/ 
+SPADES 6 
+HEARTS 7 
+/hold 
+player 2222:hold/ 
+SPADES 6 
+HEARTS 7 
+/hold 
+
+-370>
+player 7777:hold/ 
+HEARTS K 
+DIAMONDS 3 
+/hold 
+player 7777:hold/ 
+HEARTS K 
+DIAMONDS 3 
+/hold 
+
+-371>
+player 8888:hold/ 
+DIAMONDS 6 
+HEARTS 5 
+/hold 
+player 8888:hold/ 
+DIAMONDS 6 
+HEARTS 5 
+/hold 
+
+-372>
+player 4444:hold/ 
+HEARTS J 
+CLUBS 4 
+/hold 
+player 4444:hold/ 
+HEARTS J 
+CLUBS 4 
+/hold 
+
+---pre flop round bet---
+valid player: 5, all in player: 0, fold player: 0
+send inquire msg to player 7777 
+inquire/ 
+2222 45900 4000 100 blind 
+3333 1950 6000 50 blind 
+total pot: 150 
+/inquire 
+fail to check msg from player 7777(ret:-1, err: 0) for 1 times
+
+-373>
+player 7777 action fold
+-374>
+player 7777 time outsend inquire msg to player 8888 
+inquire/ 
+7777 16000 0 0 fold 
+2222 45900 4000 100 blind 
+3333 1950 6000 50 blind 
+total pot: 150 
+/inquire 
+fail to check msg from player 8888(ret:-1, err: 0) for 1 times
+
+-375>
+player 8888 action fold
+-376>
+player 8888 time outsend inquire msg to player 4444 
+inquire/ 
+8888 2000 2000 0 fold 
+7777 16000 0 0 fold 
+2222 45900 4000 100 blind 
+3333 1950 6000 50 blind 
+total pot: 150 
+/inquire 
+fail to check msg from player 4444(ret:-1, err: 0) for 1 times
+
+-377>
+player 4444 action fold
+-378>
+player 4444 time outsend inquire msg to player 3333 
+inquire/ 
+4444 2000 0 0 fold 
+8888 2000 2000 0 fold 
+7777 16000 0 0 fold 
+2222 45900 4000 100 blind 
+3333 1950 6000 50 blind 
+total pot: 150 
+/inquire 
+fail to check msg from player 3333(ret:-1, err: 0) for 1 times
+
+-379>
+player 3333 action fold
+-380>
+player 3333 time outsend inquire msg to player 2222 
+inquire/ 
+3333 1950 6000 50 fold 
+4444 2000 0 0 fold 
+8888 2000 2000 0 fold 
+7777 16000 0 0 fold 
+2222 45900 4000 100 blind 
+total pot: 150 
+/inquire 
+fail to check msg from player 2222(ret:-1, err: 0) for 1 times
+
+-381>
+player 2222 action fold
+-382>
+player 2222 time out
+---flop round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+---turn round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+---river round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+--- 0 players not fold, don't need show down---
+
+---Allocate pot---
+pot-win/ 
+/pot-win 
+
+-383>
+score of 3333: 6 6000 1950 0
+-384>
+score of 2222: 6 4000 45900 0
+-385>
+score of 7777: 6 0 16000 0
+-386>
+score of 8888: 6 2000 2000 0
+-387>
+score of 4444: 6 0 2000 0it is player 3333's turn to be button
+
+-----7 Hand-----
+
+----- clean player data in socket -----
+
+-388>
+game(id=replay) new hand 7 start...seat/ 
+button: 3333 1950 6000 
+small blind: 2222 45900 4000 
+big blind: 7777 16000 0 
+8888 2000 2000 
+4444 2000 0 
+/seat 
+
+-389>
+seat/ 
+button: 3333 1950 6000 
+small blind: 2222 45900 4000 
+big blind: 7777 16000 0 
+8888 2000 2000 
+4444 2000 0 
+/seat 
+
+-390>
+score of 2222: 7 4000 45900 0
+-391>
+score of 7777: 7 0 16000 0
+-392>
+score of 8888: 7 2000 2000 0
+-393>
+score of 4444: 7 0 2000 0
+-394>
+score of 3333: 7 6000 1950 0
+-395>
+player 2222 action blind
+-396>
+player 2222 bet 50 rest 45850
+-397>
+pot num 50 current bet 50 least raise 100
+-398>
+player 7777 action blind
+-399>
+player 7777 bet 100 rest 15900
+-400>
+pot num 150 current bet 100 least raise 100blind/ 
+2222: 50 
+7777: 100 
+/blind 
+
+-401>
+player 2222:hold/ 
+HEARTS K 
+HEARTS Q 
+/hold 
+player 2222:hold/ 
+HEARTS K 
+HEARTS Q 
+/hold 
+
+-402>
+player 7777:hold/ 
+CLUBS K 
+DIAMONDS 7 
+/hold 
+player 7777:hold/ 
+CLUBS K 
+DIAMONDS 7 
+/hold 
+
+-403>
+player 8888:hold/ 
+DIAMONDS J 
+SPADES 5 
+/hold 
+player 8888:hold/ 
+DIAMONDS J 
+SPADES 5 
+/hold 
+
+-404>
+player 4444:hold/ 
+DIAMONDS Q 
+CLUBS 4 
+/hold 
+player 4444:hold/ 
+DIAMONDS Q 
+CLUBS 4 
+/hold 
+
+-405>
+player 3333:hold/ 
+HEARTS 5 
+SPADES A 
+/hold 
+player 3333:hold/ 
+HEARTS 5 
+SPADES A 
+/hold 
+
+---pre flop round bet---
+valid player: 5, all in player: 0, fold player: 0
+send inquire msg to player 8888 
+inquire/ 
+7777 15900 0 100 blind 
+2222 45850 4000 50 blind 
+total pot: 150 
+/inquire 
+recv from player 8888: all_in 
+
+
+-406>
+player 8888 action all_in
+-407>
+player 8888 bet 2000 rest 0
+-408>
+pot num 2150 current bet 2000 least raise 1900send inquire msg to player 4444 
+inquire/ 
+8888 0 2000 2000 all_in 
+7777 15900 0 100 blind 
+2222 45850 4000 50 blind 
+total pot: 2150 
+/inquire 
+fail to check msg from player 4444(ret:-1, err: 0) for 2 times
+
+-409>
+player 4444 action fold
+-410>
+player 4444 time outsend inquire msg to player 3333 
+inquire/ 
+4444 2000 0 0 fold 
+8888 0 2000 2000 all_in 
+7777 15900 0 100 blind 
+2222 45850 4000 50 blind 
+total pot: 2150 
+/inquire 
+recv from player 3333: all_in
+
+-411>
+player 3333 action all_in
+-412>
+player 3333 bet 1950 rest 0
+-413>
+pot num 4100 current bet 2000 least raise 1900send inquire msg to player 2222 
+inquire/ 
+3333 0 6000 1950 all_in 
+4444 2000 0 0 fold 
+8888 0 2000 2000 all_in 
+7777 15900 0 100 blind 
+2222 45850 4000 50 blind 
+total pot: 4100 
+/inquire 
+recv from player 2222: all_in 
+
+
+-414>
+player 2222 action all_in
+-415>
+player 2222 bet 45900 rest 0
+-416>
+pot num 49950 current bet 45900 least raise 43900send inquire msg to player 7777 
+inquire/ 
+2222 0 4000 45900 all_in 
+3333 0 6000 1950 all_in 
+4444 2000 0 0 fold 
+8888 0 2000 2000 all_in 
+7777 15900 0 100 blind 
+total pot: 49950 
+/inquire 
+fail to check msg from player 7777(ret:-1, err: 0) for 2 times
+
+-417>
+player 7777 action fold
+-418>
+player 7777 time outflop/ 
+HEARTS J 
+DIAMONDS 4 
+DIAMONDS A 
+/flop 
+
+-419>
+flop/ 
+HEARTS J 
+DIAMONDS 4 
+DIAMONDS A 
+/flop 
+
+---flop round bet---
+valid player: 5, all in player: 3, fold player: 2
+turn/ 
+SPADES J 
+/turn 
+
+-420>
+turn/ 
+SPADES J 
+/turn 
+
+---turn round bet---
+valid player: 5, all in player: 3, fold player: 2
+river/ 
+SPADES K 
+/river 
+
+-421>
+river/ 
+SPADES K 
+/river 
+
+---river round bet---
+valid player: 5, all in player: 3, fold player: 2
+
+---show down---
+
+-422>
+player 2222 show down: TWO_PAIR [HEARTS K] [HEARTS Q]
+-423>
+player 8888 show down: THREE_OF_A_KIND [DIAMONDS J] [SPADES 5]
+-424>
+player 3333 show down: TWO_PAIR [HEARTS 5] [SPADES A]showdown/ 
+common/ 
+HEARTS J 
+DIAMONDS 4 
+DIAMONDS A 
+SPADES J 
+SPADES K 
+/common 
+3: 2222 HEARTS K HEARTS Q TWO_PAIR 
+1: 8888 DIAMONDS J SPADES 5 THREE_OF_A_KIND 
+2: 3333 HEARTS 5 SPADES A TWO_PAIR 
+/showdown 
+
+---Allocate pot---
+
+-425>
+player 8888 win pot: 6050
+-426>
+player 2222 win pot: 43900pot-win/ 
+8888: 6050 
+2222: 43900 
+/pot-win 
+
+-427>
+score of 2222: 7 4000 43900 0
+-428>
+score of 7777: 7 0 15900 0
+-429>
+score of 8888: 7 2000 6050 0
+-430>
+score of 4444: 7 0 2000 0
+-431>
+score of 3333: 7 6000 0 0it is player 2222's turn to be button
+
+-----8 Hand-----
+
+----- clean player data in socket -----
+find residue data from player 3333:  
+
+
+-432>
+game(id=replay) new hand 8 start...seat/ 
+button: 2222 43900 4000 
+small blind: 7777 15900 0 
+big blind:S 10
+[7777]handle:/hold
+[7777]handle:inquire/
+[7777]handle:2222 0 4000 28000 all_in
+[7777]handle:6666 0 0 2000 all_in
+[7777]handle:3333 7900 8000 100 blind
+[7777]handle:4444 15950 2000 50 blind
+[7777]handle:total pot: 30150
+[7777]handle:/inquire
+[7777]Action:all_in
+[7777]handle:flop/
+[7777]handle:DIAMONDS 4
+[7777]handle:HEARTS 10
+[7777]handle:HEARTS J
+[7777]handle:/flop
+[7777]handle:turn/
+[7777]handle:SPADES 2
+[7777]handle:/turn
+[7777]handle:river/
+[7777]handle:SPADES K
+[7777]handle:/river
+[7777]handle:showdown/
+[7777]handle:common/
+[7777]handle:DIAMONDS 4
+[7777]handle:HEARTS 10
+[7777]handle:HEARTS J
+[7777]handle:SPADES 2
+[7777]handle:SPADES K
+[7777]handle:/common
+[7777]handle:8: 4444 DIAMONDS 5 CLUBS 6 HIGH_CARD
+[7777]handle:6: 3333 DIAMONDS 7 CLUBS A HIGH_CARD
+[7777]handle:2: 6666 SPADES J CLUBS Q ONE_PAIR
+[7777]handle:4: 2222 HEARTS A CLUBS 10 ONE_PAIR
+[7777]handle:1: 7777 SPADES 4 SPADES 10 TWO_PAIR
+[7777]handle:7: 8888 DIAMONDS 9 HEARTS 8 HIGH_CARD
+[7777]handle:5: 5555 SPADES A CLUBS 8 HIGH_CARD
+[7777]handle:3: 1111 CLUBS J SPADES 8 ONE_PAIR
+[7777]handle:/showdown
+[7777]handle:pot-win/
+[7777]handle:7777: 16000
+[7777]handle:2222: 46000
+[7777]handle:/pot-win
+[7777]handle:seat/
+[7777]handle seat
+[7777]handle:button: 4444 2000 0
+[7777]pid:4444,jetton:2000,monney:0
+[7777]handle:small blind: 3333 2000 6000
+[7777]handle:big blind: 2222 46000 4000
+[7777]pid:2222,jetton:46000,monney:4000
+[7777]handle:7777 16000 0
+[7777]handle:8888 2000 2000
+[7777]pid:8888,jetton:2000,monney:2000
+[7777]handle:/seat
+[7777]handle:blind/
+[7777]pid:8888,jetton:2000,monney:2000
+[7777]handle:3333: 50
+[7777]handle:2222: 100
+[7777]pid:100,jetton:2000,monney:2000
+[7777]handle:/blind
+[7777]handle:hold/
+[7777]pid:100,jetton:2000,monney:2000
+[7777]handle:HEARTS K
+[7777]handle:DIAMONDS 3
+[7777]pid:100,jetton:2000,monney:2000
+[7777]handle:/hold
+[7777]handle:inquire/
+[7777]pid:100,jetton:2000,monney:2000
+[7777]handle:2222 45900 4000 100 blind
+[7777]handle:3333 1950 6000 50 blind
+[7777]pid:3333,jetton:1950,monney:6000
+[7777]handle:total pot: 150
+[7777]handle:/inquire
+[7777]pid:3333,jetton:1950,monney:6000
+[7777]handle:pot-win/
+[7777]handle:/pot-win
+[7777]pid:3333,jetton:1950,monney:6000
+[7777]handle:seat/
+[7777]handle:button: 3333 1950 6000
+[7777]pid:3333,jetton:1950,monney:6000
+[7777]handle:small blind: 2222 45900 4000
+[7777]handle:big blind: 7777 16000 0
+[7777]pid:7777,jetton:16000,monney:0
+[7777]handle:8888 2000 2000
+[7777]handle:4444 2000 0
+[7777]pid:4444,jetton:2000,monney:0
+[7777]handle:/seat
+[7777]handle:blind/
+[7777]pid:4444,jetton:2000,monney:0
+[7777]handle:2222: 50
+[7777]handle:7777: 100
+[7777]pid:100,jetton:2000,monney:0
+[7777]handle:/blind
+[7777]handle:hold/
+[7777]pid:100,jetton:2000,monney:0
+[7777]handle:CLUBS K
+[7777]handle:DIAMONDS 7
+[7777]pid:100,jetton:2000,monney:0
+[7777]handle:/hold
+[7777]handle:inquire/
+[7777]pid:100,jetton:2000,monney:0
+[7777]handle:2222 0 4000 45900 all_in
+[7777]handle:3333 0 6000 1950 all_in
+[7777]pid:3333,jetton:0,monney:6000
+[7777]handle:4444 2000 0 0 fold
+[7777]handle:8888 0 2000 2000 all_in
+[7777]pid:8888,jetton:0,monney:2000
+[7777]handle:7777 15900 0 100 blind
+[7777]handle:total pot: 49950
+[7777]pid:49950,jetton:0,monney:2000
+[7777]handle:/inquire
+[7777]handle:flop/
+[7777]pid:49950,jetton:0,monney:2000
+[7777]handle:HEARTS J
+[7777]handle:DIAMONDS 4
+[7777]pid:49950,jetton:0,monney:2000
+[7777]handle:DIAMONDS A
+[7777]handle:/flop
+[7777]pid:49950,jetton:0,monney:2000
+[7777]handle:turn/
+[7777]handle:SPADES J
+[7777]pid:49950,jetton:0,monney:2000
+[7777]handle:/turn
+[7777]handle:river/
+[7777]pid:49950,jetton:0,monney:2000
+[7777]handle:SPADES K
+[7777]handle:/river
+[7777]pid:49950,jetton:0,monney:2000
+[7777]handle:showdown/
+[7777]handle:common/
+[7777]pid:49950,jetton:0,monney:2000
+[7777]handle:HEARTS J
+[7777]handle:DIAMONDS 4
+[7777]pid:49950,jetton:0,monney:2000
+[7777]handle:DIAMONDS A
+[7777]handle:SPADES J
+[7777]pid:49950,jetton:0,monney:2000
+[7777]handle:SPADES K
+[7777]handle:/common
+[7777]pid:49950,jetton:0,monney:2000
+[7777]handle:3: 2222 HEARTS K HEARTS Q TWO_PAIR
+[7777]handle:1: 8888 DIAMONDS J SPADES 5 THREE_OF_A_KINDhandle:total pot: 38150
+[4444]handle:/inquire
+[4444]Action:all_in
+[4444]handle:flop/
+[4444]handle:DIAMONDS 4
+[4444]handle:HEARTS 10
+[4444]handle:HEARTS J
+[4444]handle:/flop
+[4444]handle:turn/
+[4444]handle:SPADES 2
+[4444]handle:/turn
+[4444]handle:river/
+[4444]handle:SPADES K
+[4444]handle:/river
+[4444]handle:showdown/
+[4444]handle:common/
+[4444]handle:DIAMONDS 4
+[4444]handle:HEARTS 10
+[4444]handle:HEARTS J
+[4444]handle:SPADES 2
+[4444]handle:SPADES K
+[4444]handle:/common
+[4444]handle:8: 4444 DIAMONDS 5 CLUBS 6 HIGH_CARD
+[4444]handle:6: 3333 DIAMONDS 7 CLUBS A HIGH_CARD
+[4444]handle:2: 6666 SPADES J CLUBS Q ONE_PAIR
+[4444]handle:4: 2222 HEARTS A CLUBS 10 ONE_PAIR
+[4444]handle:1: 7777 SPADES 4 SPADES 10 TWO_PAIR
+[4444]handle:7: 8888 DIAMONDS 9 HEARTS 8 HIGH_CARD
+[4444]handle:5: 5555 SPADES A CLUBS 8 HIGH_CARD
+[4444]handle:3: 1111 CLUBS J SPADES 8 ONE_PAIR
+[4444]handle:/showdown
+[4444]handle:pot-win/
+[4444]handle:7777: 16000
+[4444]handle:2222: 46000
+[4444]handle:/pot-win
+[4444]handle:seat/
+[4444]handle seat
+[4444]handle:button: 4444 2000 0
+[4444]pid:4444,jetton:2000,monney:0
+[4444]handle:small blind: 3333 2000 6000
+[4444]handle:big blind: 2222 46000 4000
+[4444]pid:2222,jetton:46000,monney:4000
+[4444]handle:7777 16000 0
+[4444]handle:8888 2000 2000
+[4444]pid:8888,jetton:2000,monney:2000
+[4444]handle:/seat
+[4444]handle:blind/
+[4444]pid:8888,jetton:2000,monney:2000
+[4444]handle:3333: 50
+[4444]handle:2222: 100
+[4444]pid:100,jetton:2000,monney:2000
+[4444]handle:/blind
+[4444]handle:hold/
+[4444]pid:100,jetton:2000,monney:2000
+[4444]handle:HEARTS J
+[4444]handle:CLUBS 4
+[4444]pid:100,jetton:2000,monney:2000
+[4444]handle:/hold
+[4444]handle:inquire/
+[4444]pid:100,jetton:2000,monney:2000
+[4444]handle:8888 2000 2000 0 fold
+[4444]handle:7777 16000 0 0 fold
+[4444]pid:7777,jetton:16000,monney:0
+[4444]handle:2222 45900 4000 100 blind
+[4444]handle:3333 1950 6000 50 blind
+[4444]pid:3333,jetton:1950,monney:6000
+[4444]handle:total pot: 150
+[4444]handle:/inquire
+[4444]pid:3333,jetton:1950,monney:6000
+[4444]handle:pot-win/
+[4444]handle:/pot-win
+[4444]pid:3333,jetton:1950,monney:6000
+[4444]handle:seat/
+[4444]handle:button: 3333 1950 6000
+[4444]pid:3333,jetton:1950,monney:6000
+[4444]handle:small blind: 2222 45900 4000
+[4444]handle:big blind: 7777 16000 0
+[4444]pid:7777,jetton:16000,monney:0
+[4444]handle:8888 2000 2000
+[4444]handle:4444 2000 0
+[4444]pid:4444,jetton:2000,monney:0
+[4444]handle:/seat
+[4444]handle:blind/
+[4444]pid:4444,jetton:2000,monney:0
+[4444]handle:2222: 50
+[4444]handle:7777: 100
+[4444]pid:100,jetton:2000,monney:0
+[4444]handle:/blind
+[4444]handle:hold/
+[4444]pid:100,jetton:2000,monney:0
+[4444]handle:DIAMONDS Q
+[4444]handle:CLUBS 4
+[4444]pid:100,jetton:2000,monney:0
+[4444]handle:/hold
+[4444]handle:inquire/
+[4444]pid:100,jetton:2000,monney:0
+[4444]handle:8888 0 2000 2000 all_in
+[4444]handle:7777 15900 0 100 blind
+[4444]pid:7777,jetton:15900,monney:0
+[4444]handle:2222 45850 4000 50 blind
+[4444]handle:total pot: 2150
+[4444]pid:2150,jetton:15900,monney:0
+[4444]handle:/inquire
+[4444]handle:flop/
+[4444]pid:2150,jetton:15900,monney:0
+[4444]handle:HEARTS J
+[4444]handle:DIAMONDS 4
+[4444]pid:2150,jetton:15900,monney:0
+[4444]handle:DIAMONDS A
+[4444]handle:/flop
+[4444]pid:2150,jetton:15900,monney:0
+[4444]handle:turn/
+[4444]handle:SPADES J
+[4444]pid:2150,jetton:15900,monney:0
+[4444]handle:/turn
+[4444]handle:river/
+[4444]pid:2150,jetton:15900,monney:0
+[4444]handle:SPADES K
+[4444]handle:/river
+[4444]pid:2150,jetton:15900,monney:0
+[4444]handle:showdown/
+[4444]handle:common/
+[4444]pid:2150,jetton:15900,monney:0
+[4444]handle:HEARTS J
+[4444]handle:DIAMONDS 4
+[4444]pid:2150,jetton:15900,monney:0
+[4444]handle:DIAMONDS A
+[4444]handle:SPADES J
+[4444]pid:2150,jetton:15900,monney:0
+[4444]handle:SPADES K
+[4444]handle:/common
+[4444]pid:2150,jetton:15900,monney:0
+[4444]handle:3: 2222 HEARTS K HEARTS Q TWO_PAIR
+[4444]handle:1: 8888 DIAMONDS J SPADES 5 THREE_OF_A_KIND
+[4444]pid:8888,jetton:15900,monney:0
+[4444]handle:2: 3333 HEARTS 5 SPADES A TWO_PAIR
+[4444]handle:/showdown
+[4444]pid:8888,jetton:15900,monney:0
+[4444]handle:pot-win/
+[4444]handle:8888: 6050
+[4444]pid:6: 50
+[8888]handle:3333: 100
+[8888]handle:/blind
+[8888]handle:hold/
+[8888]handle:DIAMONDS 9
+[8888]handle:HEARTS 8
+[8888]handle:/hold
+[8888]handle:inquire/
+[8888]handle:7777 0 0 2000 all_in
+[8888]handle:2222 0 4000 28000 all_in
+[8888]handle:6666 0 0 2000 all_in
+[8888]handle:3333 7900 8000 100 blind
+[8888]handle:4444 15950 2000 50 blind
+[8888]handle:total pot: 32150
+[8888]handle:/inquire
+[8888]Action:all_in
+[8888]handle:flop/
+[8888]handle:DIAMONDS 4
+[8888]handle:HEARTS 10
+[8888]handle:HEARTS J
+[8888]handle:/flop
+[8888]handle:turn/
+[8888]handle:SPADES 2
+[8888]handle:/turn
+[8888]handle:river/
+[8888]handle:SPADES K
+[8888]handle:/river
+[8888]handle:showdown/
+[8888]handle:common/
+[8888]handle:DIAMONDS 4
+[8888]handle:HEARTS 10
+[8888]handle:HEARTS J
+[8888]handle:SPADES 2
+[8888]handle:SPADES K
+[8888]handle:/common
+[8888]handle:8: 4444 DIAMONDS 5 CLUBS 6 HIGH_CARD
+[8888]handle:6: 3333 DIAMONDS 7 CLUBS A HIGH_CARD
+[8888]handle:2: 6666 SPADES J CLUBS Q ONE_PAIR
+[8888]handle:4: 2222 HEARTS A CLUBS 10 ONE_PAIR
+[8888]handle:1: 7777 SPADES 4 SPADES 10 TWO_PAIR
+[8888]handle:7: 8888 DIAMONDS 9 HEARTS 8 HIGH_CARD
+[8888]handle:5: 5555 SPADES A CLUBS 8 HIGH_CARD
+[8888]handle:3: 1111 CLUBS J SPADES 8 ONE_PAIR
+[8888]handle:/showdown
+[8888]handle:pot-win/
+[8888]handle:7777: 16000
+[8888]handle:2222: 46000
+[8888]handle:/pot-win
+[8888]handle:seat/
+[8888]handle seat
+[8888]handle:button: 4444 2000 0
+[8888]pid:4444,jetton:2000,monney:0
+[8888]handle:small blind: 3333 2000 6000
+[8888]handle:big blind: 2222 46000 4000
+[8888]pid:2222,jetton:46000,monney:4000
+[8888]handle:7777 16000 0
+[8888]handle:8888 2000 2000
+[8888]pid:8888,jetton:2000,monney:2000
+[8888]handle:/seat
+[8888]handle:blind/
+[8888]pid:8888,jetton:2000,monney:2000
+[8888]handle:3333: 50
+[8888]handle:2222: 100
+[8888]pid:100,jetton:2000,monney:2000
+[8888]handle:/blind
+[8888]handle:hold/
+[8888]pid:100,jetton:2000,monney:2000
+[8888]handle:DIAMONDS 6
+[8888]handle:HEARTS 5
+[8888]pid:100,jetton:2000,monney:2000
+[8888]handle:/hold
+[8888]handle:inquire/
+[8888]pid:100,jetton:2000,monney:2000
+[8888]handle:7777 16000 0 0 fold
+[8888]handle:2222 45900 4000 100 blind
+[8888]pid:2222,jetton:45900,monney:4000
+[8888]handle:3333 1950 6000 50 blind
+[8888]handle:total pot: 150
+[8888]pid:150,jetton:45900,monney:4000
+[8888]handle:/inquire
+[8888]handle:pot-win/
+[8888]pid:150,jetton:45900,monney:4000
+[8888]handle:/pot-win
+[8888]handle:seat/
+[8888]pid:150,jetton:45900,monney:4000
+[8888]handle:button: 3333 1950 6000
+[8888]handle:small blind: 2222 45900 4000
+[8888]pid:2222,jetton:45900,monney:4000
+[8888]handle:big blind: 7777 16000 0
+[8888]handle:8888 2000 2000
+[8888]pid:8888,jetton:2000,monney:2000
+[8888]handle:4444 2000 0
+[8888]handle:/seat
+[8888]handle:blind/
+[8888]handle:2222: 50
+[8888]handle:7777: 100
+[8888]handle:/blind
+[8888]handle:hold/
+[8888]handle:DIAMONDS J
+[8888]handle:SPADES 5
+[8888]handle:/hold
+[8888]handle:inquire/
+[8888]handle:7777 15900 0 100 blind
+[8888]handle:2222 45850 4000 50 blind
+[8888]handle:total pot: 150
+[8888]handle:/inquire
+[8888]Action:all_in
+[8888]handle:flop/
+[8888]handle:HEARTS J
+[8888]handle:DIAMONDS 4
+[8888]handle:DIAMONDS A
+[8888]handle:/flop
+[8888]handle:turn/
+[8888]handle:SPADES J
+[8888]handle:/turn
+[8888]handle:river/
+[8888]handle:SPADES K
+[8888]handle:/river
+[8888]handle:showdown/
+[8888]handle:common/
+[8888]handle:HEARTS J
+[8888]handle:DIAMONDS 4
+[8888]handle:DIAMONDS A
+[8888]handle:SPADES J
+[8888]handle:SPADES K
+[8888]handle:/common
+[8888]handle:3: 2222 HEARTS K HEARTS Q TWO_PAIR
+[8888]handle:1: 8888 DIAMONDS J SPADES 5 THREE_OF_A_KIND
+[8888]handle:2: 3333 HEARTS 5 SPADES A TWO_PAIR
+[8888]handle:/showdown
+[8888]handle:pot-win/
+[8888]handle:8888: 6050
+[8888]handle:2222: 43900
+[8888]handle:/pot-win
+[8888]handle:seat/
+[8888]handle seat
+[8888]handle:button: 2222 43900 4000
+[8888]pid:2222,jetton:43900,monney:4000
+[8888]handle:small blind: 7777 15900 0
+[8888]handle:big blind: 8888 6050 2000
+[8888]pid:8888,jetton:6050,monney:2000
+[8888]handle:4444 2000 0
+[8888]handle:3333 2000 4000
+[8888]pid:3333,jetton:2000,monney:4000
+[8888]handle:/seat
+[8888]handle:blind/
+[8888]pid:3333,jetton:2000,monney 50 blind
+[2222]handle:total pot: 2150
+[2222]handle:/inquire
+[2222]Action:all_in
+[2222]handle:flop/
+[2222]handle:DIAMONDS 4
+[2222]handle:HEARTS 10
+[2222]handle:HEARTS J
+[2222]handle:/flop
+[2222]handle:turn/
+[2222]handle:SPADES 2
+[2222]handle:/turn
+[2222]handle:river/
+[2222]handle:SPADES K
+[2222]handle:/river
+[2222]handle:showdown/
+[2222]handle:common/
+[2222]handle:DIAMONDS 4
+[2222]handle:HEARTS 10
+[2222]handle:HEARTS J
+[2222]handle:SPADES 2
+[2222]handle:SPADES K
+[2222]handle:/common
+[2222]handle:8: 4444 DIAMONDS 5 CLUBS 6 HIGH_CARD
+[2222]handle:6: 3333 DIAMONDS 7 CLUBS A HIGH_CARD
+[2222]handle:2: 6666 SPADES J CLUBS Q ONE_PAIR
+[2222]handle:4: 2222 HEARTS A CLUBS 10 ONE_PAIR
+[2222]handle:1: 7777 SPADES 4 SPADES 10 TWO_PAIR
+[2222]handle:7: 8888 DIAMONDS 9 HEARTS 8 HIGH_CARD
+[2222]handle:5: 5555 SPADES A CLUBS 8 HIGH_CARD
+[2222]handle:3: 1111 CLUBS J SPADES 8 ONE_PAIR
+[2222]handle:/showdown
+[2222]handle:pot-win/
+[2222]handle:7777: 16000
+[2222]handle:2222: 46000
+[2222]handle:/pot-win
+[2222]handle:seat/
+[2222]handle seat
+[2222]handle:button: 4444 2000 0
+[2222]pid:4444,jetton:2000,monney:0
+[2222]handle:small blind: 3333 2000 6000
+[2222]handle:big blind: 2222 46000 4000
+[2222]pid:2222,jetton:46000,monney:4000
+[2222]handle:7777 16000 0
+[2222]handle:8888 2000 2000
+[2222]pid:8888,jetton:2000,monney:2000
+[2222]handle:/seat
+[2222]handle:blind/
+[2222]pid:8888,jetton:2000,monney:2000
+[2222]handle:3333: 50
+[2222]handle:2222: 100
+[2222]pid:100,jetton:2000,monney:2000
+[2222]handle:/blind
+[2222]handle:hold/
+[2222]pid:100,jetton:2000,monney:2000
+[2222]handle:SPADES 6
+[2222]handle:HEARTS 7
+[2222]pid:100,jetton:2000,monney:2000
+[2222]handle:/hold
+[2222]handle:inquire/
+[2222]pid:100,jetton:2000,monney:2000
+[2222]handle:3333 1950 6000 50 fold
+[2222]handle:4444 2000 0 0 fold
+[2222]pid:4444,jetton:2000,monney:0
+[2222]handle:8888 2000 2000 0 fold
+[2222]handle:7777 16000 0 0 fold
+[2222]pid:7777,jetton:16000,monney:0
+[2222]handle:2222 45900 4000 100 blind
+[2222]handle:total pot: 150
+[2222]pid:150,jetton:16000,monney:0
+[2222]handle:/inquire
+[2222]handle:pot-win/
+[2222]pid:150,jetton:16000,monney:0
+[2222]handle:/pot-win
+[2222]handle:seat/
+[2222]pid:150,jetton:16000,monney:0
+[2222]handle:button: 3333 1950 6000
+[2222]handle:small blind: 2222 45900 4000
+[2222]pid:2222,jetton:45900,monney:4000
+[2222]handle:big blind: 7777 16000 0
+[2222]handle:8888 2000 2000
+[2222]pid:8888,jetton:2000,monney:2000
+[2222]handle:4444 2000 0
+[2222]handle:/seat
+[2222]handle:blind/
+[2222]handle:2222: 50
+[2222]handle:7777: 100
+[2222]handle:/blind
+[2222]handle:hold/
+[2222]handle:HEARTS K
+[2222]handle:HEARTS Q
+[2222]handle:/hold
+[2222]handle:inquire/
+[2222]handle:3333 0 6000 1950 all_in
+[2222]handle:4444 2000 0 0 fold
+[2222]handle:8888 0 2000 2000 all_in
+[2222]handle:7777 15900 0 100 blind
+[2222]handle:2222 45850 4000 50 blind
+[2222]handle:total pot: 4100
+[2222]handle:/inquire
+[2222]Action:all_in
+[2222]handle:flop/
+[2222]handle:HEARTS J
+[2222]handle:DIAMONDS 4
+[2222]handle:DIAMONDS A
+[2222]handle:/flop
+[2222]handle:turn/
+[2222]handle:SPADES J
+[2222]handle:/turn
+[2222]handle:river/
+[2222]handle:SPADES K
+[2222]handle:/river
+[2222]handle:showdown/
+[2222]handle:common/
+[2222]handle:HEARTS J
+[2222]handle:DIAMONDS 4
+[2222]handle:DIAMONDS A
+[2222]handle:SPADES J
+[2222]handle:SPADES K
+[2222]handle:/common
+[2222]handle:3: 2222 HEARTS K HEARTS Q TWO_PAIR
+[2222]handle:1: 8888 DIAMONDS J SPADES 5 THREE_OF_A_KIND
+[2222]handle:2: 3333 HEARTS 5 SPADES A TWO_PAIR
+[2222]handle:/showdown
+[2222]handle:pot-win/
+[2222]handle:8888: 6050
+[2222]handle:2222: 43900
+[2222]handle:/pot-win
+[2222]handle:seat/
+[2222]handle seat
+[2222]handle:button: 2222 43900 4000
+[2222]pid:2222,jetton:43900,monney:4000
+[2222]handle:small blind: 7777 15900 0
+[2222]handle:big blind: 8888 6050 2000
+[2222]pid:8888,jetton:6050,monney:2000
+[2222]handle:4444 2000 0
+[2222]handle:3333 2000 4000
+[2222]pid:3333,jetton:2000,monney:4000
+[2222]handle:/seat
+[2222]handle:blind/
+[2222]pid:3333,jetton:2000,monney:4000
+[2222]handle:7777: 50
+[2222]handle:8888: 100
+[2222]pid:100,jetton:2000,monney:4000
+[2222]handle:/blind
+[2222]handle:hold/
+[2222] 8888 6050 2000 
+4444 2000 0 
+3333 2000 4000 
+/seat 
+
+-433>
+seat/ 
+button: 2222 43900 4000 
+small blind: 7777 15900 0 
+big blind: 8888 6050 2000 
+4444 2000 0 
+3333 2000 4000 
+/seat 
+
+-434>
+score of 7777: 8 0 15900 0
+-435>
+score of 8888: 8 2000 6050 0
+-436>
+score of 4444: 8 0 2000 0
+-437>
+score of 3333: 8 4000 2000 0
+-438>
+score of 2222: 8 4000 43900 0
+-439>
+player 7777 action blind
+-440>
+player 7777 bet 50 rest 15850
+-441>
+pot num 50 current bet 50 least raise 100
+-442>
+player 8888 action blind
+-443>
+player 8888 bet 100 rest 5950
+-444>
+pot num 150 current bet 100 least raise 100blind/ 
+7777: 50 
+8888: 100 
+/blind 
+
+-445>
+player 7777:hold/ 
+CLUBS 5 
+SPADES J 
+/hold 
+player 7777:hold/ 
+CLUBS 5 
+SPADES J 
+/hold 
+
+-446>
+player 8888:hold/ 
+DIAMONDS 8 
+HEARTS J 
+/hold 
+player 8888:hold/ 
+DIAMONDS 8 
+HEARTS J 
+/hold 
+
+-447>
+player 4444:hold/ 
+SPADES K 
+DIAMONDS A 
+/hold 
+player 4444:hold/ 
+SPADES K 
+DIAMONDS A 
+/hold 
+
+-448>
+player 3333:hold/ 
+DIAMONDS Q 
+SPADES 6 
+/hold 
+player 3333:hold/ 
+DIAMONDS Q 
+SPADES 6 
+/hold 
+
+-449>
+player 2222:hold/ 
+SPADES Q 
+HEARTS 8 
+/hold 
+player 2222:hold/ 
+SPADES Q 
+HEARTS 8 
+/hold 
+
+---pre flop round bet---
+valid player: 5, all in player: 0, fold player: 0
+send inquire msg to player 4444 
+inquire/ 
+8888 5950 2000 100 blind 
+7777 15850 0 50 blind 
+total pot: 150 
+/inquire 
+fail to recv msg from player 4444(ret:0, err: 0) for 3 times
+
+-450>
+player 4444 action fold
+-451>
+player 4444 time outsend inquire msg to player 3333 
+inquire/ 
+4444 2000 0 0 fold 
+8888 5950 2000 100 blind 
+7777 15850 0 50 blind 
+total pot: 150 
+/inquire 
+fail to recv msg from player 3333(ret:0, err: 0) for 2 times
+
+-452>
+player 3333 action fold
+-453>
+player 3333 time outsend inquire msg to player 2222 
+inquire/ 
+3333 2000 4000 0 fold 
+4444 2000 0 0 fold 
+8888 5950 2000 100 blind 
+7777 15850 0 50 blind 
+total pot: 150 
+/inquire 
+fail to recv msg from player 2222(ret:0, err: 0) for 2 times
+
+-454>
+player 2222 action fold
+-455>
+player 2222 time outsend inquire msg to player 7777 
+inquire/ 
+2222 43900 4000 0 fold 
+3333 2000 4000 0 fold 
+4444 2000 0 0 fold 
+8888 5950 2000 100 blind 
+7777 15850 0 50 blind 
+total pot: 150 
+/inquire 
+fail to recv msg from player 7777(ret:0, err: 0) for 3 times
+
+-456>
+player 7777 action fold
+-457>
+player 7777 time outsend inquire msg to player 8888 
+inquire/ 
+7777 15850 0 50 fold 
+2222 43900 4000 0 fold 
+3333 2000 4000 0 fold 
+4444 2000 0 0 fold 
+8888 5950 2000 100 blind 
+total pot: 150 
+/inquire 
+fail to recv msg from player 8888(ret:0, err: 0) for 2 times
+
+-458>
+player 8888 action fold
+-459>
+player 8888 time out
+---flop round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+---turn round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+---river round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+--- 0 players not fold, don't need show down---
+
+---Allocate pot---
+pot-win/ 
+/pot-win 
+fail(err:32) to send msg to player 7777
+fail(err:32) to send msg to player 8888
+fail(err:32) to send msg to player 3333
+fail(err:32) to send msg to player 2222
+
+-460>
+score of 7777: 8 0 15850 0
+-461>
+score of 8888: 8 2000 5950 0
+-462>
+score of 4444: 8 0 2000 0
+-463>
+score of 3333: 8 4000 2000 0
+-464>
+score of 2222: 8 4000 43900 0it is player 7777's turn to be button
+
+-----9 Hand-----
+
+----- clean player data in socket -----
+
+-465>
+game(id=replay) new hand 9 start...seat/ 
+button: 7777 15850 0 
+small blind: 8888 5950 2000 
+big blind: 4444 2000 0 
+3333 2000 4000 
+2222 43900 4000 
+/seat 
+fail(err:32) to send msg to player 8888
+fail(err:32) to send msg to player 4444
+fail(err:32) to send msg to player 3333
+fail(err:32) to send msg to player 2222
+fail(err:32) to send msg to player 7777
+
+-466>
+seat/ 
+button: 7777 15850 0 
+small blind: 8888 5950 2000 
+big blind: 4444 2000 0 
+3333 2000 4000 
+2222 43900 4000 
+/seat 
+
+-467>
+score of 8888: 9 2000 5950 0
+-468>
+score of 4444: 9 0 2000 0
+-469>
+score of 3333: 9 4000 2000 0
+-470>
+score of 2222: 9 4000 43900 0
+-471>
+score of 7777: 9 0 15850 0
+-472>
+player 8888 action blind
+-473>
+player 8888 bet 50 rest 5900
+-474>
+pot num 50 current bet 50 least raise 100
+-475>
+player 4444 action blind
+-476>
+player 4444 bet 100 rest 1900
+-477>
+pot num 150 current bet 100 least raise 100blind/ 
+8888: 50 
+4444: 100 
+/blind 
+fail(err:32) to send msg to player 8888
+fail(err:32) to send msg to player 4444
+fail(err:32) to send msg to player 3333
+fail(err:32) to send msg to player 2222
+fail(err:32) to send msg to player 7777
+fail(err:32) to send msg to player 8888
+
+-478>
+player 8888:hold/ 
+SPADES J 
+HEARTS 10 
+/hold 
+player 8888:hold/ 
+SPADES J 
+HEARTS 10 
+/hold 
+fail(err:32) to send msg to player 4444
+
+-479>
+player 4444:hold/ 
+HEARTS 6 
+DIAMONDS 10 
+/hold 
+player 4444:hold/ 
+HEARTS 6 
+DIAMONDS 10 
+/hold 
+fail(err:32) to send msg to player 3333
+
+-480>
+player 3333:hold/ 
+HEARTS 5 
+DIAMONDS Q 
+/hold 
+player 3333:hold/ 
+HEARTS 5 
+DIAMONDS Q 
+/hold 
+fail(err:32) to send msg to player 2222
+
+-481>
+player 2222:hold/ 
+HEARTS Q 
+SPADES 5 
+/hold 
+player 2222:hold/ 
+HEARTS Q 
+SPADES 5 
+/hold 
+fail(err:32) to send msg to player 7777
+
+-482>
+player 7777:hold/ 
+DIAMONDS J 
+CLUBS K 
+/hold 
+player 7777:hold/ 
+DIAMONDS J 
+CLUBS K 
+/hold 
+
+---pre flop round bet---
+valid player: 5, all in player: 0, fold player: 0
+send inquire msg to player 3333 
+inquire/ 
+4444 1900 0 100 blind 
+8888 5900 2000 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 3333
+fail to recv msg from player 3333(ret:0, err: 32) for 3 times
+
+-483>
+player 3333 action fold
+-484>
+player 3333 time outsend inquire msg to player 2222 
+inquire/ 
+3333 2000 4000 0 fold 
+4444 1900 0 100 blind 
+8888 5900 2000 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 2222
+fail to recv msg from player 2222(ret:0, err: 32) for 3 times
+
+-485>
+player 2222 action fold
+-486>
+player 2222 time outsend inquire msg to player 7777 
+inquire/ 
+2222 43900 4000 0 fold 
+3333 2000 4000 0 fold 
+4444 1900 0 100 blind 
+8888 5900 2000 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 7777
+fail to recv msg from player 7777(ret:0, err: 32) for 4 times
+
+-487>
+player 7777 action fold
+-488>
+player 7777 time outsend inquire msg to player 8888 
+inquire/ 
+7777 15850 0 0 fold 
+2222 43900 4000 0 fold 
+3333 2000 4000 0 fold 
+4444 1900 0 100 blind 
+8888 5900 2000 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 8888
+fail to recv msg from player 8888(ret:0, err: 32) for 3 times
+
+-489>
+player 8888 action fold
+-490>
+player 8888 time outsend inquire msg to player 4444 
+inquire/ 
+8888 5900 2000 50 fold 
+7777 15850 0 0 fold 
+2222 43900 4000 0 fold 
+3333 2000 4000 0 fold 
+4444 1900 0 100 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 4444
+fail to recv msg from player 4444(ret:0, err: 32) for 4 times
+
+-491>
+player 4444 action fold
+-492>
+player 4444 time out
+---flop round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+---turn round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+---river round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+--- 0 players not fold, don't need show down---
+
+---Allocate pot---
+pot-win/ 
+/pot-win 
+fail(err:32) to send msg to player 8888
+fail(err:32) to send msg to player 4444
+fail(err:32) to send msg to player 3333
+fail(err:32) to send msg to player 2222
+fail(err:32) to send msg to player 7777
+
+-493>
+score of 8888: 9 2000 5900 0
+-494>
+score of 4444: 9 0 1900 0
+-495>
+score of 3333: 9 4000 2000 0
+-496>
+score of 2222: 9 4000 43900 0
+-497>
+score of 7777: 9 0 15850 0it is player 8888's turn to be button
+
+-----10 Hand-----
+
+----- clean player data in socket -----
+
+-498>
+game(id=replay) new hand 10 start...seat/ 
+button: 8888 5900 2000 
+small blind: 4444 1900 0 
+big blind: 3333 2000 4000 
+2222 43900 4000 
+7777 15850 0 
+/seat 
+fail(err:32) to send msg to player 4444
+fail(err:32) to send msg to player 3333
+fail(err:32) to send msg to player 2222
+fail(err:32) to send msg to player 7777
+fail(err:32) to send msg to player 8888
+
+-499>
+seat/ 
+button: 8888 5900 2000 
+small blind: 4444 1900 0 
+big blind: 3333 2000 4000 
+2222 43900 4000 
+7777 15850 0 
+/seat 
+
+-500>
+score of 4444: 10 0 1900 0
+-501>
+score of 3333: 10 4000 2000 0
+-502>
+score of 2222: 10 4000 43900 0
+-503>
+score of 7777: 10 0 15850 0
+-504>
+score of 8888: 10 2000 5900 0
+-505>
+player 4444 action blind
+-506>
+player 4444 bet 50 rest 1850
+-507>
+pot num 50 current bet 50 least raise 100
+-508>
+player 3333 action blind
+-509>
+player 3333 bet 100 rest 1900
+-510>
+pot num 150 current bet 100 least raise 100blind/ 
+4444: 50 
+3333: 100 
+/blind 
+fail(err:32) to send msg to player 4444
+fail(err:32) to send msg to player 3333
+fail(err:32) to send msg to player 2222
+fail(err:32) to send msg to player 7777
+fail(err:32) to send msg to player 8888
+fail(err:32) to send msg to player 4444
+
+-511>
+player 4444:hold/ 
+SPADES J 
+HEARTS 10 
+/hold 
+player 4444:hold/ 
+SPADES J 
+HEARTS 10 
+/hold 
+fail(err:32) to send msg to player 3333
+
+-512>
+player 3333:hold/ 
+HEARTS 6 
+DIAMONDS 10 
+/hold 
+player 3333:hold/ 
+HEARTS 6 
+DIAMONDS 10 
+/hold 
+fail(err:32) to send msg to player 2222
+
+-513>
+player 2222:hold/ 
+HEARTS 5 
+DIAMONDS Q 
+/hold 
+player 2222:hold/ 
+HEARTS 5 
+DIAMONDS Q 
+/hold 
+fail(err:32) to send msg to player 7777
+
+-514>
+player 7777:hold/ 
+HEARTS Q 
+SPADES 5 
+/hold 
+player 7777:hold/ 
+HEARTS Q 
+SPADES 5 
+/hold 
+fail(err:32) to send msg to player 8888
+
+-515>
+player 8888:hold/ 
+DIAMONDS J 
+CLUBS K 
+/hold 
+player 8888:hold/ 
+DIAMONDS J 
+CLUBS K 
+/hold 
+
+---pre flop round bet---
+valid player: 5, all in player: 0, fold player: 0
+send inquire msg to player 2222 
+inquire/ 
+3333 1900 4000 100 blind 
+4444 1850 0 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 2222
+fail to recv msg from player 2222(ret:0, err: 32) for 4 times
+
+-516>
+player 2222 action fold
+-517>
+player 2222 time outsend inquire msg to player 7777 
+inquire/ 
+2222 43900 4000 0 fold 
+3333 1900 4000 100 blind 
+4444 1850 0 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 7777
+fail to recv msg from player 7777(ret:0, err: 32) for 5 times
+
+-518>
+player 7777 action fold
+-519>
+player 7777 time outsend inquire msg to player 8888 
+inquire/ 
+7777 15850 0 0 fold 
+2222 43900 4000 0 fold 
+3333 1900 4000 100 blind 
+4444 1850 0 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 8888
+fail to recv msg from player 8888(ret:0, err: 32) for 4 times
+
+-520>
+player 8888 action fold
+-521>
+player 8888 time outsend inquire msg to player 4444 
+inquire/ 
+8888 5900 2000 0 fold 
+7777 15850 0 0 fold 
+2222 43900 4000 0 fold 
+3333 1900 4000 100 blind 
+4444 1850 0 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 4444
+fail to recv msg from player 4444(ret:0, err: 32) for 5 times
+
+-522>
+player 4444 action fold
+-523>
+player 4444 time outsend inquire msg to player 3333 
+inquire/ 
+4444 1850 0 50 fold 
+8888 5900 2000 0 fold 
+7777 15850 0 0 fold 
+2222 43900 4000 0 fold 
+3333 1900 4000 100 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 3333
+fail to recv msg from player 3333(ret:0, err: 32) for 4 times
+
+-524>
+player 3333 action fold
+-525>
+player 3333 time out
+---flop round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+---turn round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+---river round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+--- 0 players not fold, don't need show down---
+
+---Allocate pot---
+pot-win/ 
+/pot-win 
+fail(err:32) to send msg to player 4444
+fail(err:32) to send msg to player 3333
+fail(err:32) to send msg to player 2222
+fail(err:32) to send msg to player 7777
+fail(err:32) to send msg to player 8888
+
+-526>
+score of 4444: 10 0 1850 0
+-527>
+score of 3333: 10 4000 1900 0
+-528>
+score of 2222: 10 4000 43900 0
+-529>
+score of 7777: 10 0 15850 0
+-530>
+score of 8888: 10 2000 5900 0it is player 4444's turn to be button
+
+-----11 Hand-----
+
+----- clean player data in socket -----
+
+-531>
+game(id=replay) new hand 11 start...seat/ 
+button: 4444 1850 0 
+small blind: 3333 1900 4000 
+big blind: 2222 43900 4000 
+7777 15850 0 
+8888 5900 2000 
+/seat 
+fail(err:32) to send msg to player 3333
+fail(err:32) to send msg to player 2222
+fail(err:32) to send msg to player 7777
+fail(err:32) to send msg to player 8888
+fail(err:32) to send msg to player 4444
+
+-532>
+seat/ 
+button: 4444 1850 0 
+small blind: 3333 1900 4000 
+big blind: 2222 43900 4000 
+7777 15850 0 
+8888 5900 2000 
+/seat 
+
+-533>
+score of 3333: 11 4000 1900 0
+-534>
+score of 2222: 11 4000 43900 0
+-535>
+score of 7777: 11 0 15850 0
+-536>
+score of 8888: 11 2000 5900 0
+-537>
+score of 4444: 11 0 1850 0
+-538>
+player 3333 action blind
+-539>
+player 3333 bet 50 rest 1850
+-540>
+pot num 50 current bet 50 least raise 100
+-541>
+player 2222 action blind
+-542>
+player 2222 bet 100 rest 43800
+-543>
+pot num 150 current bet 100 least raise 100blind/ 
+3333: 50 
+2222: 100 
+/blind 
+fail(err:32) to send msg to player 3333
+fail(err:32) to send msg to player 2222
+fail(err:32) to send msg to player 7777
+fail(err:32) to send msg to player 8888
+fail(err:32) to send msg to player 4444
+fail(err:32) to send msg to player 3333
+
+-544>
+player 3333:hold/ 
+SPADES J 
+HEARTS 10 
+/hold 
+player 3333:hold/ 
+SPADES J 
+HEARTS 10 
+/hold 
+fail(err:32) to send msg to player 2222
+
+-545>
+player 2222:hold/ 
+HEARTS 6 
+DIAMONDS 10 
+/hold 
+player 2222:hold/ 
+HEARTS 6 
+DIAMONDS 10 
+/hold 
+fail(err:32) to send msg to player 7777
+
+-546>
+player 7777:hold/ 
+HEARTS 5 
+DIAMONDS Q 
+/hold 
+player 7777:hold/ 
+HEARTS 5 
+DIAMONDS Q 
+/hold 
+fail(err:32) to send msg to player 8888
+
+-547>
+player 8888:hold/ 
+HEARTS Q 
+SPADES 5 
+/hold 
+player 8888:hold/ 
+HEARTS Q 
+SPADES 5 
+/hold 
+fail(err:32) to send msg to player 4444
+
+-548>
+player 4444:hold/ 
+DIAMONDS J 
+CLUBS K 
+/hold 
+player 4444:hold/ 
+DIAMONDS J 
+CLUBS K 
+/hold 
+
+---pre flop round bet---
+valid player: 5, all in player: 0, fold player: 0
+send inquire msg to player 7777 
+inquire/ 
+2222 43800 4000 100 blind 
+3333 1850 4000 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 7777
+fail to recv msg from player 7777(ret:0, err: 32) for 6 times
+
+-549>
+player 7777 action fold
+-550>
+player 7777 time outsend inquire msg to player 8888 
+inquire/ 
+7777 15850 0 0 fold 
+2222 43800 4000 100 blind 
+3333 1850 4000 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 8888
+fail to recv msg from player 8888(ret:0, err: 32) for 5 times
+
+-551>
+player 8888 action fold
+-552>
+player 8888 time outsend inquire msg to player 4444 
+inquire/ 
+8888 5900 2000 0 fold 
+7777 15850 0 0 fold 
+2222 43800 4000 100 blind 
+3333 1850 4000 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 4444
+fail to recv msg from player 4444(ret:0, err: 32) for 6 times
+
+-553>
+player 4444 action fold
+-554>
+player 4444 time outsend inquire msg to player 3333 
+inquire/ 
+4444 1850 0 0 fold 
+8888 5900 2000 0 fold 
+7777 15850 0 0 fold 
+2222 43800 4000 100 blind 
+3333 1850 4000 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 3333
+fail to recv msg from player 3333(ret:0, err: 32) for 5 times
+
+-555>
+player 3333 action fold
+-556>
+player 3333 time outsend inquire msg to player 2222 
+inquire/ 
+3333 1850 4000 50 fold 
+4444 1850 0 0 fold 
+8888 5900 2000 0 fold 
+7777 15850 0 0 fold 
+2222 43800 4000 100 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 2222
+fail to recv msg from player 2222(ret:0, err: 32) for 5 times
+
+-557>
+player 2222 action fold
+-558>
+player 2222 time out
+---flop round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+---turn round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+---river round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+--- 0 players not fold, don't need show down---
+
+---Allocate pot---
+pot-win/ 
+/pot-win 
+fail(err:32) to send msg to player 3333
+fail(err:32) to send msg to player 2222
+fail(err:32) to send msg to player 7777
+fail(err:32) to send msg to player 8888
+fail(err:32) to send msg to player 4444
+
+-559>
+score of 3333: 11 4000 1850 0
+-560>
+score of 2222: 11 4000 43800 0
+-561>
+score of 7777: 11 0 15850 0
+-562>
+score of 8888: 11 2000 5900 0
+-563>
+score of 4444: 11 0 1850 0it is player 3333's turn to be button
+
+-----12 Hand-----
+
+----- clean player data in socket -----
+
+-564>
+game(id=replay) new hand 12 start...seat/ 
+button: 3333 1850 4000 
+small blind: 2222 43800 4000 
+big blind: 7777 15850 0 
+8888 5900 2000 
+4444 1850 0 
+/seat 
+fail(err:32) to send msg to player 2222
+fail(err:32) to send msg to player 7777
+fail(err:32) to send msg to player 8888
+fail(err:32) to send msg to player 4444
+fail(err:32) to send msg to player 3333
+
+-565>
+seat/ 
+button: 3333 1850 4000 
+small blind: 2222 43800 4000 
+big blind: 7777 15850 0 
+8888 5900 2000 
+4444 1850 0 
+/seat 
+
+-566>
+score of 2222: 12 4000 43800 0
+-567>
+score of 7777: 12 0 15850 0
+-568>
+score of 8888: 12 2000 5900 0
+-569>
+score of 4444: 12 0 1850 0
+-570>
+score of 3333: 12 4000 1850 0
+-571>
+player 2222 action blind
+-572>
+player 2222 bet 50 rest 43750
+-573>
+pot num 50 current bet 50 least raise 100
+-574>
+player 7777 action blind
+-575>
+player 7777 bet 100 rest 15750
+-576>
+pot num 150 current bet 100 least raise 100blind/ 
+2222: 50 
+7777: 100 
+/blind 
+fail(err:32) to send msg to player 2222
+fail(err:32) to send msg to player 7777
+fail(err:32) to send msg to player 8888
+fail(err:32) to send msg to player 4444
+fail(err:32) to send msg to player 3333
+fail(err:32) to send msg to player 2222
+
+-577>
+player 2222:hold/ 
+SPADES J 
+HEARTS 10 
+/hold 
+player 2222:hold/ 
+SPADES J 
+HEARTS 10 
+/hold 
+fail(err:32) to send msg to player 7777
+
+-578>
+player 7777:hold/ 
+HEARTS 6 
+DIAMONDS 10 
+/hold 
+player 7777:hold/ 
+HEARTS 6 
+DIAMONDS 10 
+/hold 
+fail(err:32) to send msg to player 8888
+
+-579>
+player 8888:hold/ 
+HEARTS 5 
+DIAMONDS Q 
+/hold 
+player 8888:hold/ 
+HEARTS 5 
+DIAMONDS Q 
+/hold 
+fail(err:32) to send msg to player 4444
+
+-580>
+player 4444:hold/ 
+HEARTS Q 
+SPADES 5 
+/hold 
+player 4444:hold/ 
+HEARTS Q 
+SPADES 5 
+/hold 
+fail(err:32) to send msg to player 3333
+
+-581>
+player 3333:hold/ 
+DIAMONDS J 
+CLUBS K 
+/hold 
+player 3333:hold/ 
+DIAMONDS J 
+CLUBS K 
+/hold 
+
+---pre flop round bet---
+valid player: 5, all in player: 0, fold player: 0
+send inquire msg to player 8888 
+inquire/ 
+7777 15750 0 100 blind 
+2222 43750 4000 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 8888
+fail to recv msg from player 8888(ret:0, err: 32) for 6 times
+
+-582>
+player 8888 action fold
+-583>
+player 8888 time outsend inquire msg to player 4444 
+inquire/ 
+8888 5900 2000 0 fold 
+7777 15750 0 100 blind 
+2222 43750 4000 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 4444
+fail to recv msg from player 4444(ret:0, err: 32) for 7 times
+
+-584>
+player 4444 action fold
+-585>
+player 4444 time outsend inquire msg to player 3333 
+inquire/ 
+4444 1850 0 0 fold 
+8888 5900 2000 0 fold 
+7777 15750 0 100 blind 
+2222 43750 4000 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 3333
+fail to recv msg from player 3333(ret:0, err: 32) for 6 times
+
+-586>
+player 3333 action fold
+-587>
+player 3333 time outsend inquire msg to player 2222 
+inquire/ 
+3333 1850 4000 0 fold 
+4444 1850 0 0 fold 
+8888 5900 2000 0 fold 
+7777 15750 0 100 blind 
+2222 43750 4000 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 2222
+fail to recv msg from player 2222(ret:0, err: 32) for 6 times
+
+-588>
+player 2222 action fold
+-589>
+player 2222 time outsend inquire msg to player 7777 
+inquire/ 
+2222 43750 4000 50 fold 
+3333 1850 4000 0 fold 
+4444 1850 0 0 fold 
+8888 5900 2000 0 fold 
+7777 15750 0 100 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 7777
+fail to recv msg from player 7777(ret:0, err: 32) for 7 times
+
+-590>
+player 7777 action fold
+-591>
+player 7777 time out
+---flop round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+---turn round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+---river round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+--- 0 players not fold, don't need show down---
+
+---Allocate pot---
+pot-win/ 
+/pot-win 
+fail(err:32) to send msg to player 2222
+fail(err:32) to send msg to player 7777
+fail(err:32) to send msg to player 8888
+fail(err:32) to send msg to player 4444
+fail(err:32) to send msg to player 3333
+
+-592>
+score of 2222: 12 4000 43750 0
+-593>
+score of 7777: 12 0 15750 0
+-594>
+score of 8888: 12 2000 5900 0
+-595>
+score of 4444: 12 0 1850 0
+-596>
+score of 3333: 12 4000 1850 0it is player 2222's turn to be button
+
+-----13 Hand-----
+
+----- clean player data in socket -----
+
+-597>
+game(id=replay) new hand 13 start...seat/ 
+button: 2222 43750 4000 
+small blind: 7777 15750 0 
+big blind: 8888 5900 2000 
+4444 1850 0 
+3333 1850 4000 
+/seat 
+fail(err:32) to send msg to player 7777
+fail(err:32) to send msg to player 8888
+fail(err:32) to send msg to player 4444
+fail(err:32) to send msg to player 3333
+fail(err:32) to send msg to player 2222
+
+-598>
+seat/ 
+button: 2222 43750 4000 
+small blind: 7777 15750 0 
+big blind: 8888 5900 2000 
+4444 1850 0 
+3333 1850 4000 
+/seat 
+
+-599>
+score of 7777: 13 0 15750 0
+-600>
+score of 8888: 13 2000 5900 0
+-601>
+score of 4444: 13 0 1850 0
+-602>
+score of 3333: 13 4000 1850 0
+-603>
+score of 2222: 13 4000 43750 0
+-604>
+player 7777 action blind
+-605>
+player 7777 bet 50 rest 15700
+-606>
+pot num 50 current bet 50 least raise 100
+-607>
+player 8888 action blind
+-608>
+player 8888 bet 100 rest 5800
+-609>
+pot num 150 current bet 100 least raise 100blind/ 
+7777: 50 
+8888: 100 
+/blind 
+fail(err:32) to send msg to player 7777
+fail(err:32) to send msg to player 8888
+fail(err:32) to send msg to player 4444
+fail(err:32) to send msg to player 3333
+fail(err:32) to send msg to player 2222
+fail(err:32) to send msg to player 7777
+
+-610>
+player 7777:hold/ 
+CLUBS J 
+HEARTS Q 
+/hold 
+player 7777:hold/ 
+CLUBS J 
+HEARTS Q 
+/hold 
+fail(err:32) to send msg to player 8888
+
+-611>
+player 8888:hold/ 
+SPADES 8 
+HEARTS K 
+/hold 
+player 8888:hold/ 
+SPADES 8 
+HEARTS K 
+/hold 
+fail(err:32) to send msg to player 4444
+
+-612>
+player 4444:hold/ 
+SPADES J 
+HEARTS 9 
+/hold 
+player 4444:hold/ 
+SPADES J 
+HEARTS 9 
+/hold 
+fail(err:32) to send msg to player 3333
+
+-613>
+player 3333:hold/ 
+CLUBS 7 
+HEARTS J 
+/hold 
+player 3333:hold/ 
+CLUBS 7 
+HEARTS J 
+/hold 
+fail(err:32) to send msg to player 2222
+
+-614>
+player 2222:hold/ 
+HEARTS 5 
+DIAMONDS Q 
+/hold 
+player 2222:hold/ 
+HEARTS 5 
+DIAMONDS Q 
+/hold 
+
+---pre flop round bet---
+valid player: 5, all in player: 0, fold player: 0
+send inquire msg to player 4444 
+inquire/ 
+8888 5800 2000 100 blind 
+7777 15700 0 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 4444
+fail to recv msg from player 4444(ret:0, err: 32) for 8 times
+
+-615>
+player 4444 action fold
+-616>
+player 4444 time outsend inquire msg to player 3333 
+inquire/ 
+4444 1850 0 0 fold 
+8888 5800 2000 100 blind 
+7777 15700 0 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 3333
+fail to recv msg from player 3333(ret:0, err: 32) for 7 times
+
+-617>
+player 3333 action fold
+-618>
+player 3333 time outsend inquire msg to player 2222 
+inquire/ 
+3333 1850 4000 0 fold 
+4444 1850 0 0 fold 
+8888 5800 2000 100 blind 
+7777 15700 0 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 2222
+fail to recv msg from player 2222(ret:0, err: 32) for 7 times
+
+-619>
+player 2222 action fold
+-620>
+player 2222 time outsend inquire msg to player 7777 
+inquire/ 
+2222 43750 4000 0 fold 
+3333 1850 4000 0 fold 
+4444 1850 0 0 fold 
+8888 5800 2000 100 blind 
+7777 15700 0 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 7777
+fail to recv msg from player 7777(ret:0, err: 32) for 8 times
+
+-621>
+player 7777 action fold
+-622>
+player 7777 time outsend inquire msg to player 8888 
+inquire/ 
+7777 15700 0 50 fold 
+2222 43750 4000 0 fold 
+3333 1850 4000 0 fold 
+4444 1850 0 0 fold 
+8888 5800 2000 100 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 8888
+fail to recv msg from player 8888(ret:0, err: 32) for 7 times
+
+-623>
+player 8888 action fold
+-624>
+player 8888 time out
+---flop round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+---turn round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+---river round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+--- 0 players not fold, don't need show down---
+
+---Allocate pot---
+pot-win/ 
+/pot-win 
+fail(err:32) to send msg to player 7777
+fail(err:32) to send msg to player 8888
+fail(err:32) to send msg to player 4444
+fail(err:32) to send msg to player 3333
+fail(err:32) to send msg to player 2222
+
+-625>
+score of 7777: 13 0 15700 0
+-626>
+score of 8888: 13 2000 5800 0
+-627>
+score of 4444: 13 0 1850 0
+-628>
+score of 3333: 13 4000 1850 0
+-629>
+score of 2222: 13 4000 43750 0it is player 7777's turn to be button
+
+-----14 Hand-----
+
+----- clean player data in socket -----
+
+-630>
+game(id=replay) new hand 14 start...seat/ 
+button: 7777 15700 0 
+small blind: 8888 5800 2000 
+big blind: 4444 1850 0 
+3333 1850 4000 
+2222 43750 4000 
+/seat 
+fail(err:32) to send msg to player 8888
+fail(err:32) to send msg to player 4444
+fail(err:32) to send msg to player 3333
+fail(err:32) to send msg to player 2222
+fail(err:32) to send msg to player 7777
+
+-631>
+seat/ 
+button: 7777 15700 0 
+small blind: 8888 5800 2000 
+big blind: 4444 1850 0 
+3333 1850 4000 
+2222 43750 4000 
+/seat 
+
+-632>
+score of 8888: 14 2000 5800 0
+-633>
+score of 4444: 14 0 1850 0
+-634>
+score of 3333: 14 4000 1850 0
+-635>
+score of 2222: 14 4000 43750 0
+-636>
+score of 7777: 14 0 15700 0
+-637>
+player 8888 action blind
+-638>
+player 8888 bet 50 rest 5750
+-639>
+pot num 50 current bet 50 least raise 100
+-640>
+player 4444 action blind
+-641>
+player 4444 bet 100 rest 1750
+-642>
+pot num 150 current bet 100 least raise 100blind/ 
+8888: 50 
+4444: 100 
+/blind 
+fail(err:32) to send msg to player 8888
+fail(err:32) to send msg to player 4444
+fail(err:32) to send msg to player 3333
+fail(err:32) to send msg to player 2222
+fail(err:32) to send msg to player 7777
+fail(err:32) to send msg to player 8888
+
+-643>
+player 8888:hold/ 
+CLUBS J 
+HEARTS Q 
+/hold 
+player 8888:hold/ 
+CLUBS J 
+HEARTS Q 
+/hold 
+fail(err:32) to send msg to player 4444
+
+-644>
+player 4444:hold/ 
+SPADES 8 
+HEARTS K 
+/hold 
+player 4444:hold/ 
+SPADES 8 
+HEARTS K 
+/hold 
+fail(err:32) to send msg to player 3333
+
+-645>
+player 3333:hold/ 
+SPADES J 
+HEARTS 9 
+/hold 
+player 3333:hold/ 
+SPADES J 
+HEARTS 9 
+/hold 
+fail(err:32) to send msg to player 2222
+
+-646>
+player 2222:hold/ 
+CLUBS 7 
+HEARTS J 
+/hold 
+player 2222:hold/ 
+CLUBS 7 
+HEARTS J 
+/hold 
+fail(err:32) to send msg to player 7777
+
+-647>
+player 7777:hold/ 
+HEARTS 5 
+DIAMONDS Q 
+/hold 
+player 7777:hold/ 
+HEARTS 5 
+DIAMONDS Q 
+/hold 
+
+---pre flop round bet---
+valid player: 5, all in player: 0, fold player: 0
+send inquire msg to player 3333 
+inquire/ 
+4444 1750 0 100 blind 
+8888 5750 2000 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 3333
+fail to recv msg from player 3333(ret:0, err: 32) for 8 times
+
+-648>
+player 3333 action fold
+-649>
+player 3333 time outsend inquire msg to player 2222 
+inquire/ 
+3333 1850 4000 0 fold 
+4444 1750 0 100 blind 
+8888 5750 2000 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 2222
+fail to recv msg from player 2222(ret:0, err: 32) for 8 times
+
+-650>
+player 2222 action fold
+-651>
+player 2222 time outsend inquire msg to player 7777 
+inquire/ 
+2222 43750 4000 0 fold 
+3333 1850 4000 0 fold 
+4444 1750 0 100 blind 
+8888 5750 2000 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 7777
+fail to recv msg from player 7777(ret:0, err: 32) for 9 times
+
+-652>
+player 7777 action fold
+-653>
+player 7777 time outsend inquire msg to player 8888 
+inquire/ 
+7777 15700 0 0 fold 
+2222 43750 4000 0 fold 
+3333 1850 4000 0 fold 
+4444 1750 0 100 blind 
+8888 5750 2000 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 8888
+fail to recv msg from player 8888(ret:0, err: 32) for 8 times
+
+-654>
+player 8888 action fold
+-655>
+player 8888 time outsend inquire msg to player 4444 
+inquire/ 
+8888 5750 2000 50 fold 
+7777 15700 0 0 fold 
+2222 43750 4000 0 fold 
+3333 1850 4000 0 fold 
+4444 1750 0 100 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 4444
+fail to recv msg from player 4444(ret:0, err: 32) for 9 times
+
+-656>
+player 4444 action fold
+-657>
+player 4444 time out
+---flop round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+---turn round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+---river round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+--- 0 players not fold, don't need show down---
+
+---Allocate pot---
+pot-win/ 
+/pot-win 
+fail(err:32) to send msg to player 8888
+fail(err:32) to send msg to player 4444
+fail(err:32) to send msg to player 3333
+fail(err:32) to send msg to player 2222
+fail(err:32) to send msg to player 7777
+
+-658>
+score of 8888: 14 2000 5750 0
+-659>
+score of 4444: 14 0 1750 0
+-660>
+score of 3333: 14 4000 1850 0
+-661>
+score of 2222: 14 4000 43750 0
+-662>
+score of 7777: 14 0 15700 0it is player 8888's turn to be button
+
+-----15 Hand-----
+
+----- clean player data in socket -----
+
+-663>
+game(id=replay) new hand 15 start...seat/ 
+button: 8888 5750 2000 
+small blind: 4444 1750 0 
+big blind: 3333 1850 4000 
+2222 43750 4000 
+7777 15700 0 
+/seat 
+fail(err:32) to send msg to player 4444
+fail(err:32) to send msg to player 3333
+fail(err:32) to send msg to player 2222
+fail(err:32) to send msg to player 7777
+fail(err:32) to send msg to player 8888
+
+-664>
+seat/ 
+button: 8888 5750 2000 
+small blind: 4444 1750 0 
+big blind: 3333 1850 4000 
+2222 43750 4000 
+7777 15700 0 
+/seat 
+
+-665>
+score of 4444: 15 0 1750 0
+-666>
+score of 3333: 15 4000 1850 0
+-667>
+score of 2222: 15 4000 43750 0
+-668>
+score of 7777: 15 0 15700 0
+-669>
+score of 8888: 15 2000 5750 0
+-670>
+player 4444 action blind
+-671>
+player 4444 bet 50 rest 1700
+-672>
+pot num 50 current bet 50 least raise 100
+-673>
+player 3333 action blind
+-674>
+player 3333 bet 100 rest 1750
+-675>
+pot num 150 current bet 100 least raise 100blind/ 
+4444: 50 
+3333: 100 
+/blind 
+fail(err:32) to send msg to player 4444
+fail(err:32) to send msg to player 3333
+fail(err:32) to send msg to player 2222
+fail(err:32) to send msg to player 7777
+fail(err:32) to send msg to player 8888
+fail(err:32) to send msg to player 4444
+
+-676>
+player 4444:hold/ 
+CLUBS J 
+HEARTS Q 
+/hold 
+player 4444:hold/ 
+CLUBS J 
+HEARTS Q 
+/hold 
+fail(err:32) to send msg to player 3333
+
+-677>
+player 3333:hold/ 
+SPADES 8 
+HEARTS K 
+/hold 
+player 3333:hold/ 
+SPADES 8 
+HEARTS K 
+/hold 
+fail(err:32) to send msg to player 2222
+
+-678>
+player 2222:hold/ 
+SPADES J 
+HEARTS 9 
+/hold 
+player 2222:hold/ 
+SPADES J 
+HEARTS 9 
+/hold 
+fail(err:32) to send msg to player 7777
+
+-679>
+player 7777:hold/ 
+CLUBS 7 
+HEARTS J 
+/hold 
+player 7777:hold/ 
+CLUBS 7 
+HEARTS J 
+/hold 
+fail(err:32) to send msg to player 8888
+
+-680>
+player 8888:hold/ 
+HEARTS 5 
+DIAMONDS Q 
+/hold 
+player 8888:hold/ 
+HEARTS 5 
+DIAMONDS Q 
+/hold 
+
+---pre flop round bet---
+valid player: 5, all in player: 0, fold player: 0
+send inquire msg to player 2222 
+inquire/ 
+3333 1750 4000 100 blind 
+4444 1700 0 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 2222
+fail to recv msg from player 2222(ret:0, err: 32) for 9 times
+
+-681>
+player 2222 action fold
+-682>
+player 2222 time outsend inquire msg to player 7777 
+inquire/ 
+2222 43750 4000 0 fold 
+3333 1750 4000 100 blind 
+4444 1700 0 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 7777
+fail to recv msg from player 7777(ret:0, err: 32) for 10 times
+player 7777 off line
+
+-683>
+player 7777 action fold
+-684>
+player 7777 off linesend inquire msg to player 8888 
+inquire/ 
+7777 15700 0 0 fold 
+2222 43750 4000 0 fold 
+3333 1750 4000 100 blind 
+4444 1700 0 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 8888
+fail to recv msg from player 8888(ret:0, err: 32) for 9 times
+
+-685>
+player 8888 action fold
+-686>
+player 8888 time outsend inquire msg to player 4444 
+inquire/ 
+8888 5750 2000 0 fold 
+7777 15700 0 0 fold 
+2222 43750 4000 0 fold 
+3333 1750 4000 100 blind 
+4444 1700 0 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 4444
+fail to recv msg from player 4444(ret:0, err: 32) for 10 times
+player 4444 off line
+
+-687>
+player 4444 action fold
+-688>
+player 4444 off linesend inquire msg to player 3333 
+inquire/ 
+4444 1700 0 50 fold 
+8888 5750 2000 0 fold 
+7777 15700 0 0 fold 
+2222 43750 4000 0 fold 
+3333 1750 4000 100 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 3333
+fail to recv msg from player 3333(ret:0, err: 32) for 9 times
+
+-689>
+player 3333 action fold
+-690>
+player 3333 time out
+---flop round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+---turn round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+---river round bet---
+valid player: 5, all in player: 0, fold player: 5
+
+--- 0 players not fold, don't need show down---
+
+---Allocate pot---
+pot-win/ 
+/pot-win 
+fail(err:32) to send msg to player 3333
+fail(err:32) to send msg to player 2222
+fail(err:32) to send msg to player 8888
+
+-691>
+score of 4444: 15 0 1700 0
+-692>
+score of 3333: 15 4000 1750 0
+-693>
+score of 2222: 15 4000 43750 0
+-694>
+score of 7777: 15 0 15700 0
+-695>
+score of 8888: 15 2000 5750 0
+ punish off line player 4444, clear all his jetton and money
+ punish off line player 7777, clear all his jetton and moneyit is player 3333's turn to be button
+
+-----16 Hand-----
+
+----- clean player data in socket -----
+
+-696>
+game(id=replay) new hand 16 start...seat/ 
+button: 3333 1750 4000 
+small blind: 2222 43750 4000 
+big blind: 8888 5750 2000 
+/seat 
+fail(err:32) to send msg to player 2222
+fail(err:32) to send msg to player 8888
+fail(err:32) to send msg to player 3333
+
+-697>
+seat/ 
+button: 3333 1750 4000 
+small blind: 2222 43750 4000 
+big blind: 8888 5750 2000 
+/seat 
+
+-698>
+score of 2222: 16 4000 43750 0
+-699>
+score of 8888: 16 2000 5750 0
+-700>
+score of 3333: 16 4000 1750 0
+-701>
+player 2222 action blind
+-702>
+player 2222 bet 50 rest 43700
+-703>
+pot num 50 current bet 50 least raise 100
+-704>
+player 8888 action blind
+-705>
+player 8888 bet 100 rest 5650
+-706>
+pot num 150 current bet 100 least raise 100blind/ 
+2222: 50 
+8888: 100 
+/blind 
+fail(err:32) to send msg to player 2222
+fail(err:32) to send msg to player 8888
+fail(err:32) to send msg to player 3333
+fail(err:32) to send msg to player 2222
+
+-707>
+player 2222:hold/ 
+CLUBS J 
+CLUBS 7 
+/hold 
+player 2222:hold/ 
+CLUBS J 
+CLUBS 7 
+/hold 
+fail(err:32) to send msg to player 8888
+
+-708>
+player 8888:hold/ 
+SPADES 8 
+HEARTS 5 
+/hold 
+player 8888:hold/ 
+SPADES 8 
+HEARTS 5 
+/hold 
+fail(err:32) to send msg to player 3333
+
+-709>
+player 3333:hold/ 
+SPADES J 
+HEARTS Q 
+/hold 
+player 3333:hold/ 
+SPADES J 
+HEARTS Q 
+/hold 
+
+---pre flop round bet---
+valid player: 3, all in player: 0, fold player: 0
+send inquire msg to player 3333 
+inquire/ 
+8888 5650 2000 100 blind 
+2222 43700 4000 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 3333
+fail to recv msg from player 3333(ret:0, err: 32) for 10 times
+player 3333 off line
+
+-710>
+player 3333 action fold
+-711>
+player 3333 off linesend inquire msg to player 2222 
+inquire/ 
+3333 1750 4000 0 fold 
+8888 5650 2000 100 blind 
+2222 43700 4000 50 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 2222
+fail to recv msg from player 2222(ret:0, err: 32) for 10 times
+player 2222 off line
+
+-712>
+player 2222 action fold
+-713>
+player 2222 off linesend inquire msg to player 8888 
+inquire/ 
+2222 43700 4000 50 fold 
+3333 1750 4000 0 fold 
+8888 5650 2000 100 blind 
+total pot: 150 
+/inquire 
+fail(err:32) to send msg to player 8888
+fail to recv msg from player 8888(ret:0, err: 32) for 10 times
+player 8888 off line
+
+-714>
+player 8888 action fold
+-715>
+player 8888 off line
+---flop round bet---
+valid player: 3, all in player: 0, fold player: 3
+
+---turn round bet---
+valid player: 3, all in player: 0, fold player: 3
+
+---river round bet---
+valid player: 3, all in player: 0, fold player: 3
+
+--- 0 players not fold, don't need show down---
+
+---Allocate pot---
+pot-win/ 
+/pot-win 
+
+-716>
+score of 2222: 16 4000 43700 0
+-717>
+score of 8888: 16 2000 5650 0
+-718>
+score of 3333: 16 4000 1750 0
+ punish off line player 2222, clear all his jetton and money
+ punish off line player 8888, clear all his jetton and money
+ punish off line player 3333, clear all his jetton and moneyonly 1 player rest, others all quit
+Pid, Money, HandNum, ShowDownNum, NetWin, NutHand, Rank, Status
+7777, 0, 15, 5, 5700, FLUSH, 4, OFFLINE
+-719>
+score of 7777: 15 0 0 4
+5555, 0, 5, 5, -10000, TWO_PAIR, 6, NORMAL
+-720>
+score of 5555: 5 0 0 6
+2222, 0, 16, 6, 37700, FULL_HOUSE, 1, OFFLINE
+-721>
+score of 2222: 16 0 0 1
+8888, 0, 16, 6, -2350, FLUSH, 1, OFFLINE
+-722>
+score of 8888: 16 0 0 1
+6666, 0, 5, 5, -10000, TWO_PAIR, 6, NORMAL
+-723>
+score of 6666: 5 0 0 6
+1111, 0, 5, 5, -10000, TWO_PAIR, 6, NORMAL
+-724>
+score of 1111: 5 0 0 6
+3333, 0, 16, 6, -4250, FULL_HOUSE, 1, OFFLINE
+-725>
+score of 3333: 16 0 0 1
+4444, 0, 15, 5, -8300, FLUSH, 4, OFFLINE
+-726>
+score of 4444: 15 0 0 4game-over
+-727>
+game over
