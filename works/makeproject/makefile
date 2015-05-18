@@ -1,5 +1,5 @@
 game : ../source/game.cpp ../source/ThreadSafeQueue.cpp
-	g++ ../source/game.cpp ../source/ThreadSafeQueue.cpp -std=c++11 -o ../target/game -g -lpthread
+	g++ ../source/game.cpp ../source/ThreadSafeQueue.cpp -std=c++0x -o ../target/game -g -lpthread
 
 all: game
 clean:

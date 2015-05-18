@@ -151,7 +151,7 @@ int main(int argc,char**argv){
 	my_addr.sin_family = AF_INET;
 	my_addr.sin_addr.s_addr = my_ip;
 	my_addr.sin_port = my_port;
-	if(bind(m_socket_id, (struct sockaddr*)&my_addr, sizeof(my_addr)))
+	if(::bind(m_socket_id, (struct sockaddr*)&my_addr, sizeof(my_addr)))
 	{
 	LOG("bind failed!\n"); 
 	return -1;
