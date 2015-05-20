@@ -11,7 +11,7 @@
 #include <unistd.h>
 #include <chrono>
 #include <vector>
-#include <map>
+#include <map> 
 #include <signal.h>
 using namespace std;
 
@@ -244,6 +244,8 @@ class MessageHandle
 					p->handleShowdown();
 				if(!strcmp(msg,"pot-win/"))
 					p->handlePotWin();
+				if(!strcmp(msg,"notify/"))
+					p->handleNotify();
 				if(!strcmp(msg,"game-over"))
 				{
 					LOG("GAMEOVER RETURN");
@@ -368,7 +370,7 @@ class MessageHandle
 		}
 		void handleInquire()
 		{
-			LOG("handle inquire");
+			//LOG("handle inquire");
 			LOOP_MSG_UNTIL("/inquire")
 			{
 				if(msg[0]!='t')
@@ -393,8 +395,36 @@ class MessageHandle
 					sscanf(msg,"total pot:%d",&game.pot);
 				}
 			}
-			sendAction(Action::all_in);
+			if(game.hold[0].point==1||game.hold[1].point==1||game.hold[0].point==game.hold[1].point)
+				sendAction(Action::all_in);
+			else
+				sendAction(Action::fold);
 		//	LOG("handle inquire end");
+		}
+		void handleNotify()
+		{
+			LOOP_MSG_UNTIL("/notify")
+			{
+				if(msg[0]!='t')
+				{
+					int pid,jetton,monney,bet;
+					char act[10];
+					sscanf(msg,"%d %d %d %d %s",&pid,&jetton,&monney,&bet,act);
+					
+					Player* np=game.getPlayer(pid);
+					np->jetton=jetton;
+					np->monney=monney;
+					np->bet=bet;
+					if(!strcmp(act,Action::all_in))
+						np->state=PlayerState_ALL_IN;
+					if(!strcmp(act,Action::fold))
+						np->state=PlayerState_FOLDED;
+				}
+				else
+				{
+					sscanf(msg,"total pot:%d",&game.pot);
+				}
+			}
 		}
 		ThreadSafeQueue<char*> msgQue;
 		thread th;
@@ -439,8 +469,8 @@ int main(int argc,char**argv){
 	my_addr.sin_port = my_port;
 	if(::bind(m_socket_id, (struct sockaddr*)&my_addr, sizeof(my_addr)))
 	{
-	LOG("bind failed!\n"); 
-	return -1;
+		LOG("bind failed! %s:%d\n",argv[3],my_port); 
+		return -1;
 	}
 
 	/* 连接server */
@@ -456,7 +486,7 @@ int main(int argc,char**argv){
 	//LOG("connected to server");
 	/* 向server注册 */
 	char reg_msg[50] = {'\0'};
-	snprintf(reg_msg, sizeof(reg_msg) - 1, "reg: %d %s \n", my_id, "tt"); 
+	snprintf(reg_msg, sizeof(reg_msg) - 1, "reg: %d %s need_notify \n", my_id, "tt"); 
 	send(m_socket_id, reg_msg, strlen(reg_msg) + 1, 0);
 	LOG("connected to server");
 	MessageHandle msgh(m_socket_id);
