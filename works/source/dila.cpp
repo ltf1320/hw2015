@@ -54,8 +54,8 @@ public:
         int x,y;
         for(int i=0;i<7;i++){
             for(int j=i+1;j<7;j++){
-                swap(cards[i],cards[5]);
-                swap(cards[j],cards[6]);
+                swap(cards[j],cards[5]);
+                swap(cards[i],cards[6]);
                 cardPattern temp=judgePattern_5(cards);
                 //printf("[%d %d %d]\n",temp,i,j);
                 //for(int k=0;k<5;k++)cout<<cards[k]<<" ";
