@@ -38,6 +38,7 @@ public:
     Dila(){
         card_out=new bool[52];
     }
+    //固定两张牌
     Dila(int a,int b){
         card_out=new bool[52];
         card_out[a%13]=card_out[b%13]=true;
@@ -49,6 +50,7 @@ public:
     void deliverFlop(int cards[]){deliverCard(3,cards);}
     void deliverTurn(int cards[]){deliverCard(1,cards);}
     void deliverRiver(int cards[]){deliverCard(1,cards);}
+    //判断7张牌所能组成最大的牌型
     cardPattern judgePattern(int cards[]){
         cardPattern p=HIGH_CARD;
         int x,y;
@@ -69,6 +71,7 @@ public:
         swap(cards[y],cards[6]);
         return p;
     }
+    //判断5张牌的牌型
     cardPattern judgePattern_5(int cards_[]){
         int cards[5];
         for(int i=0;i<5;i++)cards[i]=cards_[i];
@@ -101,6 +104,7 @@ public:
         if(temp.size()==5)p=HIGH_CARD;
         return p;
     }
+    //比较两幅牌的大小，传入两组七张牌
     int pk(int cards_a[],int cards_b[]){
         int a_pattern=judgePattern(cards_a),b_pattren=judgePattern(cards_b);
         if(a_pattern>b_pattren)return 1;
@@ -129,6 +133,7 @@ public:
             return 0;
         }
     }
+    //发num张牌，存入cards数组中
     void deliverCard(int num,int cards[]){
         srand((int)time(0));
         for(int i=0;i<num;i++){
