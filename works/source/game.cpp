@@ -395,10 +395,17 @@ class MessageHandle
 					sscanf(msg,"total pot:%d",&game.pot);
 				}
 			}
+			int allinCnt=0;
+			for(auto iter=game.players.begin();iter!=game.players.end();iter++)
+				allinCnt++;
+			if(allinCnt>=4)
+				sendAction(Action::fold);
+			else{
 			if(game.hold[0].point==1||game.hold[1].point==1||game.hold[0].point==game.hold[1].point)
 				sendAction(Action::all_in);
 			else
 				sendAction(Action::fold);
+			}
 		//	LOG("handle inquire end");
 		}
 		void handleNotify()
