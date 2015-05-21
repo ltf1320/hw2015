@@ -11,12 +11,11 @@
 #include <unistd.h>
 #include <chrono>
 #include <vector>
-#include <map>
+#include <map> 
+#include <signal.h>
 using namespace std;
 
 const char eol='\n';
-
-int my_id;
 
 FILE* logFile;
 
@@ -24,6 +23,23 @@ FILE* logFile;
 //#define LOG(msg,arg...) printf("[%d]",my_id);printf(msg,##arg);puts("");
 
 #define LOOP_MSG_UNTIL(endMsg) for(char* msg=getNextMsg();strcmp(msg,endMsg)||((delete [] msg),0);delete [] msg,msg=getNextMsg())
+
+
+//deal with kill,save the log
+void killhandler(int sig)  
+{  
+	 switch (sig)
+     {
+     case SIGINT:
+     case SIGTERM:
+		LOG("ABORTED");
+       	fclose(logFile);
+		exit(0);
+     	break;
+     }
+}
+
+int my_id;
 
 namespace Action
 {
@@ -63,8 +79,31 @@ struct Card
 	int point;
 	void getCard(char* cardDesc)
 	{
-		color=new char[10];
-		sscanf(cardDesc,"%s %d",color,&point);
+		char tmp[10];
+		char pnt;
+		sscanf(cardDesc,"%s %c",tmp,&pnt);
+		if(pnt=='A')
+			point=1;
+		else if(pnt=='J')
+			point=11;
+		else if(pnt=='Q')
+			point=12;
+		else if(pnt=='K')
+			point=13;
+		else point=pnt-'0';
+	
+		if(tmp[0]=='S')
+			color=(char*)Color::SPADES;
+		if(tmp[0]=='H')
+			color=(char*)Color::HEARTS;
+		if(tmp[0]=='C')
+			color=(char*)Color::CLUBS;
+		if(tmp[0]=='D')
+			color=(char*)Color::DIAMONDS;
+	}
+	void logCard()
+	{
+		LOG("%s %d",color,point);
 	}
 };
 
@@ -113,6 +152,13 @@ class Game
 	Card flop[3];
         Card turn;
 	Card river;
+	int pot;
+	Player* getPlayer(int pid)
+	{
+		if(pid==me.pid)
+			return &me;
+		else return &players[pid];
+	}
 };
 
 class PlayerResult
@@ -170,7 +216,7 @@ class MessageHandle
 				this_thread::sleep_for(std::chrono::milliseconds(10));
 				if(r.first)
 				{
-					LOG("handle:%s",r.second);
+//					LOG("handle:%s",r.second);
 					return r.second;
 				}
 			}
@@ -198,6 +244,8 @@ class MessageHandle
 					p->handleShowdown();
 				if(!strcmp(msg,"pot-win/"))
 					p->handlePotWin();
+				if(!strcmp(msg,"notify/"))
+					p->handleNotify();
 				if(!strcmp(msg,"game-over"))
 				{
 					LOG("GAMEOVER RETURN");
@@ -207,7 +255,7 @@ class MessageHandle
 			}
 		}
 		void handleSeat(){
-			LOG("handle seat");
+		//	LOG("handle seat");
 			game.players.clear();
 			game.turnState=TurnState_START;
 		
@@ -225,7 +273,7 @@ class MessageHandle
 				}
 				p+=2;
 				sscanf(p,"%d %d %d",&pid,&jetton,&monney);			
-				LOG("pid:%d,jetton:%d,monney:%d",pid,jetton,monney);
+				//LOG("pid:%d,jetton:%d,monney:%d",pid,jetton,monney);
 				if(pid==my_id)
 				{
 					game.me.jetton=jetton;
@@ -242,17 +290,17 @@ class MessageHandle
 					game.players[pid]=player;
 				}
 			}
-			LOG("handle seat end");
+		//	LOG("handle seat end");
 		}
 		void handleBlind(){
-			LOG("handle blind");
+		//	LOG("handle blind");
 			LOOP_MSG_UNTIL("/blind")
 			{
 				int pid,bet;
 				sscanf(msg,"%d: %d",&pid,&bet);
-				game.players[pid].dobet(bet);
+				game.getPlayer(pid)->dobet(bet);
 			}
-			LOG("handle blind end");
+		//	LOG("handle blind end");
 		}
 		void handleHold(){
 			char* msg=getNextMsg();
@@ -263,6 +311,7 @@ class MessageHandle
 			delete [] msg;
 			msg=getNextMsg();
 			delete [] msg;
+		//	LOG("hold");
 		}
 		void handleFlop(){
 			char* msg;
@@ -292,7 +341,15 @@ class MessageHandle
 		void handleShowdown(){
 			LOOP_MSG_UNTIL("/common")
 			{
+	//			LOG(msg);
 			}
+	
+		//	LOG("common");
+		//	for(int i=0;i<3;i++) game.flop[i].logCard();
+		//	game.turn.logCard();
+		//	game.river.logCard();
+		//	LOG("/common");
+
 			GameResult result;
 			result.game=game;
 			LOOP_MSG_UNTIL("/showdown")
@@ -300,7 +357,7 @@ class MessageHandle
 				int rank,pid;
 				PlayerResult pres;
 				sscanf(msg,"%d:%d %s %d %s %d %s",&rank,&pid,pres.hold[0].color,&pres.hold[0].point,pres.hold[1].color,&pres.hold[1].point,pres.NutHand);
-				pres.player=game.players[pid];
+				pres.player=*(game.getPlayer(pid));
 				result.result[pid]=pres;
 			}
 		}
@@ -313,11 +370,61 @@ class MessageHandle
 		}
 		void handleInquire()
 		{
-			LOG("handle inquire");
+			//LOG("handle inquire");
 			LOOP_MSG_UNTIL("/inquire")
-				;
-			sendAction(Action::all_in);
-			LOG("handle inquire end");
+			{
+				if(msg[0]!='t')
+				{
+					int pid,jetton,monney,bet;
+					char act[10];
+					sscanf(msg,"%d %d %d %d %s",&pid,&jetton,&monney,&bet,act);
+					
+					Player* np=game.getPlayer(pid);
+					np->jetton=jetton;
+					np->monney=monney;
+					np->bet=bet;
+					if(!strcmp(act,Action::all_in))
+						np->state=PlayerState_ALL_IN;
+					if(!strcmp(act,Action::fold))
+						np->state=PlayerState_FOLDED;
+
+			//		LOG("pid:%d jetton:%d monney:%d bet:%d",pid,game.getPlayer(pid)->jetton,game.getPlayer(pid)->monney,game.getPlayer(pid)->bet)
+				}
+				else
+				{
+					sscanf(msg,"total pot:%d",&game.pot);
+				}
+			}
+			if(game.hold[0].point==1||game.hold[1].point==1||game.hold[0].point==game.hold[1].point)
+				sendAction(Action::all_in);
+			else
+				sendAction(Action::fold);
+		//	LOG("handle inquire end");
+		}
+		void handleNotify()
+		{
+			LOOP_MSG_UNTIL("/notify")
+			{
+				if(msg[0]!='t')
+				{
+					int pid,jetton,monney,bet;
+					char act[10];
+					sscanf(msg,"%d %d %d %d %s",&pid,&jetton,&monney,&bet,act);
+					
+					Player* np=game.getPlayer(pid);
+					np->jetton=jetton;
+					np->monney=monney;
+					np->bet=bet;
+					if(!strcmp(act,Action::all_in))
+						np->state=PlayerState_ALL_IN;
+					if(!strcmp(act,Action::fold))
+						np->state=PlayerState_FOLDED;
+				}
+				else
+				{
+					sscanf(msg,"total pot:%d",&game.pot);
+				}
+			}
 		}
 		ThreadSafeQueue<char*> msgQue;
 		thread th;
@@ -326,9 +433,12 @@ class MessageHandle
 
 
 int main(int argc,char**argv){
+	signal(SIGTERM, killhandler);  
+    signal(SIGINT, killhandler);  
+
 	if (argc != 6)
 	{
-		printf("Usage: ./%s server_ip server_port my_ip my_port my_id\n", argv[0]);
+		LOG("Usage: ./%s server_ip server_port my_ip my_port my_id\n", argv[0]);
 		return -1;
 	}
 
@@ -359,8 +469,8 @@ int main(int argc,char**argv){
 	my_addr.sin_port = my_port;
 	if(::bind(m_socket_id, (struct sockaddr*)&my_addr, sizeof(my_addr)))
 	{
-	LOG("bind failed!\n"); 
-	return -1;
+		LOG("bind failed! %s:%d\n",argv[3],my_port); 
+		return -1;
 	}
 
 	/* 连接server */
@@ -376,11 +486,11 @@ int main(int argc,char**argv){
 	//LOG("connected to server");
 	/* 向server注册 */
 	char reg_msg[50] = {'\0'};
-	snprintf(reg_msg, sizeof(reg_msg) - 1, "reg: %d %s \n", my_id, "tt"); 
+	snprintf(reg_msg, sizeof(reg_msg) - 1, "reg: %d %s need_notify \n", my_id, "tt"); 
 	send(m_socket_id, reg_msg, strlen(reg_msg) + 1, 0);
 	LOG("connected to server");
 	MessageHandle msgh(m_socket_id);
-	LOG("start enter game");
+	//LOG("start enter game");
 	/* 接收server消息，进入游戏 */
 	char buffer[1024] = {'\0'};
 	int nowBuffer=0;
