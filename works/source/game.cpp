@@ -111,7 +111,7 @@ class Game
 	TurnState turnState;
 	Card hold[2];
 	Card flop[3];
-	Card turn;
+        Card turn;
 	Card river;
 };
 
