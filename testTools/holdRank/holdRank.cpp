@@ -4,6 +4,7 @@ struct Hand
 {
 	int id;
 	int cards[7];
+	cardPattern pattern;
 	void common(int* commonCards)
 	{
 		for(int i=0;i<5;i++)
@@ -18,10 +19,13 @@ struct Hand
 	{
 		dila->deliverHandCard(cards+5);
 	}
+	void getPattern(){
+		pattern=Dila::judgePattern(cards);
+	}
 	static bool cmp(Hand a,Hand b)
 	{
-		bool res=Dila::pk(a.cards,b.cards)>0;
-		return res;
+		if(a.pattern!=b.pattern)return a.pattern>b.pattern;
+		else return Dila::pk(a.cards,b.cards)>0;
 	}
 };
 
@@ -36,11 +40,14 @@ bool sim(int hold1,int hold2,int playerNum)
 	Hand* players=new Hand[playerNum];
 	players[0].common(common);
 	players[0].hold(hold1,hold2);
+	players[0].getPattern();
+	//cout<<players[0].pattern<<endl;
 	players[0].id=0;
 	for(int i=1;i<playerNum;i++)
 	{
 		players[i].common(common);
 		players[i].getHold(&dila);
+		players[i].getPattern();
 		players[i].id=i;
 	}
 	sort(players,players+playerNum,Hand::cmp);

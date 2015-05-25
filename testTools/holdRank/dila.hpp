@@ -22,29 +22,26 @@ enum cardPattern{
 
 struct cardCount{
     int point,cnt;
+    static bool cmp (const cardCount &a,const cardCount &b){
+		if(a.cnt!=b.cnt)return a.cnt>b.cnt;
+		else return a.point>b.point;
+	}
 };
 
 bool cmp(int a,int b){
     return a%13<b%13;
 }
 
-bool cmp1(cardCount a,cardCount b){
-    if(a.cnt!=b.cnt)return a.cnt>b.cnt;
-    else return a.point>b.point;
-}
-
 class Dila{
 public:
     Dila(){
         card_out=new bool[52];
-		for(int i=0;i<52;i++)
-			card_out[i]=false;
+		for(int i=0;i<52;i++)card_out[i]=false;
     }
     Dila(int a,int b){
         card_out=new bool[52];
-		for(int i=0;i<52;i++)
-			card_out[i]=false;
-        card_out[a%13]=card_out[b%13]=true;
+		for(int i=0;i<52;i++)card_out[i]=false;
+        card_out[a]=card_out[b]=true;
     }
     ~Dila(){
         delete [] card_out;
@@ -65,7 +62,7 @@ public:
                 //for(int k=0;k<5;k++)cout<<cards[k]<<" ";
                 //cout<<endl;
                 if(temp>p)
-					p=temp,x=i,y=j;
+					p=temp,x=j,y=i;
                 swap(cards[i],cards[5]);
                 swap(cards[j],cards[6]);
             }
@@ -87,7 +84,7 @@ public:
             int point=tr(cards[i]);
             if(i==0){temp.push_back(point);continue;}
             if(cards[i]/13!=cards[i-1]/13)isFlush=false;
-            if(point!=tr(cards[i-1])+1)isStraight=false;
+            if(point!=tr(cards[i-1])+1||(i==4&&tr(cards[i-1])==3&&point==12))isStraight=false;
             if(point!=temp[temp.size()-1])temp.push_back(point);
         }
         if(isFlush)p=FLUSH;
@@ -107,32 +104,35 @@ public:
         return p;
     }
     static int pk(int cards_a[],int cards_b[]){
-        int a_pattern=judgePattern(cards_a),b_pattren=judgePattern(cards_b);
-        if(a_pattern>b_pattren)return 1;
-        else if(a_pattern<b_pattren)return -1;
-        else{
-            sort(cards_a,cards_a+5,cmp);
-            sort(cards_b,cards_b+5,cmp);
-            struct cardCount cards_a_cnt[5],cards_b_cnt[5];
-            int lena=0,lenb=0;
-            for(int i=0;i<5;i++){
-                if(!i){
-                    cards_a_cnt[lena].point=tr(cards_a[i]),cards_a_cnt[lena++].cnt=1;
-                    cards_b_cnt[lenb].point=tr(cards_b[i]),cards_b_cnt[lenb++].cnt=1;
-                }else{
-                    if(cards_a[i]==cards_a[i-1])cards_a_cnt[lena-1].cnt++;
-                    else cards_a_cnt[lena].point=tr(cards_a[i]),cards_a_cnt[lena++].cnt=1;
-                    if(cards_b[i]==cards_b[i-1])cards_b_cnt[lenb-1].cnt++;
-                    else cards_b_cnt[lenb].point=tr(cards_b[i]),cards_b_cnt[lenb++].cnt=1;
-                }
+        //int a_pattern=judgePattern(cards_a),b_pattren=judgePattern(cards_b);
+        //if(a_pattern>b_pattren)return 1;
+        //else if(a_pattern<b_pattren)return -1;
+        //else{
+        //}
+        //sort(cards_a,cards_a+5,cmp);
+        //sort(cards_b,cards_b+5,cmp);
+        struct cardCount cards_a_cnt[5],cards_b_cnt[5];
+        int lena=0,lenb=0;
+        for(int i=0;i<5;i++){
+        	if(!i){
+            	cards_a_cnt[lena].point=tr(cards_a[i]),cards_a_cnt[lena++].cnt=1;
+                cards_b_cnt[lenb].point=tr(cards_b[i]),cards_b_cnt[lenb++].cnt=1;
+            }else{
+                if(cards_a[i]==cards_a[i-1])cards_a_cnt[lena-1].cnt++;
+                else cards_a_cnt[lena].point=tr(cards_a[i]),cards_a_cnt[lena++].cnt=1;
+                if(cards_b[i]==cards_b[i-1])cards_b_cnt[lenb-1].cnt++;
+                else cards_b_cnt[lenb].point=tr(cards_b[i]),cards_b_cnt[lenb++].cnt=1;
             }
-            sort(cards_a_cnt,cards_a_cnt+lena,cmp1);
-            sort(cards_b_cnt,cards_b_cnt+lenb,cmp1);
-            for(int i=0;i<lena;i++)
-                if(cards_a_cnt[i].point!=cards_b_cnt[i].point)
-                    return cards_a_cnt[i].point-cards_b_cnt[i].point;
-            return 0;
         }
+        sort(cards_a_cnt,cards_a_cnt+lena,cardCount::cmp);
+        sort(cards_b_cnt,cards_b_cnt+lenb,cardCount::cmp);
+        if(lena==4&&cards_a_cnt[1].point==5&&cards_b_cnt[0].point==12)
+        	if(cards_b_cnt[1].point==cards_a_cnt[1].point&&cards_b_cnt[0].point==cards_a_cnt[0].point)return 0;
+        	else return -1; 
+        for(int i=0;i<lena;i++)
+            if(cards_a_cnt[i].point!=cards_b_cnt[i].point)
+            	return cards_a_cnt[i].point-cards_b_cnt[i].point;
+        return 0;
     }
     void deliverCard(int num,int cards[]){
         srand((int)time(0));
