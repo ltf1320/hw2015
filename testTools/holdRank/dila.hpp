@@ -8,7 +8,11 @@
 
 using namespace std;
 
+//int randNum=0;
+//int randFail=0;
+
 enum cardPattern{
+	UNKOWN_PATTERN=0,
     HIGH_CARD,
     ONE_PAIR,
     TWO_PAIR,
@@ -52,7 +56,7 @@ public:
     void deliverRiver(int cards[]){deliverCard(1,cards);}
     static cardPattern judgePattern(int cards[]){
         cardPattern p=HIGH_CARD;
-        int x=5,y=6;//init
+        int x=5,y=6;///init
         for(int i=0;i<7;i++){
             for(int j=i+1;j<7;j++){
                 swap(cards[j],cards[5]);
@@ -72,11 +76,11 @@ public:
         return p;
     }
     static cardPattern judgePattern_5(int cards_[]){
-        int cards[5];
+		int cards[5];
         for(int i=0;i<5;i++)cards[i]=cards_[i];
-        //for(int i=0;i<5;i++)cout<<cards[i]<<" ";
-        //cout<<endl;
         sort(cards,cards+5,cmp);
+	//	for(int i=0;i<5;i++)cout<<tr(cards[i])<<" ";
+   //     cout<<endl;
         bool isFlush=true,isStraight=true;
         cardPattern p;
         vector<int> temp;
@@ -84,7 +88,7 @@ public:
             int point=tr(cards[i]);
             if(i==0){temp.push_back(point);continue;}
             if(cards[i]/13!=cards[i-1]/13)isFlush=false;
-            if(point!=tr(cards[i-1])+1||(i==4&&tr(cards[i-1])==3&&point==12))isStraight=false;
+            if(point!=tr(cards[i-1])+1&&(!(i==4&&tr(cards[i-1])==3&&point==12)))isStraight=false;///bug
             if(point!=temp[temp.size()-1])temp.push_back(point);
         }
         if(isFlush)p=FLUSH;
@@ -96,7 +100,7 @@ public:
         if(temp.size()==3){
             if(tr(cards[1])==tr(cards[3])||
                tr(cards[2])==tr(cards[0])||
-               tr(cards[2]==tr(cards[5])))p=THREE_OF_A_KIND;
+               tr(cards[2])==tr(cards[5]))p=THREE_OF_A_KIND;//tr(cards[2]==tr(cards[5])))p=THREE_OF_A_KIND;
             else p=TWO_PAIR;
         }
         if(temp.size()==4)p=ONE_PAIR;
@@ -135,10 +139,16 @@ public:
         return 0;
     }
     void deliverCard(int num,int cards[]){
-        srand((int)time(0));
+        //srand((int)time(0)); ///the same time
         for(int i=0;i<num;i++){
             int card;
-            while(card_out[card=rand()%52]);
+            while(card_out[card=rand()%52]) 
+			{
+	//			printf("fail:%d\n",card);
+	//			randFail++;
+			}
+	//		printf("get:%d\n",card);
+	//		randNum++;
             cards[i]=card;
             card_out[card]=true;
         }
@@ -158,6 +168,49 @@ private:
     static int tr(int value){
         return value%13;
     }
+};
+
+struct Hand
+{
+	int id;
+	int cards[7];
+	cardPattern pattern;
+	Hand(){
+		pattern=UNKOWN_PATTERN;	
+	}
+	Hand(int cds[])
+	{
+		new (this)Hand();
+		for(int i=0;i<7;i++)
+			cards[i]=cds[i];
+	}
+	void common(int* commonCards)
+	{
+		for(int i=0;i<5;i++)
+			cards[i]=commonCards[i];
+	}
+	void hold(int card1,int card2)
+	{
+		cards[5]=card1;
+		cards[6]=card2;
+	}
+	void getHold(Dila *dila)
+	{
+		dila->deliverHandCard(cards+5);
+	}
+	void getPattern(){
+		pattern=Dila::judgePattern(cards);
+	//	cout<<"pattern:"<<pattern<<endl;
+	}
+	static bool cmp(Hand a,Hand b)
+	{
+		if(a.pattern==UNKOWN_PATTERN)
+			a.getPattern();
+		if(b.pattern==UNKOWN_PATTERN)
+			b.getPattern();
+		if(a.pattern!=b.pattern)return a.pattern>b.pattern;
+		else return Dila::pk(a.cards,b.cards)>0;
+	}
 };
 
 

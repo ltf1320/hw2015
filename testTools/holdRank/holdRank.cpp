@@ -1,33 +1,5 @@
 #include "dila.hpp"
 
-struct Hand
-{
-	int id;
-	int cards[7];
-	cardPattern pattern;
-	void common(int* commonCards)
-	{
-		for(int i=0;i<5;i++)
-			cards[i]=commonCards[i];
-	}
-	void hold(int card1,int card2)
-	{
-		cards[5]=card1;
-		cards[6]=card2;
-	}
-	void getHold(Dila *dila)
-	{
-		dila->deliverHandCard(cards+5);
-	}
-	void getPattern(){
-		pattern=Dila::judgePattern(cards);
-	}
-	static bool cmp(Hand a,Hand b)
-	{
-		if(a.pattern!=b.pattern)return a.pattern>b.pattern;
-		else return Dila::pk(a.cards,b.cards)>0;
-	}
-};
 
 int win[52][52];
 
@@ -62,7 +34,7 @@ void MentoCarlo(int playerNum,int num)
 	win[0][1]=0;
 	for(int i=0;i<num;i++)
 	{
-		if(sim(0,1,playerNum))
+		if(sim(11,12,playerNum))
 			win[0][1]++;
 	}
 	printf("%d\n",win[0][1]);
@@ -72,7 +44,15 @@ void MentoCarlo(int playerNum,int num)
 int main()
 {
 	srand(time(0));
-	printf("%d\n",RAND_MAX);
+	//printf("%d\n",RAND_MAX);
 	MentoCarlo(8,10000);
-
+//	printf("randNum=%d\n",randNum);
+//	printf("randFail=%d\n",randFail);
+//	int hand1[7]={1,15,16,4,10,13,12};
+//	int hand2[7]={1,1,15,15,3,3,17};
+//	Hand h1(hand1),h2(hand2);
+//	cout<<STRAIGHT_FLUSH<<endl;
+//	cout<<Hand::cmp(hand1,hand2)<<endl;
+//	h1.getPattern();
+//	cout<<h1.pattern<<endl;
 }
