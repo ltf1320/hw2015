@@ -34,7 +34,7 @@ void MentoCarlo(int playerNum,int num)
 	win[0][1]=0;
 	for(int i=0;i<num;i++)
 	{
-		if(sim(2,8,playerNum))
+		if(sim(7,20,playerNum))
 			win[0][1]++;
 	}
 	printf("%d\n",win[0][1]);
