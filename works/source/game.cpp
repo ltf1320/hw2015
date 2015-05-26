@@ -2,7 +2,6 @@
 #include <cstdio>
 #include <cstring>
 #include <cstdlib>
-#include "ThreadSafeQueue.h"
 #include <thread>
 #include <netinet/in.h>
 #include <arpa/inet.h>
@@ -13,6 +12,9 @@
 #include <vector>
 #include <map> 
 #include <signal.h>
+
+#include "ThreadSafeQueue.h"
+#include "dila.hpp"
 using namespace std;
 
 const char eol='\n';
@@ -23,6 +25,8 @@ FILE* logFile;
 //#define LOG(msg,arg...) printf("[%d]",my_id);printf(msg,##arg);puts("");
 
 #define LOOP_MSG_UNTIL(endMsg) for(char* msg=getNextMsg();strcmp(msg,endMsg)||((delete [] msg),0);delete [] msg,msg=getNextMsg())
+
+int HandCount=0;
 
 
 //deal with kill,save the log
@@ -71,39 +75,83 @@ namespace NutHand
 	const char* FULL_HOUSE="FULL_HOUSE";
 	const char* FOUR_OF_A_KIND="FOUR_OF_A_KIND";
 	const char* STRAIGHT_FLUSH="STRAIGHT_FLUSH";
+	map<string,cardPattern> mp;
+	cardPattern getPattern(const char* desc)
+	{
+		string tmp(desc);
+		if(mp.count(tmp)>0)
+		{
+			return mp[tmp];
+		}
+		LOG("get pattern faild:%s",desc);
+		return UNKOWN_PATTERN;
+	}
+	void initMp()
+	{
+		NutHand::mp[string(NutHand::HIGH_CARD)]=::HIGH_CARD;
+		NutHand::mp[string(NutHand::ONE_PAIR)]=::ONE_PAIR;
+		NutHand::mp[string(NutHand::TWO_PAIR)]=::TWO_PAIR;
+		NutHand::mp[string(NutHand::THREE_OF_A_KIND)]=::THREE_OF_A_KIND;
+		NutHand::mp[string(NutHand::STRAIGHT)]=::STRAIGHT;
+		NutHand::mp[string(NutHand::FLUSH)]=::FLUSH;
+		NutHand::mp[string(NutHand::FULL_HOUSE)]=::FULL_HOUSE;
+		NutHand::mp[string(NutHand::FOUR_OF_A_KIND)]=::FOUR_OF_A_KIND;
+		NutHand::mp[string(NutHand::STRAIGHT_FLUSH)]=::STRAIGHT_FLUSH;
+	}
 }
 
 struct Card
 {
-	char* color;
+	char color;
 	int point;
 	void getCard(char* cardDesc)
 	{
 		char tmp[10];
-		char pnt;
-		sscanf(cardDesc,"%s %c",tmp,&pnt);
-		if(pnt=='A')
-			point=1;
-		else if(pnt=='J')
-			point=11;
-		else if(pnt=='Q')
-			point=12;
-		else if(pnt=='K')
-			point=13;
-		else point=pnt-'0';
-	
-		if(tmp[0]=='S')
-			color=(char*)Color::SPADES;
-		if(tmp[0]=='H')
-			color=(char*)Color::HEARTS;
-		if(tmp[0]=='C')
-			color=(char*)Color::CLUBS;
-		if(tmp[0]=='D')
-			color=(char*)Color::DIAMONDS;
+		char pnt[10];
+		sscanf(cardDesc,"%s %s",tmp,pnt);
+		getCard(tmp,pnt);
+	}
+	void getCard(const char* co,const char* po)
+	{
+		color=co[0];
+		switch(po[0])
+		{
+			case 'A':point=14;break;
+			case 'K':point=13;break;
+			case 'Q':point=12;break;
+			case 'J':point=11;break;
+			default:sscanf(po,"%d",&point);break;
+		}
 	}
 	void logCard()
 	{
-		LOG("%s %d",color,point);
+		LOG("%c %d",color,point);
+	}
+	int getId()
+	{
+		int res;
+		switch(color)
+		{
+			case 'S':res=0*13;break;
+			case 'H':res=1*13;break;
+			case 'C':res=2*13;break;
+			case 'D':res=3*13;break;
+			default:LOG("Error:Unkown Color:%c",color);break;
+		}
+		res+=point-2;
+		return res;
+	}
+	void getCard(int id)
+	{
+		point=id%13+2;
+		switch(id/13)
+		{
+			case 0:color='S';break;
+			case 1:color='H';break;
+			case 2:color='C';break;
+			case 3:color='D';break;
+			default:LOG("Error:Unkown Color(in id):%d",id/13);break;
+		}
 	}
 };
 
@@ -150,8 +198,9 @@ class Game
 	TurnState turnState;
 	Card hold[2];
 	Card flop[3];
-        Card turn;
+    Card turn;
 	Card river;
+	int common[5];
 	int pot;
 	Player* getPlayer(int pid)
 	{
@@ -159,13 +208,21 @@ class Game
 			return &me;
 		else return &players[pid];
 	}
+	int* getCommon()
+	{
+		for(int i=0;i<3;i++)
+			common[i]=flop[i].getId();
+		common[3]=turn.getId();
+		common[4]=river.getId();
+		return common;
+	}
 };
 
 class PlayerResult
 {
 public:
 	Card hold[2];
-	char NutHand[10];
+	char NutHand[20];
 	Player player;
 	int win;
 	int rank;
@@ -176,7 +233,50 @@ class GameResult
 public:
 	Game game;
 	map<int,PlayerResult> result;
+	void checkResult()
+	{
+		game.getCommon();
+		for(auto iter=result.begin();iter!=result.end();++iter)
+		{
+			Hand h;
+			h.common(game.common);
+			h.hold(iter->second.hold[0].getId(),iter->second.hold[1].getId());
+			h.getPattern();
+			if(h.pattern!=NutHand::getPattern(iter->second.NutHand))
+			{
+				LOG("error pattern:");
+				LOG("Hand:%d",HandCount);
+				LOG("pid:%d",iter->second.player.pid);
+				LOG("cards:");
+/*				
+				for(int i=0;i<7;i++)
+				{
+					LOG("%d ",h.cards[i]);
+					Card tmp;
+					tmp.getCard(h.cards[i]);
+					tmp.logCard();
+				}
+
+				LOG("------------");*/
+				for(int i=0;i<3;i++)
+				{
+					game.flop[i].logCard();
+					LOG("%d",game.flop[i].getId());
+				}
+				game.turn.logCard();
+				game.river.logCard();
+				iter->second.hold[0].logCard();
+				iter->second.hold[1].logCard();
+				
+				LOG("server pattern:%d",NutHand::mp[string(iter->second.NutHand)]);
+				LOG("Dila pattern:%d",h.pattern);
+			}
+		}
+	}
 };
+
+
+
 
 class MessageHandle
 {
@@ -356,10 +456,16 @@ class MessageHandle
 			{
 				int rank,pid;
 				PlayerResult pres;
-				sscanf(msg,"%d:%d %s %d %s %d %s",&rank,&pid,pres.hold[0].color,&pres.hold[0].point,pres.hold[1].color,&pres.hold[1].point,pres.NutHand);
+				char ct1[10],ct2[10],pt1[10],pt2[10];
+				sscanf(msg,"%d:%d %s %s %s %s %s",&rank,&pid,ct1,pt1,ct2,pt2,pres.NutHand);
+				pres.hold[0].getCard(ct1,pt1);
+				pres.hold[1].getCard(ct2,pt2);
 				pres.player=*(game.getPlayer(pid));
 				result.result[pid]=pres;
 			}
+			result.checkResult();
+			LOG("result Checked");
+			HandCount++;
 		}
 		void handlePotWin(){
 			LOOP_MSG_UNTIL("/pot-win")
@@ -395,6 +501,8 @@ class MessageHandle
 					sscanf(msg,"total pot:%d",&game.pot);
 				}
 			}
+			sendAction(Action::all_in);
+			/*
 			int allinCnt=0;
 			for(auto iter=game.players.begin();iter!=game.players.end();iter++)
 				allinCnt++;
@@ -407,6 +515,7 @@ class MessageHandle
 				sendAction(Action::fold);
 			}
 		//	LOG("handle inquire end");
+			*/
 		}
 		void handleNotify()
 		{
@@ -433,16 +542,23 @@ class MessageHandle
 				}
 			}
 		}
+
+		
 		ThreadSafeQueue<char*> msgQue;
 		thread th;
 };
 
 
+void init()
+{
+	signal(SIGTERM, killhandler);  
+    signal(SIGINT, killhandler); 
+	NutHand::initMp();
+}
 
 int main(int argc,char**argv){
-	signal(SIGTERM, killhandler);  
-    signal(SIGINT, killhandler);  
-
+	 
+	init();
 	if (argc != 6)
 	{
 		LOG("Usage: ./%s server_ip server_port my_ip my_port my_id\n", argv[0]);
