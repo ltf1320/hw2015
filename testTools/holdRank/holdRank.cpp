@@ -34,7 +34,7 @@ void MentoCarlo(int playerNum,int num)
 	win[0][1]=0;
 	for(int i=0;i<num;i++)
 	{
-		if(sim(7,20,playerNum))
+		if(sim(0,1,playerNum))
 			win[0][1]++;
 	}
 	printf("%d\n",win[0][1]);
@@ -45,14 +45,14 @@ int main()
 {
 	srand(time(0));
 	//printf("%d\n",RAND_MAX);
-//	MentoCarlo(8,10000);
-//	printf("randNum=%d\n",randNum);
+	MentoCarlo(8,10000);
+	//printf("randNum=%d\n",randNum);
 //	printf("randFail=%d\n",randFail);
-	int hand1[7]={27,2,41,48,35,4,29};
-	int hand2[7]={1,1,15,15,3,3,17};
-	Hand h1(hand1),h2(hand2);
-    h1.getPattern();
-	cout<<h1.pattern<<endl;
+	//int hand1[7]={27,2,41,48,35,4,29};
+	//int hand2[7]={1,1,15,15,3,3,17};
+	//Hand h1(hand1),h2(hand2);
+    //h1.getPattern();
+	//cout<<h1.pattern<<endl;
 //	cout<<STRAIGHT_FLUSH<<endl;
 //	cout<<Hand::cmp(hand1,hand2)<<endl;
 //	h1.getPattern();
