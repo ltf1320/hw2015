@@ -501,7 +501,7 @@ class MessageHandle
 					sscanf(msg,"total pot:%d",&game.pot);
 				}
 			}
-			sendAction(Action::all_in);
+			sendAction(Action::call);
 			/*
 			int allinCnt=0;
 			for(auto iter=game.players.begin();iter!=game.players.end();iter++)

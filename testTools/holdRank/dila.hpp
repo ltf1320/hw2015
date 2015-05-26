@@ -1,3 +1,6 @@
+#ifndef DILA_HPP
+#define DILA_HPP
+
 #include <iostream>
 #include <vector>
 #include <cstdlib>
@@ -218,5 +221,5 @@ struct Hand
 		}
 	}
 };
-
+#endif
 

@@ -26,7 +26,7 @@ FILE* logFile;
 
 #define LOOP_MSG_UNTIL(endMsg) for(char* msg=getNextMsg();strcmp(msg,endMsg)||((delete [] msg),0);delete [] msg,msg=getNextMsg())
 
-int HandCount=0;
+int HandCount=1;
 
 
 //deal with kill,save the log
@@ -153,6 +153,10 @@ struct Card
 			default:LOG("Error:Unkown Color(in id):%d",id/13);break;
 		}
 	}
+	static float getHoldStrenth(int id1,int id2)
+	{
+		return 0.5;
+	}
 };
 
 enum PlayerState
@@ -173,6 +177,13 @@ enum TurnState
 	TurnState_SHOWDOWN
 };
 
+enum PlayerType
+{
+	UNKOWN,
+	ALL_IN,
+	GOOD_ALL_IN
+}
+
 class Player
 {
 public:
@@ -181,6 +192,7 @@ public:
 	int monney;
 	int bet;
 	int pid;
+	int seat;
 	void dobet(int num)
 	{
 		if(num>jetton)
@@ -202,6 +214,49 @@ class Game
 	Card river;
 	int common[5];
 	int pot;
+	int bet;
+
+	vector<int,Player> seats;
+	int lastRaiseSeat;
+	int getAllInNum()
+	{
+		int res=0;
+		for(auto iter=seats.begin();iter!=seats.end();iter++)
+			if(iter->second.state==PlayerState_ALL_IN)
+				res++;
+		return res;
+	}
+	int getJoinNum()
+	{
+		int res=0;
+		for(auto iter=seats.begin();iter!=seats.end();iter++)
+			if(iter->second.state!=PlayerState_FOLDED)
+				res++;
+		return res;
+	}
+	int getWaitActionNum()
+	{
+		int res=1;
+		for(int i=me.seat+1;i!=lastRaiseSeat;(i==seats.size()-1)?i=0:i++)
+		{
+			if(seats[i].state!=PlayerState_FOLDED)
+				res++;
+		}
+		return res;
+	}
+	
+	float getPotOdd()
+	{
+		return (float)bet/pot;
+	}
+	float getHandStrenth()
+	{
+		return Card::getHoldStrenth(hold[0].getId(),hold[1].getId());
+	}
+	float getRateOfReturn()
+	{
+		return getHandStreath()/getPotOdd();
+	}
 	Player* getPlayer(int pid)
 	{
 		if(pid==me.pid)
@@ -302,13 +357,35 @@ class MessageHandle
 	protected:
 		int sock;
 		Game game;
-
+		
 		void sendAction(const char* action)
 		{
 			LOG("Action:%s",action);
 			send(sock,action,strlen(action),0);
 			send(sock," \n",2,0);
 		}
+
+		void check_or_fold()
+		{
+			if(me.bet==game.bet)
+				sendAction(Acton::check);
+			else sendAction(Action::fold);
+		}
+		void raise(int num)
+		{
+			char tmp[30];
+			sprintf("%s %d",Action::raise,num);
+			sendAction(tmp);
+		}
+		void call(int num)
+		{
+			sendAction(Action::call);
+		}
+		void all_in()
+		{
+			sendAction(Action::all_in);
+		}
+		
 		char* getNextMsg()
 		{
 			while(true){
@@ -423,6 +500,7 @@ class MessageHandle
 			}
 			msg=getNextMsg();
 			delete [] msg;
+			game.bet=0;
 		}
 		void handleTurn(){
 			char *msg=getNextMsg();
@@ -430,6 +508,7 @@ class MessageHandle
 			delete [] msg;
 			msg=getNextMsg();
 			delete [] msg;
+			game.bet=0;
 		}
 		void handleRiver(){
 			char *msg=getNextMsg();
@@ -437,6 +516,7 @@ class MessageHandle
 			delete [] msg;
 			msg=getNextMsg();
 			delete [] msg;
+			game.bet=0;
 		}
 		void handleShowdown(){
 			LOOP_MSG_UNTIL("/common")
@@ -489,6 +569,7 @@ class MessageHandle
 					np->jetton=jetton;
 					np->monney=monney;
 					np->bet=bet;
+					game.bet=max(game.bet,bet);
 					if(!strcmp(act,Action::all_in))
 						np->state=PlayerState_ALL_IN;
 					if(!strcmp(act,Action::fold))

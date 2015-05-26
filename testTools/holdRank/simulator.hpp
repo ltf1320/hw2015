@@ -4,10 +4,11 @@
 #include "dila.hpp"
 #include <thread>
 #include <mutex>
-//#include <condition_variable>
+#include <condition_variable>
 
 enum SimType
 {
+	SimType_HOLD=0,
 	SimType_FLOP=3,
 	SimType_TURN=4,
 	SimType_River=5
@@ -17,16 +18,18 @@ class Simulator
 {
 	thread simThread;
 	mutex mtx;
+	condition_variable cv;
 	bool cvFlag;
 	int sum,win;
-	//int targetSum;
+	int targetSum;
 	bool stop;
-	void startSim(int* common,int hold1,int hold2,int plyaerNum,SimType type)
+	void startSim(int* common,int hold1,int hold2,int playerNum,SimType type)
 	{
 		sum=win=0;
 		stop=false;
-	//	targetSum=-1;
-		simThread=move(thread(work,common,(int)type,hold1,hold2,plyaerNum));
+		targetSum=-1;
+		simThread=move(thread(work,this,common,(int)type,hold1,hold2,playerNum));
+		simThread.detach();
 	}
 
 	float stopAndGetRes()
@@ -38,34 +41,34 @@ class Simulator
 	
 	float stopUntilCount(int cnt)
 	{	
-		for(;;usleep(1000*10)){
-			std::lock_guard<std::mutex> lck (mtx);
-			if(cnt<=sum)
-				break;
-		}
-		return stopAndGetRes();
+		std::unique_lock <std::mutex> lck(mtx);
+		if(cnt<=sum)
+			return stopAndGetRes();
+		targetSum=cnt;
+		while(!cvFlag)
+			cv.wait(lck);
+		return 1.0*win/sum;
 	}
-	void work(int *common,int commonNum,int hold1,int hold2,int plyaerNum)
+	static void work(Simulator* th,int *common,int commonNum,int hold1,int hold2,int playerNum)
 	{
-		detach();
 		while(true)
 		{
-			std::lock_guard<std::mutex> lck (mtx);
-			if(stop) break;
-/*
-			if(sum==target)
+			std::lock_guard<std::mutex> lck (th->mtx);
+			if(th->stop) break;
+
+			if(th->sum==th->targetSum)
 			{
-				cvFlag=true;
-				cv.notify_all();
+				th->cvFlag=true;
+				th->cv.notify_all();
 				break;
 			}
-*/
+
 			if(sim(common,commonNum,hold1,hold2,playerNum))
-				win++;
-			sum++;
+				th->win++;
+			th->sum++;
 		}
 	}
-	bool sim(int*common,int commonNum,int hold1,int hold2,int playerNum)
+	static bool sim(int*common,int commonNum,int hold1,int hold2,int playerNum)
 	{
 		Dila dila;
 		dila.claimCard(commonNum,common);

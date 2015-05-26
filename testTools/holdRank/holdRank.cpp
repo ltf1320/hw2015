@@ -1,60 +1,85 @@
 #include "dila.hpp"
-
-
-int win[52][52];
-
-bool sim(int hold1,int hold2,int playerNum)
+#include "simulator.hpp"
+#include <thread>
+#include "ThreadSafeQueue.h"
+#include <cstring>
+struct Hold
 {
-	Dila dila;
-	dila.claimCard(hold1,hold2);
+	int hold1,hold2;
+	int playerNum;
+	Hold(int h1,int h2,int pn)
+	{
+		hold1=h1,hold2=h2;
+		playerNum=pn;
+	}
+};
+
+ThreadSafeQueue<Hold*> que;
+
+float res[7][52][52];
+
+bool sim(int hold1,int hold2,int playerNum,Hand* players,int* common)
+	{
+		Dila dila;
+		dila.claimCard(hold1,hold2);
+		dila.deliverCard(5,common);
+		players[0].common(common);
+		players[0].hold(hold1,hold2);
+		players[0].getPattern();
+		//cout<<players[0].pattern<<endl;
+		players[0].id=0;
+		for(int i=1;i<playerNum;i++)
+		{
+			players[i].common(common);
+			players[i].getHold(&dila);
+			players[i].getPattern();
+			players[i].id=i;
+		}
+		sort(players,players+playerNum,Hand::cmp);
+		bool res=false;
+		if(players[0].id==0)
+			res=true;
+		return res;
+	}
+
+void MentoCarlo(int num)
+{
+	Hand players[10];
 	int common[5];
-	dila.deliverCard(5,common);
-	Hand* players=new Hand[playerNum];
-	players[0].common(common);
-	players[0].hold(hold1,hold2);
-	players[0].getPattern();
-	//cout<<players[0].pattern<<endl;
-	players[0].id=0;
-	for(int i=1;i<playerNum;i++)
+	while(true)
 	{
-		players[i].common(common);
-		players[i].getHold(&dila);
-		players[i].getPattern();
-		players[i].id=i;
+		auto res=que.popFront();
+		if(!res.first) return;
+		int win=0;
+		for(int i=0;i<num;i++)
+		{
+			if(sim(res.second->hold1,res.second->hold2,res.second->playerNum,players,common))
+				win++;
+		}
+		res[res.second->playerNum-2][res.second->hold1][res.second->hold2]=1.0*win/num;
+		delete res.second;
 	}
-	sort(players,players+playerNum,Hand::cmp);
-	if(players[0].id==0)
-		return true;
-	return false;
 }
 
-
-void MentoCarlo(int playerNum,int num)
-{
-	win[0][1]=0;
-	for(int i=0;i<num;i++)
-	{
-		if(sim(0,1,playerNum))
-			win[0][1]++;
-	}
-	printf("%d\n",win[0][1]);
-	printf("%f\n",1.0*win[0][1]/num);
-}
 
 int main()
 {
 	srand(time(0));
-	//printf("%d\n",RAND_MAX);
-	MentoCarlo(8,10000);
-	//printf("randNum=%d\n",randNum);
-//	printf("randFail=%d\n",randFail);
-	//int hand1[7]={27,2,41,48,35,4,29};
-	//int hand2[7]={1,1,15,15,3,3,17};
-	//Hand h1(hand1),h2(hand2);
-    //h1.getPattern();
-	//cout<<h1.pattern<<endl;
-//	cout<<STRAIGHT_FLUSH<<endl;
-//	cout<<Hand::cmp(hand1,hand2)<<endl;
-//	h1.getPattern();
-//	cout<<h1.pattern<<endl;
+	int simNum=10000;
+	for(int p=2;p<=2;p++)
+	for(int i=0;i<52;i++)
+		for(int j=i+1;j<52;j++)
+		{
+			que.push(new Hold(i,j,p));
+		}
+	vector<thread> threads;
+	for(int i=0;i<4;i++)
+	{
+		threads.push_back(move(thread(MentoCarlo,simNum)));
+	}
+	for(auto iter=threads.begin();iter!=threads.end();iter++)
+		iter->join();
+	FILE* resFile=fopen("holdRank.data","wb");
+	fwrite(res,sizeof(res),1,resFile);
+	fclose(resFile);
 }
