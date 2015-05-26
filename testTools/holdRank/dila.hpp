@@ -101,7 +101,7 @@ public:
         if(temp.size()==3){
             if(tr(cards[1])==tr(cards[3])||
                tr(cards[2])==tr(cards[0])||
-               tr(cards[2])==tr(cards[5]))p=THREE_OF_A_KIND;//tr(cards[2]==tr(cards[5])))p=THREE_OF_A_KIND;
+               tr(cards[2])==tr(cards[4]))p=THREE_OF_A_KIND;//tr(cards[2]==tr(cards[5])))p=THREE_OF_A_KIND;
             else p=TWO_PAIR;
         }
         if(temp.size()==4)p=ONE_PAIR;
