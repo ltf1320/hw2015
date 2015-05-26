@@ -209,7 +209,13 @@ struct Hand
 		if(b.pattern==UNKOWN_PATTERN)
 			b.getPattern();
 		if(a.pattern!=b.pattern)return a.pattern>b.pattern;
-		else return Dila::pk(a.cards,b.cards)>=0;
+		else{
+				
+			int pk=Dila::pk(a.cards,b.cards);
+			if(pk==0)
+				return a.id>b.id;
+			else return pk>0;
+		}
 	}
 };
 
