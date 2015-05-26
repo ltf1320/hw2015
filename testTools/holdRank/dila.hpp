@@ -55,6 +55,7 @@ public:
     void deliverTurn(int cards[]){deliverCard(1,cards);}
     void deliverRiver(int cards[]){deliverCard(1,cards);}
     static cardPattern judgePattern(int cards[]){
+    	sort(cards,cards+7,cmp);
         cardPattern p=HIGH_CARD;
         int x=5,y=6;///init
         for(int i=0;i<7;i++){
@@ -65,8 +66,7 @@ public:
                 //printf("[%d %d %d]\n",temp,i,j);
                 //for(int k=0;k<5;k++)cout<<cards[k]<<" ";
                 //cout<<endl;
-                if(temp>p)
-					p=temp,x=j,y=i;
+                if(temp>p)p=temp,x=j,y=i;
                 swap(cards[i],cards[5]);
                 swap(cards[j],cards[6]);
             }
@@ -88,7 +88,7 @@ public:
             int point=tr(cards[i]);
             if(i==0){temp.push_back(point);continue;}
             if(cards[i]/13!=cards[i-1]/13)isFlush=false;
-            if(point!=tr(cards[i-1])+1&&(!(i==4&&tr(cards[i-1])==3&&point==12)))isStraight=false;///bug
+            if(point!=tr(cards[i-1])+1&&(!(i==4&&tr(cards[i-1])==4&&point==12)))isStraight=false;///bug
             if(point!=temp[temp.size()-1])temp.push_back(point);
         }
         if(isFlush)p=FLUSH;
@@ -130,7 +130,7 @@ public:
         }
         sort(cards_a_cnt,cards_a_cnt+lena,cardCount::cmp);
         sort(cards_b_cnt,cards_b_cnt+lenb,cardCount::cmp);
-        if(lena==4&&cards_a_cnt[1].point==5&&cards_b_cnt[0].point==12)
+        if(lena==5&&cards_a_cnt[1].point==4&&cards_b_cnt[0].point==12)
         	if(cards_b_cnt[1].point==cards_a_cnt[1].point&&cards_b_cnt[0].point==cards_a_cnt[0].point)return 0;
         	else return -1; 
         for(int i=0;i<lena;i++)
@@ -209,7 +209,7 @@ struct Hand
 		if(b.pattern==UNKOWN_PATTERN)
 			b.getPattern();
 		if(a.pattern!=b.pattern)return a.pattern>b.pattern;
-		else return Dila::pk(a.cards,b.cards)>0;
+		else return Dila::pk(a.cards,b.cards)>=0;
 	}
 };
 
