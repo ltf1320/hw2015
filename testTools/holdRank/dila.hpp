@@ -12,7 +12,7 @@ using namespace std;
 //int randFail=0;
 
 enum cardPattern{
-	UNKOWN_PATTERN=0,
+    UNKOWN_PATTERN=0,
     HIGH_CARD,
     ONE_PAIR,
     TWO_PAIR,
@@ -64,11 +64,12 @@ public:
                 swap(cards[i],cards[6]);
                 cardPattern temp=judgePattern_5(cards);
                 //printf("[%d %d %d]\n",temp,i,j);
-                //for(int k=0;k<5;k++)cout<<cards[k]<<" ";
+                //for(int k=0;k<5;k++)cout<<tr(cards[k])<<" ";
                 //cout<<endl;
                 if(temp>p)p=temp,x=j,y=i;
-                swap(cards[i],cards[5]);
-                swap(cards[j],cards[6]);
+		//cout<<temp<<endl;
+                swap(cards[i],cards[6]);
+                swap(cards[j],cards[5]);
             }
         }
         swap(cards[x],cards[5]);
@@ -79,8 +80,8 @@ public:
 		int cards[5];
         for(int i=0;i<5;i++)cards[i]=cards_[i];
         sort(cards,cards+5,cmp);
-	//	for(int i=0;i<5;i++)cout<<tr(cards[i])<<" ";
-   //     cout<<endl;
+	//for(int i=0;i<5;i++)cout<<tr(cards[i])<<" ";
+   	//cout<<endl;
         bool isFlush=true,isStraight=true;
         cardPattern p;
         vector<int> temp;
@@ -200,7 +201,7 @@ struct Hand
 	}
 	void getPattern(){
 		pattern=Dila::judgePattern(cards);
-	//	cout<<"pattern:"<<pattern<<endl;
+		//Scout<<"pattern:"<<pattern<<endl;
 	}
 	static bool cmp(Hand a,Hand b)
 	{
@@ -210,7 +211,6 @@ struct Hand
 			b.getPattern();
 		if(a.pattern!=b.pattern)return a.pattern>b.pattern;
 		else{
-				
 			int pk=Dila::pk(a.cards,b.cards);
 			if(pk==0)
 				return a.id>b.id;
