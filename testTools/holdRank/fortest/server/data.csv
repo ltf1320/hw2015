@@ -1,0 +1,9 @@
+Pid, Money, HandNum, ShowDownNum, NetWin, NutHand, Rank, StatusPid, Money, HandNum, ShowDownNum, NetWin, NutHand, Rank, Status
+1111, 0, 6, 6, -10000, TWO_PAIR, 3, NORMAL
+2222, 0, 10, 10, -10000, THREE_OF_A_KIND, 2, NORMAL
+3333, 0, 5, 5, -10000, ONE_PAIR, 5, NORMAL
+4444, 0, 5, 5, -10000, STRAIGHT, 5, NORMAL
+5555, 80000, 10, 10, 70000, TWO_PAIR, 1, NORMAL
+6666, 0, 5, 5, -10000, ONE_PAIR, 5, NORMAL
+7777, 0, 6, 6, -10000, STRAIGHT, 3, NORMAL
+8888, 0, 5, 5, -10000, ONE_PAIR, 5, NORMAL
