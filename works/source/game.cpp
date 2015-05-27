@@ -561,6 +561,10 @@ class MessageHandle
 		//	LOG("handle seat");
 			game.seats.clear();
 			game.turnState=TurnState_START;
+			for(auto iter=game.players.begin();iter!=game.players.end();iter++)
+			{
+				iter->second.state=PlayerState_GAME_OVER;
+			}
 			result.reset();
 			LOOP_MSG_UNTIL("/seat"){
 				char *p=msg;
