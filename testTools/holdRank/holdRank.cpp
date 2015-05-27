@@ -16,7 +16,7 @@ struct Hold
 
 ThreadSafeQueue<Hold*> que;
 
-float res[7][52][52];
+float resf[52][52];
 
 bool sim(int hold1,int hold2,int playerNum,Hand* players,int* common)
 	{
@@ -56,17 +56,25 @@ void MentoCarlo(int num)
 			if(sim(res.second->hold1,res.second->hold2,res.second->playerNum,players,common))
 				win++;
 		}
-		res[res.second->playerNum-2][res.second->hold1][res.second->hold2]=1.0*win/num;
+		resf[res.second->hold1][res.second->hold2]=1.0*win/num;
 		delete res.second;
 	}
 }
 
 
-int main()
+int main(int argc,char **argv)
 {
+	if(argc!=3)
+	{
+		printf("arg needed\n");
+		return -1;
+	}
+	memset(resf,0,sizeof(resf));
 	srand(time(0));
 	int simNum=10000;
-	for(int p=2;p<=2;p++)
+	int p;
+	sscanf(argv[1],"%d",&p);
+	printf("p=%d,file=%s\n",p,argv[2]);
 	for(int i=0;i<52;i++)
 		for(int j=i+1;j<52;j++)
 		{
@@ -79,7 +87,12 @@ int main()
 	}
 	for(auto iter=threads.begin();iter!=threads.end();iter++)
 		iter->join();
-	FILE* resFile=fopen("holdRank.data","wb");
-	fwrite(res,sizeof(res),1,resFile);
+	for(int i=0;i<52;i++)
+		for(int j=i+1;j<52;j++)
+		{
+			resf[j][i]=resf[i][j];
+		}
+	FILE* resFile=fopen(argv[2],"wb");
+	fwrite(resf,sizeof(resf),1,resFile);
 	fclose(resFile);
 }

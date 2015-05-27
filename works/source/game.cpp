@@ -45,6 +45,18 @@ void killhandler(int sig)
 
 int my_id;
 
+enum ActionType
+{
+	UNKOWN_ACTION=0,
+	ACTION_ALL_IN,
+	ACTION_CHECK,
+	ACTION_BLIND,
+	ACTION_CALL,
+	ACTION_RAISE,
+	ACTION_FOLD,
+	ACTION_UNDO
+};
+
 namespace Action
 {
 	const char* all_in="all_in";
@@ -53,6 +65,26 @@ namespace Action
 	const char* call="call";
 	const char* raise="raise";
 	const char* fold="fold";
+	map<string,ActionType> mp;
+	ActionType getAction(const char *action)
+	{
+		string tmp(action);
+		if(mp.count(tmp)>0)
+		{
+			return mp[tmp];
+		}
+		LOG("get action faild:%s",action);
+		return UNKOWN_ACTION;
+	}
+	void init()
+	{
+		mp[string(all_in)]=ACTION_ALL_IN;
+		mp[string(check)]=ACTION_CHECK;
+		mp[string(blind)]=ACTION_BLIND;
+		mp[string(call)]=ACTION_CALL;
+		mp[string(raise)]=ACTION_RAISE;
+		mp[string(fold)]=ACTION_FOLD;
+	}
 }
 
 //the color of cards
@@ -97,6 +129,21 @@ namespace NutHand
 		NutHand::mp[string(NutHand::FULL_HOUSE)]=::FULL_HOUSE;
 		NutHand::mp[string(NutHand::FOUR_OF_A_KIND)]=::FOUR_OF_A_KIND;
 		NutHand::mp[string(NutHand::STRAIGHT_FLUSH)]=::STRAIGHT_FLUSH;
+	}
+}
+
+namespace HoldRank
+{
+	float holdRank[7][52][52];
+	float getHoldRank(int playerNum,int hold1,int hold2)
+	{
+		return holdRank[playerNum-2][hold1][hold2];
+	}
+	void init()
+	{
+		FILE *file=fopen("holdRank.data","rb");
+		fread(holdRank,sizeof(holdRank),1,file);
+		fclose(file);
 	}
 }
 
@@ -153,10 +200,6 @@ struct Card
 			default:LOG("Error:Unkown Color(in id):%d",id/13);break;
 		}
 	}
-	static float getHoldStrenth(int id1,int id2)
-	{
-		return 0.5;
-	}
 };
 
 enum PlayerState
@@ -182,7 +225,7 @@ enum PlayerType
 	UNKOWN,
 	ALL_IN,
 	GOOD_ALL_IN
-}
+};
 
 class Player
 {
@@ -193,6 +236,7 @@ public:
 	int bet;
 	int pid;
 	int seat;
+	ActionType lastAction;
 	void dobet(int num)
 	{
 		if(num>jetton)
@@ -216,13 +260,13 @@ class Game
 	int pot;
 	int bet;
 
-	vector<int,Player> seats;
+	vector<Player*> seats;
 	int lastRaiseSeat;
 	int getAllInNum()
 	{
 		int res=0;
 		for(auto iter=seats.begin();iter!=seats.end();iter++)
-			if(iter->second.state==PlayerState_ALL_IN)
+			if((*iter)->state==PlayerState_ALL_IN)
 				res++;
 		return res;
 	}
@@ -230,7 +274,7 @@ class Game
 	{
 		int res=0;
 		for(auto iter=seats.begin();iter!=seats.end();iter++)
-			if(iter->second.state!=PlayerState_FOLDED)
+			if((*iter)->state!=PlayerState_FOLDED)
 				res++;
 		return res;
 	}
@@ -239,7 +283,7 @@ class Game
 		int res=1;
 		for(int i=me.seat+1;i!=lastRaiseSeat;(i==seats.size()-1)?i=0:i++)
 		{
-			if(seats[i].state!=PlayerState_FOLDED)
+			if(seats[i]->state!=PlayerState_FOLDED)
 				res++;
 		}
 		return res;
@@ -251,11 +295,11 @@ class Game
 	}
 	float getHandStrenth()
 	{
-		return Card::getHoldStrenth(hold[0].getId(),hold[1].getId());
+		return HoldRank::getHoldRank(getJoinNum(),hold[0].getId(),hold[1].getId());
 	}
 	float getRateOfReturn()
 	{
-		return getHandStreath()/getPotOdd();
+		return getHandStrenth()/getPotOdd();
 	}
 	Player* getPlayer(int pid)
 	{
@@ -288,6 +332,7 @@ class GameResult
 public:
 	Game game;
 	map<int,PlayerResult> result;
+
 	void checkResult()
 	{
 		game.getCommon();
@@ -358,6 +403,57 @@ class MessageHandle
 		int sock;
 		Game game;
 		
+		void decisionMaking()
+		{
+			cowBoyStrategy();
+		}
+		
+		void cowBoyStrategy()
+		{
+			float rr=game.getRateOfReturn();
+			int rd=rand()%100;
+			if(rr<0.8)
+			{
+				if(rd<95)
+					check_or_fold();
+				else raise(100);
+			}
+			else if(rr<1.0)
+			{
+				if(rd<80)
+					check_or_fold();
+				else if(rd<85)
+					call();
+				else raise(100);
+			}
+			else if(rr<1.3)
+			{		
+				if(rd<60)
+					call();
+				else raise(100);
+			}
+			else
+			{
+				if(rd<30)
+					call();
+				else raise(100);
+			}
+		}
+		void strategy1()
+		{
+			int allinCnt=0;
+			for(auto iter=game.players.begin();iter!=game.players.end();iter++)
+				allinCnt++;
+			if(allinCnt>=4)
+				check_or_fold();
+			else{
+			if(game.hold[0].point==1||game.hold[1].point==1||game.hold[0].point==game.hold[1].point)
+				all_in();
+			else
+				check_or_fold();
+			}
+		}
+
 		void sendAction(const char* action)
 		{
 			LOG("Action:%s",action);
@@ -367,17 +463,17 @@ class MessageHandle
 
 		void check_or_fold()
 		{
-			if(me.bet==game.bet)
-				sendAction(Acton::check);
+			if(game.me.bet==game.bet)
+				sendAction(Action::check);
 			else sendAction(Action::fold);
 		}
 		void raise(int num)
 		{
 			char tmp[30];
-			sprintf("%s %d",Action::raise,num);
+			sprintf(tmp,"%s %d",Action::raise,num);
 			sendAction(tmp);
 		}
-		void call(int num)
+		void call()
 		{
 			sendAction(Action::call);
 		}
@@ -433,7 +529,7 @@ class MessageHandle
 		}
 		void handleSeat(){
 		//	LOG("handle seat");
-			game.players.clear();
+			game.seats.clear();
 			game.turnState=TurnState_START;
 		
 			LOOP_MSG_UNTIL("/seat"){
@@ -456,15 +552,22 @@ class MessageHandle
 					game.me.jetton=jetton;
 					game.me.monney=monney;
 					game.me.state=PlayerState_JOIN;
+					game.me.lastAction=ACTION_UNDO;
+					game.me.seat=game.seats.size();
+					game.seats.push_back(&game.me);
 				}
 				else
 				{
-					Player player;
+					if(game.getPlayer(pid)==NULL)
+						game.players[pid]=Player();
+					Player& player=game.players[pid];
 					player.pid=pid;
 					player.jetton=jetton;
 					player.monney=monney;
 					player.state=PlayerState_JOIN;
-					game.players[pid]=player;
+					player.lastAction=ACTION_UNDO;
+					player.seat=game.seats.size();
+					game.seats.push_back(&player);
 				}
 			}
 		//	LOG("handle seat end");
@@ -582,21 +685,7 @@ class MessageHandle
 					sscanf(msg,"total pot:%d",&game.pot);
 				}
 			}
-			sendAction(Action::all_in);
-			/*
-			int allinCnt=0;
-			for(auto iter=game.players.begin();iter!=game.players.end();iter++)
-				allinCnt++;
-			if(allinCnt>=4)
-				sendAction(Action::fold);
-			else{
-			if(game.hold[0].point==1||game.hold[1].point==1||game.hold[0].point==game.hold[1].point)
-				sendAction(Action::all_in);
-			else
-				sendAction(Action::fold);
-			}
-		//	LOG("handle inquire end");
-			*/
+			decisionMaking();
 		}
 		void handleNotify()
 		{
@@ -635,6 +724,7 @@ void init()
 	signal(SIGTERM, killhandler);  
     signal(SIGINT, killhandler); 
 	NutHand::initMp();
+//	HoldRank::init();
 }
 
 int main(int argc,char**argv){
