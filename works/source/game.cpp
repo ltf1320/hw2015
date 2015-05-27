@@ -434,8 +434,8 @@ class MessageHandle
 				SimRes sim=simulator.stopAndGetRes();
 				LOG("sim:%d %d %f",sim.win,sim.sum,sim.rate);
 			}*/
-			smartRaise();
-			//goodAllInStrategy();
+			//smartRaise();
+			goodAllInStrategy();
 			//cowBoyStrategy();
 			//call();
 		}
