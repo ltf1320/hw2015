@@ -22,12 +22,17 @@ const char eol='\n';
 
 FILE* logFile;
 
+<<<<<<< HEAD
 #define LOG(msg,arg...) {fprintf(logFile,msg,##arg);fprintf(logFile,"\n")};
 //#define LOG(msg,arg...) printf("[%d]",my_id);printf(msg,##arg);puts("");
+=======
+#define LOG(msg,arg...) {fprintf(logFile,msg,##arg);fprintf(logFile,"\n");}
+//#define LOG(msg,arg...) {printf("[%d]",my_id);printf(msg,##arg);puts("");}
+>>>>>>> 6bdcc02ccfd18042eeea05183185e1a7a50a586f
 
 #define LOOP_MSG_UNTIL(endMsg) for(char* msg=getNextMsg();strcmp(msg,endMsg)||((delete [] msg),0);delete [] msg,msg=getNextMsg())
 
-int HandCount=1;
+int HandCount=0;
 
 
 //deal with kill,save the log
@@ -341,6 +346,16 @@ public:
 	{
         
 	}
+<<<<<<< HEAD
+=======
+	bool isShowDown;
+	void reset()
+	{
+		isShowDown=false;
+		result.clear();
+	}
+
+>>>>>>> 6bdcc02ccfd18042eeea05183185e1a7a50a586f
 	void checkResult()
 	{
 		game.getCommon();
@@ -405,10 +420,18 @@ class MessageHandle
 		{
 			th.join();
 		}
+<<<<<<< HEAD
         ~MessageHandle()
         {
             simulator.stopAndGetRes();
         }
+=======
+		~MessageHandle()
+		{
+			simulator.stopAndGetRes();
+		}
+		GameResult result;
+>>>>>>> 6bdcc02ccfd18042eeea05183185e1a7a50a586f
 	protected:
 		int sock;
 		Game game;
@@ -420,8 +443,8 @@ class MessageHandle
 				SimRes sim=simulator.stopAndGetRes();
 				LOG("sim:%d %d %f",sim.win,sim.sum,sim.rate);
 			}
-			//cowBoyStrategy();
-			call();
+			cowBoyStrategy();
+			//call();
 		}
 		void cowBoyStrategy()
 		{
@@ -542,9 +565,18 @@ class MessageHandle
 			}
 		}
 		void handleSeat(){
+			HandCount++;
 		//	LOG("handle seat");
 			game.seats.clear();
 			game.turnState=TurnState_START;
+<<<<<<< HEAD
+=======
+			for(auto iter=game.players.begin();iter!=game.players.end();iter++)
+			{
+				iter->second.state=PlayerState_GAME_OVER;
+			}
+			result.reset();
+>>>>>>> 6bdcc02ccfd18042eeea05183185e1a7a50a586f
 			LOOP_MSG_UNTIL("/seat"){
 				char *p=msg;
 				int pid,jetton,monney;
@@ -652,8 +684,7 @@ class MessageHandle
 		//	game.turn.logCard();
 		//	game.river.logCard();
 		//	LOG("/common");
-
-			GameResult result;
+			result.isShowDown=true;
 			result.game=game;
 			LOOP_MSG_UNTIL("/showdown")
 			{
@@ -664,19 +695,30 @@ class MessageHandle
 				pres.hold[0].getCard(ct1,pt1);
 				pres.hold[1].getCard(ct2,pt2);
 				pres.player=game.getPlayer(pid);
+				pres.win=0;
 				result.result[pid]=pres;
 			}
-			result.handleResult();
 			//result.checkResult();
 			//LOG("result Checked");
-			HandCount++;
 		}
 		void handlePotWin(){
 			LOOP_MSG_UNTIL("/pot-win")
 			{
 				int pid,num;
 				sscanf(msg,"%d %d",&pid,&num);
+				if(result.result.count(pid))
+				{
+					result.result[pid].win=num;
+				}
+				else
+				{
+					PlayerResult pres;
+					pres.player=game.getPlayer(pid);
+					pres.win=num;
+					result.result[pid]=pres;
+				}
 			}
+			result.handleResult();
 		}
 		void handleInquire()
 		{
