@@ -10,7 +10,7 @@
 #include <unistd.h>
 #include <chrono>
 #include <vector>
-#include <map> 
+#include <map>
 #include <signal.h>
 
 #include "ThreadSafeQueue.h"
@@ -22,7 +22,7 @@ const char eol='\n';
 
 FILE* logFile;
 
-#define LOG(msg,arg...) fprintf(logFile,msg,##arg);fprintf(logFile,"\n");
+#define LOG(msg,arg...) {fprintf(logFile,msg,##arg);fprintf(logFile,"\n")};
 //#define LOG(msg,arg...) printf("[%d]",my_id);printf(msg,##arg);puts("");
 
 #define LOOP_MSG_UNTIL(endMsg) for(char* msg=getNextMsg();strcmp(msg,endMsg)||((delete [] msg),0);delete [] msg,msg=getNextMsg())
@@ -31,8 +31,8 @@ int HandCount=1;
 
 
 //deal with kill,save the log
-void killhandler(int sig)  
-{  
+void killhandler(int sig)
+{
 	 switch (sig)
      {
      case SIGINT:
@@ -291,7 +291,6 @@ class Game
 		}
 		return res;
 	}
-	
 	float getPotOdd()
 	{
 		return (float)bet/pot;
@@ -338,12 +337,10 @@ class GameResult
 public:
 	Game game;
 	map<int,PlayerResult> result;
-	
 	void handleResult()
 	{
-		
+        
 	}
-	
 	void checkResult()
 	{
 		game.getCommon();
@@ -359,8 +356,7 @@ public:
 				LOG("Hand:%d",HandCount);
 				LOG("pid:%d",iter->second.player->pid);
 				LOG("cards:");
-/*				
-				for(int i=0;i<7;i++)
+                /*for(int i=0;i<7;i++)
 				{
 					LOG("%d ",h.cards[i]);
 					Card tmp;
@@ -378,7 +374,6 @@ public:
 				game.river.logCard();
 				iter->second.hold[0].logCard();
 				iter->second.hold[1].logCard();
-				
 				LOG("server pattern:%d",NutHand::mp[string(iter->second.NutHand)]);
 				LOG("Dila pattern:%d",h.pattern);
 			}
@@ -410,11 +405,14 @@ class MessageHandle
 		{
 			th.join();
 		}
+        ~MessageHandle()
+        {
+            simulator.stopAndGetRes();
+        }
 	protected:
 		int sock;
 		Game game;
 		Simulator simulator;
-		
 		void decisionMaking()
 		{
 			if(game.turnState>=TurnState_FLOP)
@@ -425,7 +423,6 @@ class MessageHandle
 			//cowBoyStrategy();
 			call();
 		}
-		
 		void cowBoyStrategy()
 		{
 			float rr=game.getRateOfReturn();
@@ -445,7 +442,7 @@ class MessageHandle
 				else raise(100);
 			}
 			else if(rr<1.3)
-			{		
+			{
 				if(rd<60)
 					call();
 				else raise(100);
@@ -499,7 +496,6 @@ class MessageHandle
 		{
 			sendAction(Action::all_in);
 		}
-		
 		char* getNextMsg()
 		{
 			while(true){
@@ -549,7 +545,6 @@ class MessageHandle
 		//	LOG("handle seat");
 			game.seats.clear();
 			game.turnState=TurnState_START;
-		
 			LOOP_MSG_UNTIL("/seat"){
 				char *p=msg;
 				int pid,jetton,monney;
@@ -563,7 +558,7 @@ class MessageHandle
 					}
 				}
 				p+=2;
-				sscanf(p,"%d %d %d",&pid,&jetton,&monney);			
+				sscanf(p,"%d %d %d",&pid,&jetton,&monney);
 				//LOG("pid:%d,jetton:%d,monney:%d",pid,jetton,monney);
 				if(pid==my_id)
 				{
@@ -619,7 +614,7 @@ class MessageHandle
 			{
 				msg=getNextMsg();
 				game.flop[i].getCard(msg);
-				delete [] msg;				
+				delete [] msg;
 			}
 			msg=getNextMsg();
 			delete [] msg;
@@ -652,7 +647,6 @@ class MessageHandle
 			{
 	//			LOG(msg);
 			}
-	
 		//	LOG("common");
 		//	for(int i=0;i<3;i++) game.flop[i].logCard();
 		//	game.turn.logCard();
@@ -694,7 +688,6 @@ class MessageHandle
 					int pid,jetton,monney,bet;
 					char act[10];
 					sscanf(msg,"%d %d %d %d %s",&pid,&jetton,&monney,&bet,act);
-					
 					Player* np=game.getPlayer(pid);
 					np->jetton=jetton;
 					np->monney=monney;
@@ -723,7 +716,6 @@ class MessageHandle
 					int pid,jetton,monney,bet;
 					char act[10];
 					sscanf(msg,"%d %d %d %d %s",&pid,&jetton,&monney,&bet,act);
-					
 					Player* np=game.getPlayer(pid);
 					np->jetton=jetton;
 					np->monney=monney;
@@ -748,10 +740,10 @@ class MessageHandle
 
 void init()
 {
-	signal(SIGTERM, killhandler);  
-    signal(SIGINT, killhandler); 
+	signal(SIGTERM, killhandler);
+    signal(SIGINT, killhandler);
 	NutHand::initMp();
-//	HoldRank::init();
+	HoldRank::init();
 }
 
 int main(int argc,char**argv){
@@ -790,7 +782,7 @@ int main(int argc,char**argv){
 	my_addr.sin_port = my_port;
 	if(::bind(m_socket_id, (struct sockaddr*)&my_addr, sizeof(my_addr)))
 	{
-		LOG("bind failed! %s:%d\n",argv[3],my_port); 
+		LOG("bind failed! %s:%d\n",argv[3],my_port);
 		return -1;
 	}
 
@@ -820,7 +812,7 @@ int main(int argc,char**argv){
 		int length = recv(m_socket_id, buffer+nowBuffer, sizeof(buffer) - nowBuffer, 0);
 		//LOG("recv message:%s\n",buffer+nowBuffer);
 		if(length > 0)
-		{ 
+		{
 			char *start=buffer;
 			length+=nowBuffer;
 			nowBuffer=0;
@@ -856,11 +848,10 @@ int main(int argc,char**argv){
 					break;
 				}
 			}
-		} 
+		}
 	}
 	fclose(logFile);
 	/* 关闭socket */
 	close(m_socket_id);
-	
 	return 0;
 }
