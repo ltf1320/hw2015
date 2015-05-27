@@ -42,6 +42,7 @@ void killhandler(int sig)
      {
      case SIGINT:
      case SIGTERM:
+	 case SIGSEGV:
 		LOG("ABORTED");
        	fclose(logFile);
 		exit(0);
@@ -298,7 +299,7 @@ class Game
 	}
 	float getPotOdd()
 	{
-		return (float)bet/pot;
+		return (0.1+bet)/(pot+bet);
 	}
 	float getHandStrenth()
 	{
@@ -427,15 +428,52 @@ class MessageHandle
 		Simulator simulator;
 		void decisionMaking()
 		{
+/*
 			if(game.turnState>=TurnState_FLOP)
 			{
 				SimRes sim=simulator.stopAndGetRes();
 				LOG("sim:%d %d %f",sim.win,sim.sum,sim.rate);
-			}
-			cowBoyStrategy();
+			}*/
+			smartRaise();
+			//goodAllInStrategy();
+			//cowBoyStrategy();
 			//call();
 		}
-    
+    	
+		void smartRaise()
+		{
+			float winrate;
+			if(game.turnState>=TurnState_FLOP)
+			{
+				SimRes sim=simulator.stopAndGetRes();
+				winrate=sim.rate;
+			}
+			else winrate=game.getHandStrenth();
+			if(winrate>=0.7)
+				all_in();
+			else
+			{
+				if(game.getWaitActionNum()>0)
+				{
+					check_or_fold();return;
+				}
+				if(game.bet==game.me.bet)
+					raise(1000*winrate);
+				else
+				{
+					check_or_fold();
+				}
+			}
+		}
+		
+		void goodAllInStrategy()
+		{
+			float rate=game.getHandStrenth();
+			if(rate>0.7)
+				all_in();
+			else check_or_fold();
+		}		
+		
 		void cowBoyStrategy()
 		{
 			float rr=game.getRateOfReturn();
@@ -727,7 +765,7 @@ class MessageHandle
 						np->state=PlayerState_ALL_IN;
 					if(!strcmp(act,Action::fold))
 						np->state=PlayerState_FOLDED;
-
+					np->lastAction=Action::getAction(act);
 			//		LOG("pid:%d jetton:%d monney:%d bet:%d",pid,game.getPlayer(pid)->jetton,game.getPlayer(pid)->monney,game.getPlayer(pid)->bet)
 				}
 				else
@@ -772,8 +810,10 @@ void init()
 {
 	signal(SIGTERM, killhandler);
     signal(SIGINT, killhandler);
+	signal(SIGSEGV,killhandler);
 	NutHand::initMp();
 	HoldRank::init();
+	Action::init();
 }
 
 int main(int argc,char**argv){
