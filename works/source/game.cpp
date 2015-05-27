@@ -12,6 +12,7 @@
 #include <vector>
 #include <map>
 #include <signal.h>
+#include <math.h>
 
 #include "ThreadSafeQueue.h"
 #include "dila.hpp"
@@ -238,12 +239,17 @@ enum PlayerType
 class Player
 {
 public:
+	Player(){
+		foldtimes=playtimes=droptimes=totalBet=totalFoldBet=0;
+	}
 	PlayerState state;
 	int jetton;
 	int monney;
 	int bet;
 	int pid;
 	int seat;
+    int foldtimes,playtimes,droptimes;
+    int totalBet,totalFoldBet;
 	ActionType lastAction;
 	void dobet(int num)
 	{
@@ -344,7 +350,11 @@ public:
 	map<int,PlayerResult> result;
 	void handleResult()
 	{
-        
+        for(auto iter=result.begin();iter!=result.end();++iter)
+        {
+        	iter->second.player->playtimes++;
+        	iter->second.player->totalBet+=iter->second.player->bet;
+        }
 	}
 	bool isShowDown;
 	void reset()
@@ -427,15 +437,45 @@ class MessageHandle
 		Simulator simulator;
 		void decisionMaking()
 		{
+            float handStrength;
 			if(game.turnState>=TurnState_FLOP)
 			{
 				SimRes sim=simulator.stopAndGetRes();
 				LOG("sim:%d %d %f",sim.win,sim.sum,sim.rate);
+                handStrength=sim.rate*sqrt(1.0*sim.sum/10000);
 			}
-			cowBoyStrategy();
+            else handStrength=game.getHandStrenth();
+            strangeStrategy(handStrength);
+            //cowBoyStrategy();
 			//call();
 		}
-    
+        void strangeStrategy(float handStrength){
+            if(handStrength>0.7){
+            	all_in();
+            }
+            else if(handStrength<0.2){
+            	check_or_fold();
+            }
+            else{
+            	 int G=-1;//期望最大下注筹码
+            	 for(auto iter=game.players.begin();iter!=game.players.end();iter++)
+            	 	G=max(1.0*iter->second.totalBet*iter->second.playtimes/HandCount +
+            	 	      1.0*iter->second.totalFoldBet*(iter->second.foldtimes+iter->second.droptimes)/HandCount,1.0*G);
+            	 if(G>game.me.jetton*0.6){check_or_fold();}
+            	 else{
+            	 	//float RE=1.0*(game.bet+1)/(game.pot+game.bet+1);
+            	 	//if(RE<0.3)raise(100);
+            	 	//else if(RE>0.7)check_or_fold();
+            	 	//else call();
+            	 	float RE=1.0*game.bet/game.pot;
+            	 	float p=handStrength/RE/8;
+            	 	LOG("%f",p);
+            	 	if(p>0.7)raise(100);
+            	 	else if(p<0.3)check_or_fold();
+            	 	else call();
+            	 }
+            }
+        }
 		void cowBoyStrategy()
 		{
 			float rr=game.getRateOfReturn();
@@ -723,6 +763,10 @@ class MessageHandle
 					np->monney=monney;
 					np->bet=bet;
 					game.bet=max(game.bet,bet);
+					if(Action::getAction(act)==ACTION_FOLD){
+						if(bet==0)np->foldtimes++;
+						else np->droptimes++,np->totalFoldBet+=bet;
+					}
 					if(!strcmp(act,Action::all_in))
 						np->state=PlayerState_ALL_IN;
 					if(!strcmp(act,Action::fold))
@@ -774,6 +818,7 @@ void init()
     signal(SIGINT, killhandler);
 	NutHand::initMp();
 	HoldRank::init();
+	Action::init();
 }
 
 int main(int argc,char**argv){
