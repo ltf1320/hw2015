@@ -1,0 +1,33 @@
+connected to server
+handle inquire
+pid:2222 jetton:1950 monney:8000 bet:50
+Action:all_in
+handle inquire
+pid:2222 jetton:0 monney:8000 bet:4000
+pid:1111 jetton:1950 monney:6000 bet:50
+Action:all_in
+handle inquire
+pid:2222 jetton:1950 monney:8000 bet:50
+Action:all_in
+handle inquire
+pid:2222 jetton:0 monney:8000 bet:4000
+pid:1111 jetton:1950 monney:6000 bet:50
+Action:all_in
+handle inquire
+pid:2222 jetton:5950 monney:8000 bet:50
+Action:all_in
+handle inquire
+pid:2222 jetton:0 monney:8000 bet:4000
+pid:1111 jetton:3950 monney:4000 bet:50
+Action:all_in
+handle inquire
+pid:2222 jetton:7950 monney:8000 bet:50
+Action:all_in
+handle inquire
+pid:2222 jetton:0 monney:8000 bet:6000
+pid:1111 jetton:3950 monney:2000 bet:50
+Action:all_in
+handle inquire
+pid:2222 jetton:9950 monney:8000 bet:50
+Action:all_in
+GAMEOVER RETURN

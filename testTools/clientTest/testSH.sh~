@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+playerNum=8
+playNum=10
+echo $#
+if [ $# -ge 1 ]
+then
+playNum=$1
+fi
+
+if [ $# -ge 2 ]
+then
+playerNum=$2
+fi
+
+rm server/data.csv
+rm server/log.txt
+
+
+for((j=1;j<=playNum;j++))
+do
+
+echo "running playerNum="$playerNum"  playNum="$j
+#echo "prepare for test.."
+killall game >/dev/null 2>&1
+killall gameserver >/dev/null 2>&1
+
+#echo "start server"
+pushd . >/dev/null
+cd server
+for((i=1;i<=playerNum;i++))
+do 
+  export "PLAYER"$i"_IP"=127.0.0.$i
+  export "PLAYER"$i"_PORT"=600$i
+  export "PLAYER"$i"_ID"=$i$i$i$i
+done 
+./gameserver -gip 127.0.0.1 -seq replay$j -d 1 -m 10000 -b 50 -t 2000 -h 500 0</dev/null 1>/dev/null 2>/dev/null  & 
+popd >/dev/null
+
+#echo "start your program"
+pushd . >/dev/null
+cd clients
+for((i=1;i<=playerNum;i++))
+do
+
+ ./$i/game 127.0.0.1 6000 127.0.0.$i 600$i $i$i$i$i 0</dev/null 1>/dev/null 2>/dev/null &
+done
+wait
+popd >/dev/null
+done
+echo "all test over"
+
+

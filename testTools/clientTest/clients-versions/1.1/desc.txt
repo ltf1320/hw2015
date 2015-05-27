@@ -1,0 +1,5 @@
+if(game.hold[0].point==1||game.hold[1].point==1||game.hold[0].point==game.hold[1].point)
+	sendAction(Action::all_in);
+else
+	sendAction(Action::fold);
+}
