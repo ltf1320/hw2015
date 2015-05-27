@@ -138,6 +138,8 @@ namespace HoldRank
 	float holdRank[7][52][52];
 	float getHoldRank(int playerNum,int hold1,int hold2)
 	{
+		if(playerNum<2) return 1;
+		if(playerNum>8) return 0;
 		return holdRank[playerNum-2][hold1][hold2];
 	}
 	void init()
@@ -184,7 +186,7 @@ struct Card
 			case 'H':res=1*13;break;
 			case 'C':res=2*13;break;
 			case 'D':res=3*13;break;
-			default:LOG("Error:Unkown Color:%c",color);break;
+			default:LOG("Error:Unkown Color:%d",(int)color);break;
 		}
 		res+=point-2;
 		return res;
@@ -310,10 +312,13 @@ class Game
 	}
 	int* getCommon()
 	{
-		for(int i=0;i<3;i++)
-			common[i]=flop[i].getId();
-		common[3]=turn.getId();
-		common[4]=river.getId();
+		if(turnState>=TurnState_FLOP)
+			for(int i=0;i<3;i++)
+				common[i]=flop[i].getId();
+		if(turnState>=TurnState_TURN)
+			common[3]=turn.getId();
+		if(turnState>=TurnState_RIVER)
+			common[4]=river.getId();
 		return common;
 	}
 };
@@ -412,7 +417,13 @@ class MessageHandle
 		
 		void decisionMaking()
 		{
-			cowBoyStrategy();
+			if(game.turnState>=TurnState_FLOP)
+			{
+				SimRes sim=simulator.stopAndGetRes();
+				LOG("sim:%d %d %f",sim.win,sim.sum,sim.rate);
+			}
+			//cowBoyStrategy();
+			call();
 		}
 		
 		void cowBoyStrategy()
@@ -590,6 +601,7 @@ class MessageHandle
 		//	LOG("handle blind end");
 		}
 		void handleHold(){
+			game.turnState=TurnState_HOLD;
 			char* msg=getNextMsg();
 			game.hold[0].getCard(msg);
 			delete [] msg;
@@ -601,6 +613,7 @@ class MessageHandle
 		//	LOG("hold");
 		}
 		void handleFlop(){
+			game.turnState=TurnState_FLOP;
 			char* msg;
 			for(int i=0;i<3;i++)
 			{
@@ -614,6 +627,7 @@ class MessageHandle
 			simulator.startSim(game.getCommon(),game.hold[0].getId(),game.hold[1].getId(),game.getJoinNum(),SimType_FLOP);
 		}
 		void handleTurn(){
+			game.turnState=TurnState_TURN;
 			char *msg=getNextMsg();
 			game.turn.getCard(msg);
 			delete [] msg;
@@ -623,6 +637,7 @@ class MessageHandle
 			simulator.startSim(game.getCommon(),game.hold[0].getId(),game.hold[1].getId(),game.getJoinNum(),SimType_TURN);
 		}
 		void handleRiver(){
+			game.turnState=TurnState_RIVER;
 			char *msg=getNextMsg();
 			game.river.getCard(msg);
 			delete [] msg;
@@ -632,6 +647,7 @@ class MessageHandle
 			simulator.startSim(game.getCommon(),game.hold[0].getId(),game.hold[1].getId(),game.getJoinNum(),SimType_RIVER);
 		}
 		void handleShowdown(){
+			game.turnState=TurnState_SHOWDOWN;
 			LOOP_MSG_UNTIL("/common")
 			{
 	//			LOG(msg);

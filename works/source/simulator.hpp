@@ -40,8 +40,8 @@ public:
 	
 	void startSim(int* common,int hold1,int hold2,int playerNum,SimType type)
 	{
+		stopAndGetRes();
 		std::lock_guard<std::mutex> lck (mtx);
-		if(running)
 		sum=win=0;
 		stop=false;
 		targetSum=-1;
@@ -57,6 +57,14 @@ public:
 	SimRes stopAndGetRes()
 	{
 		std::lock_guard<std::mutex> lck (mtx);
+		if(!running)
+		{
+			SimRes res;
+			res.win=0;
+			res.sum=0;
+			res.rate=0;
+			return res;
+		}
 		stop=true;
 		SimRes res;
 		res.win=win;
@@ -109,7 +117,7 @@ protected:
 		dila.claimCard(commonNum,common);
 		dila.claimCard(hold1,hold2);
 		dila.deliverCard(5-commonNum,common+commonNum);
-		Hand* players=new Hand[playerNum];
+		Hand players[10];
 		players[0].common(common);
 		players[0].hold(hold1,hold2);
 		players[0].getPattern();
@@ -125,8 +133,7 @@ protected:
 		sort(players,players+playerNum,Hand::cmp);
 		bool res=false;
 		if(players[0].id==0)
-			return true;
-		delete [] players;
+			res=true;
 		return res;
 	}
 };
