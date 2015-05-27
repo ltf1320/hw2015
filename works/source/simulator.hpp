@@ -4,68 +4,106 @@
 #include "dila.hpp"
 #include <thread>
 #include <mutex>
-//#include <condition_variable>
+#include <condition_variable>
 
 enum SimType
 {
+	SimType_HOLD=0,
 	SimType_FLOP=3,
 	SimType_TURN=4,
-	SimType_River=5
+	SimType_RIVER=5
+};
+
+class SimRes
+{
+public:
+	int sum,win;
+	float rate;
 };
 
 class Simulator
 {
+private:
+	bool running;
+	bool cvFlag;
+	bool stop;
 	thread simThread;
 	mutex mtx;
-	bool cvFlag;
-	int sum,win;
-	//int targetSum;
-	bool stop;
-	void startSim(int* common,int hold1,int hold2,int plyaerNum,SimType type)
+	condition_variable cv;
+public:
+	Simulator()
 	{
+		running=false;
+	}
+	int sum,win;
+	int targetSum;
+	
+	void startSim(int* common,int hold1,int hold2,int playerNum,SimType type)
+	{
+		std::lock_guard<std::mutex> lck (mtx);
+		if(running)
 		sum=win=0;
 		stop=false;
-	//	targetSum=-1;
-		simThread=move(thread(work,common,(int)type,hold1,hold2,plyaerNum));
+		targetSum=-1;
+		running=true;
+		simThread=move(thread(work,this,common,(int)type,hold1,hold2,playerNum));
+		simThread.detach();
 	}
-
-	float stopAndGetRes()
+	bool isRunning()
+	{
+		std::lock_guard<std::mutex> lck (mtx);
+		return running;
+	}
+	SimRes stopAndGetRes()
 	{
 		std::lock_guard<std::mutex> lck (mtx);
 		stop=true;
-		return 1.0*win/sum;
+		SimRes res;
+		res.win=win;
+		res.sum=sum;
+		res.rate=1.0*win/sum;
+		return res;
 	}
 	
-	float stopUntilCount(int cnt)
+	SimRes stopUntilCount(int cnt)
 	{	
-		for(;;usleep(1000*10)){
-			std::lock_guard<std::mutex> lck (mtx);
-			if(cnt<=sum)
-				break;
-		}
-		return stopAndGetRes();
+		std::unique_lock <std::mutex> lck(mtx);
+		if(cnt<=sum)
+			return stopAndGetRes();
+		targetSum=cnt;
+		while(!cvFlag)
+			cv.wait(lck);
+		SimRes res;
+		res.win=win;
+		res.sum=sum;
+		res.rate=1.0*win/sum;
+		return res;
 	}
-	void work(int *common,int commonNum,int hold1,int hold2,int plyaerNum)
+protected:
+	static void work(Simulator* th,int *common,int commonNum,int hold1,int hold2,int playerNum)
 	{
-		detach();
 		while(true)
 		{
-			std::lock_guard<std::mutex> lck (mtx);
-			if(stop) break;
-/*
-			if(sum==target)
+			std::lock_guard<std::mutex> lck (th->mtx);
+			if(th->stop)
 			{
-				cvFlag=true;
-				cv.notify_all();
+				th->running=false;break;
+			}
+			if(th->sum==th->targetSum)
+			{
+				th->running=false;
+				th->cvFlag=true;
+				th->cv.notify_all();
 				break;
 			}
-*/
+
 			if(sim(common,commonNum,hold1,hold2,playerNum))
-				win++;
-			sum++;
+				th->win++;
+			th->sum++;
 		}
+		
 	}
-	bool sim(int*common,int commonNum,int hold1,int hold2,int playerNum)
+	static bool sim(int*common,int commonNum,int hold1,int hold2,int playerNum)
 	{
 		Dila dila;
 		dila.claimCard(commonNum,common);

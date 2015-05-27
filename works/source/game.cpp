@@ -15,6 +15,7 @@
 
 #include "ThreadSafeQueue.h"
 #include "dila.hpp"
+#include "simulator.hpp"
 using namespace std;
 
 const char eol='\n';
@@ -322,7 +323,7 @@ class PlayerResult
 public:
 	Card hold[2];
 	char NutHand[20];
-	Player player;
+	Player *player;
 	int win;
 	int rank;
 };
@@ -332,7 +333,12 @@ class GameResult
 public:
 	Game game;
 	map<int,PlayerResult> result;
-
+	
+	void handleResult()
+	{
+		
+	}
+	
 	void checkResult()
 	{
 		game.getCommon();
@@ -346,7 +352,7 @@ public:
 			{
 				LOG("error pattern:");
 				LOG("Hand:%d",HandCount);
-				LOG("pid:%d",iter->second.player.pid);
+				LOG("pid:%d",iter->second.player->pid);
 				LOG("cards:");
 /*				
 				for(int i=0;i<7;i++)
@@ -402,6 +408,7 @@ class MessageHandle
 	protected:
 		int sock;
 		Game game;
+		Simulator simulator;
 		
 		void decisionMaking()
 		{
@@ -604,6 +611,7 @@ class MessageHandle
 			msg=getNextMsg();
 			delete [] msg;
 			game.bet=0;
+			simulator.startSim(game.getCommon(),game.hold[0].getId(),game.hold[1].getId(),game.getJoinNum(),SimType_FLOP);
 		}
 		void handleTurn(){
 			char *msg=getNextMsg();
@@ -612,6 +620,7 @@ class MessageHandle
 			msg=getNextMsg();
 			delete [] msg;
 			game.bet=0;
+			simulator.startSim(game.getCommon(),game.hold[0].getId(),game.hold[1].getId(),game.getJoinNum(),SimType_TURN);
 		}
 		void handleRiver(){
 			char *msg=getNextMsg();
@@ -620,6 +629,7 @@ class MessageHandle
 			msg=getNextMsg();
 			delete [] msg;
 			game.bet=0;
+			simulator.startSim(game.getCommon(),game.hold[0].getId(),game.hold[1].getId(),game.getJoinNum(),SimType_RIVER);
 		}
 		void handleShowdown(){
 			LOOP_MSG_UNTIL("/common")
@@ -643,11 +653,12 @@ class MessageHandle
 				sscanf(msg,"%d:%d %s %s %s %s %s",&rank,&pid,ct1,pt1,ct2,pt2,pres.NutHand);
 				pres.hold[0].getCard(ct1,pt1);
 				pres.hold[1].getCard(ct2,pt2);
-				pres.player=*(game.getPlayer(pid));
+				pres.player=game.getPlayer(pid);
 				result.result[pid]=pres;
 			}
-			result.checkResult();
-			LOG("result Checked");
+			result.handleResult();
+			//result.checkResult();
+			//LOG("result Checked");
 			HandCount++;
 		}
 		void handlePotWin(){
