@@ -22,13 +22,13 @@ const char eol='\n';
 
 FILE* logFile;
 
-<<<<<<< HEAD
-#define LOG(msg,arg...) {fprintf(logFile,msg,##arg);fprintf(logFile,"\n")};
-//#define LOG(msg,arg...) printf("[%d]",my_id);printf(msg,##arg);puts("");
-=======
+
+
+
+
 #define LOG(msg,arg...) {fprintf(logFile,msg,##arg);fprintf(logFile,"\n");}
 //#define LOG(msg,arg...) {printf("[%d]",my_id);printf(msg,##arg);puts("");}
->>>>>>> 6bdcc02ccfd18042eeea05183185e1a7a50a586f
+
 
 #define LOOP_MSG_UNTIL(endMsg) for(char* msg=getNextMsg();strcmp(msg,endMsg)||((delete [] msg),0);delete [] msg,msg=getNextMsg())
 
@@ -346,16 +346,12 @@ public:
 	{
         
 	}
-<<<<<<< HEAD
-=======
 	bool isShowDown;
 	void reset()
 	{
 		isShowDown=false;
 		result.clear();
 	}
-
->>>>>>> 6bdcc02ccfd18042eeea05183185e1a7a50a586f
 	void checkResult()
 	{
 		game.getCommon();
@@ -420,18 +416,11 @@ class MessageHandle
 		{
 			th.join();
 		}
-<<<<<<< HEAD
-        ~MessageHandle()
-        {
-            simulator.stopAndGetRes();
-        }
-=======
 		~MessageHandle()
 		{
 			simulator.stopAndGetRes();
 		}
 		GameResult result;
->>>>>>> 6bdcc02ccfd18042eeea05183185e1a7a50a586f
 	protected:
 		int sock;
 		Game game;
@@ -446,6 +435,7 @@ class MessageHandle
 			cowBoyStrategy();
 			//call();
 		}
+    
 		void cowBoyStrategy()
 		{
 			float rr=game.getRateOfReturn();
@@ -569,14 +559,12 @@ class MessageHandle
 		//	LOG("handle seat");
 			game.seats.clear();
 			game.turnState=TurnState_START;
-<<<<<<< HEAD
-=======
 			for(auto iter=game.players.begin();iter!=game.players.end();iter++)
 			{
 				iter->second.state=PlayerState_GAME_OVER;
 			}
 			result.reset();
->>>>>>> 6bdcc02ccfd18042eeea05183185e1a7a50a586f
+
 			LOOP_MSG_UNTIL("/seat"){
 				char *p=msg;
 				int pid,jetton,monney;
