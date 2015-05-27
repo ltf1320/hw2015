@@ -33,7 +33,7 @@ private:
 public:
 	Simulator()
 	{
-		running=false;
+		stop=true;
 	}
 	int sum,win;
 	int targetSum;
@@ -44,7 +44,6 @@ public:
 		std::lock_guard<std::mutex> lck (mtx);
 		sum=win=0;
 		stop=false;
-		targetSum=-1;
 		running=true;
 		simThread=move(thread(work,this,common,(int)type,hold1,hold2,playerNum));
 		simThread.detach();
@@ -57,7 +56,7 @@ public:
 	SimRes stopAndGetRes()
 	{
 		std::lock_guard<std::mutex> lck (mtx);
-		if(!running)
+		if(stop)
 		{
 			SimRes res;
 			res.win=0;
@@ -95,11 +94,11 @@ protected:
 			std::lock_guard<std::mutex> lck (th->mtx);
 			if(th->stop)
 			{
-				th->running=false;break;
+				break;
 			}
 			if(th->sum==th->targetSum)
 			{
-				th->running=false;
+				th->stop=true;
 				th->cvFlag=true;
 				th->cv.notify_all();
 				break;
