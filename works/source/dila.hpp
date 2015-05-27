@@ -42,16 +42,13 @@ bool cmp(int a,int b){
 class Dila{
 public:
     Dila(){
-        card_out=new bool[52];
 		for(int i=0;i<52;i++)card_out[i]=false;
     }
     Dila(int a,int b){
-        card_out=new bool[52];
 		for(int i=0;i<52;i++)card_out[i]=false;
         card_out[a]=card_out[b]=true;
     }
     ~Dila(){
-        delete [] card_out;
     }
     void deliverHandCard(int cards[]){deliverCard(2,cards);}
     void deliverFlop(int cards[]){deliverCard(3,cards);}
@@ -168,7 +165,7 @@ public:
 		card_out[card2]=true;
     }
 private:
-    bool *card_out;
+    bool card_out[52];
     static int tr(int value){
         return value%13;
     }
