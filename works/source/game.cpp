@@ -234,14 +234,19 @@ enum PlayerType
 {
 	UNKOWN,
 	ALL_IN,
-	GOOD_ALL_IN
+	GOOD_ALL_IN,
+	CONSERVATIVES,
+	RADICALS
 };
 
 class Player
 {
 public:
 	Player(){
-		foldtimes=playtimes=droptimes=totalBet=totalFoldBet=wintimes=0;
+		foldtimes=playtimes=droptimes=totalBet=totalFoldBet=wintimes=allintimes=0;
+		minBet=4001*8；
+		maxBet=-1；
+		playertype=UNKOWN;
 	}
 	PlayerState state;
 	int jetton;
@@ -249,12 +254,21 @@ public:
 	int bet;
 	int pid;
 	int seat;
-    int foldtimes,playtimes,droptimes;
+    int foldtimes,playtimes,droptimes,allintimes;
     int totalBet,totalFoldBet;
     float handStrength;
+    int minBet,maxBet;
+    PlayerType playertype;
     int wintimes;
     float confidence;
 	ActionType lastAction;
+	void judgeType(){
+		if(HandCount){
+			if(1.0*(playtimes+0.5*droptimes)/HandCount>0.7)playertype=RADICALS;
+			else if(1.0*(foldtimes+0.5*droptimes)/HandCount>0.7)playertype=CONSERVATIVES;
+			else playertype=UNKOWN;
+		}
+	}
 	void dobet(int num)
 	{
 		bet=num;
@@ -472,17 +486,19 @@ class MessageHandle
 			strangeStrategy(handStrength);
 			//smartRaise();
 			//goodAllInStrategy();
-			cowBoyStrategy();
+			//cowBoyStrategy();
 
 			//call();
 		}
         void strangeStrategy(float handStrength){
-        	if(game.me.jetton>game.getJoinNum()*40)check_or_fold();
+        	if(game.me.jetton>(600-HandCount)*40)check_or_fold();
             if(handStrength>0.7){
-            	all_in();
+            	raise(game.turnState*game.turnState*100);
+            	//all_in();
             }
             else if(handStrength<0.2){
-            	check_or_fold();
+            	if(1.0*game.bet/game.me.jetton<0.2)call();
+            	else check_or_fold();
             }
             else{
             	 int G=-1;//期望最大下注筹码
@@ -702,6 +718,7 @@ class MessageHandle
 					player.lastAction=ACTION_UNDO;
 					player.seat=game.seats.size();
 					player.handStrength=0;
+					player.judgeType();
 					game.seats.push_back(&player);
 				}
 			}
@@ -848,6 +865,8 @@ class MessageHandle
 			}
 			if(act_type==ACTION_RAISE){
 				np->handStrength+=1.0*(bet-np->bet)/np->bet;
+				np->minBet=min(np->minBet,bet-np->bet);
+				np->maxBet=max(np->maxBet,np->maxBet);
 			}
 			if(act_type==ACTION_CALL){
 				np->handStrength+=0.5*(bet-np->bet)/np->bet;
