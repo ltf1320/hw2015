@@ -464,8 +464,8 @@ class MessageHandle
             	 for(auto iter=game.players.begin();iter!=game.players.end();iter++)
             	 	G=max(1.0*iter->second.totalBet*iter->second.playtimes/HandCount +
             	 	      1.0*iter->second.totalFoldBet*(iter->second.foldtimes+iter->second.droptimes)/HandCount,1.0*G);
-            	 if(G>game.me.jetton*0.6){check_or_fold();}
-            	 else{
+            	 //if(G>game.me.jetton*0.6){check_or_fold();}
+            	 //else{
             	 	//float RE=1.0*(game.bet+1)/(game.pot+game.bet+1);
             	 	//if(RE<0.3)raise(100);
             	 	//else if(RE>0.7)check_or_fold();
@@ -476,7 +476,7 @@ class MessageHandle
             	 	if(p>0.7)raise(100);
             	 	else if(p<0.3)check_or_fold();
             	 	else call();
-            	 }
+            	 //}
             }
         }
     	
