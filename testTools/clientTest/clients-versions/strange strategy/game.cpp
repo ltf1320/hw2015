@@ -241,7 +241,7 @@ class Player
 {
 public:
 	Player(){
-		foldtimes=playtimes=droptimes=totalBet=totalFoldBet=0;
+		foldtimes=playtimes=droptimes=totalBet=totalFoldBet=wintimes=0;
 	}
 	PlayerState state;
 	int jetton;
@@ -251,6 +251,9 @@ public:
 	int seat;
     int foldtimes,playtimes,droptimes;
     int totalBet,totalFoldBet;
+    float handStrength;
+    int wintimes;
+    float confidence;
 	ActionType lastAction;
 	void dobet(int num)
 	{
@@ -371,6 +374,7 @@ public:
         {
         	iter->second.player->playtimes++;
         	iter->second.player->totalBet+=iter->second.player->bet;
+        	if(iter->second.rank==1)iter->second.player->wintimes++;
         }
 	}
 	bool isShowDown;
@@ -461,8 +465,10 @@ class MessageHandle
 			{
 				SimRes sim=simulator.stopAndGetRes();
 				LOG("sim:%d %d %f",sim.win,sim.sum,sim.rate);
+				handStrength=sim.rate;
 
 			}
+			else handStrength=game.getHandStrenth();
 			strangeStrategy(handStrength);
 			//smartRaise();
 			//goodAllInStrategy();
@@ -471,6 +477,7 @@ class MessageHandle
 			//call();
 		}
         void strangeStrategy(float handStrength){
+        	if(game.me.jetton>game.getJoinNum()*40)check_or_fold();
             if(handStrength>0.7){
             	all_in();
             }
@@ -482,19 +489,15 @@ class MessageHandle
             	 for(auto iter=game.players.begin();iter!=game.players.end();iter++)
             	 	G=max(1.0*iter->second.totalBet*iter->second.playtimes/HandCount +
             	 	      1.0*iter->second.totalFoldBet*(iter->second.foldtimes+iter->second.droptimes)/HandCount,1.0*G);
-            	 //if(G>game.me.jetton*0.6){check_or_fold();}
-            	 //else{
-            	 	//float RE=1.0*(game.bet+1)/(game.pot+game.bet+1);
-            	 	//if(RE<0.3)raise(100);
-            	 	//else if(RE>0.7)check_or_fold();
-            	 	//else call();
-            	 	float RE=1.0*game.bet/game.pot;
-            	 	float p=handStrength/RE/8;
+            	 if(G>game.me.jetton)check_or_fold();
+            	 else{
+            	 	float RE=1.0*(game.bet+1)/(game.pot+game.bet+1);
+            	 	float p=handStrength/RE/game.getJoinNum();
             	 	LOG("%f",p);
             	 	if(p>0.7)raise(100);
             	 	else if(p<0.3)check_or_fold();
             	 	else call();
-            	 //}
+            	 }
             }
         }
     	
@@ -683,6 +686,7 @@ class MessageHandle
 					game.me.state=PlayerState_JOIN;
 					game.me.lastAction=ACTION_UNDO;
 					game.me.seat=game.seats.size();
+					game.me.handStrength=0;//handstrength
 					game.seats.push_back(&game.me);
 				}
 				else
@@ -697,6 +701,7 @@ class MessageHandle
 					player.state=PlayerState_JOIN;
 					player.lastAction=ACTION_UNDO;
 					player.seat=game.seats.size();
+					player.handStrength=0;
 					game.seats.push_back(&player);
 				}
 			}
@@ -819,11 +824,8 @@ class MessageHandle
 					Player* np=game.getPlayer(pid);
 					np->jetton=jetton;
 					np->monney=monney;
+					updateData(act,np,bet);
 					game.dobet(np,bet);
-					if(Action::getAction(act)==ACTION_FOLD){
-						if(bet==0)np->foldtimes++;
-						else np->droptimes++,np->totalFoldBet+=bet;
-					}
 					if(!strcmp(act,Action::all_in))
 						np->state=PlayerState_ALL_IN;
 					if(!strcmp(act,Action::fold))
@@ -838,6 +840,22 @@ class MessageHandle
 			}
 			decisionMaking();
 		}
+		void updateData(char *act,Player *np,int bet){
+			ActionType act_type=Action::getAction(act);
+			if(act_type==ACTION_FOLD){
+				if(bet==0)np->foldtimes++;
+				else np->droptimes++,np->totalFoldBet+=bet;
+			}
+			if(act_type==ACTION_RAISE){
+				np->handStrength+=1.0*(bet-np->bet)/np->bet;
+			}
+			if(act_type==ACTION_CALL){
+				np->handStrength+=0.5*(bet-np->bet)/np->bet;
+			}
+			if(act_type==ACTION_CHECK){
+				np->handStrength*=0.9;
+			}
+		}
 		void handleNotify()
 		{
 			LOOP_MSG_UNTIL("/notify")
@@ -850,11 +868,13 @@ class MessageHandle
 					Player* np=game.getPlayer(pid);
 					np->jetton=jetton;
 					np->monney=monney;
-					np->bet=bet;
+					updateData(act,np,bet);
+					game.dobet(np,bet);
 					if(!strcmp(act,Action::all_in))
 						np->state=PlayerState_ALL_IN;
 					if(!strcmp(act,Action::fold))
 						np->state=PlayerState_FOLDED;
+					np->lastAction=Action::getAction(act);
 				}
 				else
 				{
