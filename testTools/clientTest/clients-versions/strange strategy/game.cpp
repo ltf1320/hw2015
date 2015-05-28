@@ -27,7 +27,7 @@ FILE* logFile;
 
 
 
-#define LOG(msg,arg...) {fprintf(logFile,msg,##arg);fprintf(logFile,"\n");}
+#define LOG(msg,arg...) {fprintf(logFile,msg,##arg);fprintf(logFile,"\n");fflush(logFile);}
 //#define LOG(msg,arg...) {printf("[%d]",my_id);printf(msg,##arg);puts("");}
 
 
@@ -234,14 +234,19 @@ enum PlayerType
 {
 	UNKOWN,
 	ALL_IN,
-	GOOD_ALL_IN
+	GOOD_ALL_IN,
+	CONSERVATIVES,
+	RADICALS
 };
 
 class Player
 {
 public:
 	Player(){
-		foldtimes=playtimes=droptimes=totalBet=totalFoldBet=wintimes=0;
+		foldtimes=playtimes=droptimes=totalBet=totalFoldBet=wintimes=allintimes=0;
+		minBet=4001*8;
+		maxBet=-1;
+		playertype=UNKOWN;
 	}
 	PlayerState state;
 	int jetton;
@@ -249,12 +254,21 @@ public:
 	int bet;
 	int pid;
 	int seat;
-    int foldtimes,playtimes,droptimes;
+    int foldtimes,playtimes,droptimes,allintimes;
     int totalBet,totalFoldBet;
     float handStrength;
+    int minBet,maxBet;
+    PlayerType playertype;
     int wintimes;
     float confidence;
 	ActionType lastAction;
+	void judgeType(){
+		if(HandCount){
+			if(1.0*(playtimes+0.5*droptimes)/HandCount>0.7)playertype=RADICALS;
+			else if(1.0*(foldtimes+0.5*droptimes)/HandCount>0.7)playertype=CONSERVATIVES;
+			else playertype=UNKOWN;
+		}
+	}
 	void dobet(int num)
 	{
 		bet=num;
@@ -477,27 +491,77 @@ class MessageHandle
 			//call();
 		}
         void strangeStrategy(float handStrength){
-        	if(game.me.jetton>game.getJoinNum()*40)check_or_fold();
+        	if(game.me.jetton>(600-HandCount)*40)check_or_fold();
             if(handStrength>0.7){
-            	all_in();
+            	raise(game.turnState*game.turnState*100);
+            	//all_in();
             }
             else if(handStrength<0.2){
-            	check_or_fold();
+            	if(1.0*game.bet/game.me.jetton<0.2){
+            		if(game.turnState<TurnState_FLOP)call();
+            	}
+            	else check_or_fold();
             }
             else{
             	 int G=-1;//期望最大下注筹码
-            	 for(auto iter=game.players.begin();iter!=game.players.end();iter++)
-            	 	G=max(1.0*iter->second.totalBet*iter->second.playtimes/HandCount +
-            	 	      1.0*iter->second.totalFoldBet*(iter->second.foldtimes+iter->second.droptimes)/HandCount,1.0*G);
-            	 if(G>game.me.jetton)check_or_fold();
-            	 else{
-            	 	float RE=1.0*(game.bet+1)/(game.pot+game.bet+1);
-            	 	float p=handStrength/RE/game.getJoinNum();
-            	 	LOG("%f",p);
-            	 	if(p>0.7)raise(100);
-            	 	else if(p<0.3)check_or_fold();
-            	 	else call();
+            	 int minRestJetton=4000*8,minBet=4000*8,maxBet=-1,maxRestJetton=-1,betNext=0;
+            	 int radicals=0,conversatives=0,unkowns=0;
+            	 double radicals_winrate=-1,unkowns_winrate=-1,conversatives_winrate=-1,oppwinrate;
+            	 for(int i=(game.me.seat+1)%game.seats.size();;i=(i+1)%game.seats.size()){
+            	 	Player *player=game.seats[i];
+            	 	if(player->state!=PlayerState_FOLDED){
+            	 		minRestJetton=min(minRestJetton,game.seats[i]->jetton);
+            	 		maxRestJetton=max(maxRestJetton,game.seats[i]->jetton);
+            	 		if(player->playertype==RADICALS){
+            	 			radicals++;
+            	 			radicals_winrate=max(radicals_winrate,1.0*player->wintimes/HandCount);
+            	 			betNext+=player->minBet;
+            	 			minBet=min(minBet,player->minBet);
+            	 		}
+            	 		if(player->playertype==CONSERVATIVES){
+            	 			conversatives++;
+            	 			conversatives_winrate=max(conversatives_winrate,1.0*player->wintimes/HandCount);
+            	 			betNext+=player->maxBet;
+            	 			maxBet=max(maxBet,player->maxBet);
+            	 		}
+            	 		if(player->playertype==UNKOWN){
+            	 			unkowns++;
+            	 			unkowns_winrate=max(unkowns_winrate,1.0*player->wintimes/HandCount);
+            	 			betNext+=(player->minBet+player->maxBet)/2.0;
+            	 		}
+            	 	}
+            	 	if(i==game.lastRaiseSeat)break;
             	 }
+            	 oppwinrate=max(radicals_winrate,max(unkowns_winrate,conversatives_winrate));
+            	 float mywinrate = 1.0*game.me.wintimes/HandCount;
+            	 mywinrate=handStrength*mywinrate/(handStrength*mywinrate+(1-handStrength)*oppwinrate);
+            	 float RE = 1.0*(game.bet+1+betNext)/(game.pot+game.bet+1+betNext);
+            	 float p = mywinrate/RE;
+            	 LOG("hand：%d,mywinrate:%f,p:%f",HandCount,mywinrate,p);
+            	 
+            	 if(game.turnState>TurnState_FLOP){
+            	 	if(conversatives>0){
+            	 		check_or_fold();
+            	 		return;
+            	 	}
+            	 }
+            	 if(radicals>0){
+            	 	if(mywinrate>0.5)raise(minBet);
+            	 	else if(p>1)call();
+            	 	else check_or_fold();
+            	 	return;
+            	 }
+            	 else{
+            	 	if(mywinrate<0.2)check_or_fold();
+            	 	else if(mywinrate<0.4)call();
+					else raise(maxBet);            	 	
+            	 }
+            	 
+            	 
+            	 //for(auto iter=game.players.begin();iter!=game.players.end();iter++)
+            	 //	G=max(1.0*iter->second.totalBet*iter->second.playtimes/HandCount +
+            	 //	      1.0*iter->second.totalFoldBet*(iter->second.foldtimes+iter->second.droptimes)/HandCount,1.0*G);
+            	 //if(G>game.me.jetton)check_or_fold();
             }
         }
     	
@@ -680,6 +744,7 @@ class MessageHandle
 				//LOG("pid:%d,jetton:%d,monney:%d",pid,jetton,monney);
 				if(pid==my_id)
 				{
+					game.me.pid=my_id;
 					game.me.jetton=jetton;
 					game.me.monney=monney;
 					game.me.bet=0;
@@ -702,6 +767,7 @@ class MessageHandle
 					player.lastAction=ACTION_UNDO;
 					player.seat=game.seats.size();
 					player.handStrength=0;
+					player.judgeType();
 					game.seats.push_back(&player);
 				}
 			}
@@ -848,6 +914,8 @@ class MessageHandle
 			}
 			if(act_type==ACTION_RAISE){
 				np->handStrength+=1.0*(bet-np->bet)/np->bet;
+				np->minBet=min(np->minBet,bet-np->bet);
+				np->maxBet=max(np->maxBet,np->maxBet);
 			}
 			if(act_type==ACTION_CALL){
 				np->handStrength+=0.5*(bet-np->bet)/np->bet;
