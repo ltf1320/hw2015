@@ -445,11 +445,12 @@ class MessageHandle
 			{
 				SimRes sim=simulator.stopAndGetRes();
 				LOG("sim:%d %d %f",sim.win,sim.sum,sim.rate);
-                handStrength=sim.rate*sqrt(1.0*sim.sum/10000);
+
 			}
-            else handStrength=game.getHandStrenth();
-            strangeStrategy(handStrength);
-            //cowBoyStrategy();
+			//smartRaise();
+			goodAllInStrategy();
+			//cowBoyStrategy();
+
 			//call();
 		}
         void strangeStrategy(float handStrength){
