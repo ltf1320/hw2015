@@ -27,7 +27,7 @@ FILE* logFile;
 
 
 
-#define LOG(msg,arg...) {fprintf(logFile,msg,##arg);fprintf(logFile,"\n");}
+#define LOG(msg,arg...) {fprintf(logFile,msg,##arg);fprintf(logFile,"\n");fflush(logFile);}
 //#define LOG(msg,arg...) {printf("[%d]",my_id);printf(msg,##arg);puts("");}
 
 
