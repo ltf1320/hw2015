@@ -463,9 +463,9 @@ class MessageHandle
 				LOG("sim:%d %d %f",sim.win,sim.sum,sim.rate);
 
 			}*/
-			smartRaise();
+			//smartRaise();
 			//goodAllInStrategy();
-			//cowBoyStrategy();
+			cowBoyStrategy();
 
 			//call();
 		}
