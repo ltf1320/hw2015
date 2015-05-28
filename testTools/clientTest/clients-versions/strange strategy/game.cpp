@@ -538,10 +538,12 @@ class MessageHandle
             	 }
             	 oppwinrate=max(radicals_winrate,max(unkowns_winrate,conversatives_winrate));
             	 float mywinrate = 1.0*game.me.wintimes/HandCount;
-            	 mywinrate=handStrength*mywinrate/(handStrength*mywinrate+(1-handStrength)*oppwinrate);
+            	 if(mywinrate>0&&oppwinrate>0)
+            		mywinrate=handStrength*mywinrate/(handStrength*mywinrate+(1-handStrength)*oppwinrate);
+                 else mywinrate=handStrength;
             	 float RE = 1.0*(game.bet+1+betNext)/(game.pot+game.bet+1+betNext);
             	 float p = mywinrate/RE;
-            	 LOG("hand：%d,mywinrate:%f,p:%f",HandCount,mywinrate,p);
+            	 LOG("hand：%d,mywinrate:%f,oppwinrate:%f,p:%f",HandCount,mywinrate,oppwinrate,p);
             	 
             	 if(game.turnState>TurnState_FLOP){
             	 	if(conversatives>0){
