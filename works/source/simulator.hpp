@@ -4,8 +4,7 @@
 #include "dila.hpp"
 #include <thread>
 #include <mutex>
-#include <condition_variable>
-
+#include <atomic>
 enum SimType
 {
 	SimType_HOLD=0,
@@ -24,16 +23,15 @@ public:
 class Simulator
 {
 private:
-	bool running;
-	bool cvFlag;
 	bool stop;
+	std::atomic<bool> running;
 	thread simThread;
 	mutex mtx;
-	condition_variable cv;
 public:
 	Simulator()
 	{
 		stop=true;
+		running.store(false);
 	}
 	int sum,win;
 	int targetSum;
@@ -41,17 +39,20 @@ public:
 	void startSim(int* common,int hold1,int hold2,int playerNum,SimType type)
 	{
 		stopAndGetRes();
+		while(running.load())
+		{
+			this_thread::sleep_for(std::chrono::milliseconds(2));
+		}
 		std::lock_guard<std::mutex> lck (mtx);
 		sum=win=0;
 		stop=false;
-		running=true;
 		simThread=move(thread(work,this,common,(int)type,hold1,hold2,playerNum));
 		simThread.detach();
 	}
 	bool isRunning()
 	{
 		std::lock_guard<std::mutex> lck (mtx);
-		return running;
+		return running.load();
 	}
 	SimRes stopAndGetRes()
 	{
@@ -72,23 +73,10 @@ public:
 		return res;
 	}
 	
-	SimRes stopUntilCount(int cnt)
-	{	
-		std::unique_lock <std::mutex> lck(mtx);
-		if(cnt<=sum)
-			return stopAndGetRes();
-		targetSum=cnt;
-		while(!cvFlag)
-			cv.wait(lck);
-		SimRes res;
-		res.win=win;
-		res.sum=sum;
-		res.rate=1.0*win/sum;
-		return res;
-	}
 protected:
 	static void work(Simulator* th,int *common,int commonNum,int hold1,int hold2,int playerNum)
 	{
+		th->running.store(true);
 		while(true)
 		{
 			std::lock_guard<std::mutex> lck (th->mtx);
@@ -99,8 +87,6 @@ protected:
 			if(th->sum==th->targetSum)
 			{
 				th->stop=true;
-				th->cvFlag=true;
-				th->cv.notify_all();
 				break;
 			}
 
@@ -108,7 +94,7 @@ protected:
 				th->win++;
 			th->sum++;
 		}
-		
+		th->running.store(false);
 	}
 	static bool sim(int*common,int commonNum,int hold1,int hold2,int playerNum)
 	{

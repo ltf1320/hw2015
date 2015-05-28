@@ -472,7 +472,7 @@ class MessageHandle
 			strangeStrategy(handStrength);
 			//smartRaise();
 			//goodAllInStrategy();
-			//cowBoyStrategy();
+			cowBoyStrategy();
 
 			//call();
 		}
