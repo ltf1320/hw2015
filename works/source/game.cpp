@@ -457,12 +457,13 @@ class MessageHandle
 
             float handStrength;
 
-			/*if(game.turnState>=TurnState_FLOP)
+			if(game.turnState>=TurnState_FLOP)
 			{
 				SimRes sim=simulator.stopAndGetRes();
 				LOG("sim:%d %d %f",sim.win,sim.sum,sim.rate);
 
-			}*/
+			}
+			strangeStrategy(handStrength);
 			//smartRaise();
 			//goodAllInStrategy();
 			cowBoyStrategy();

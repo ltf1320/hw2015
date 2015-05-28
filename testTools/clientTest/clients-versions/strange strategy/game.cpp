@@ -254,10 +254,7 @@ public:
 	ActionType lastAction;
 	void dobet(int num)
 	{
-		if(num>jetton)
-			num=jetton;
-		jetton-=num;
-		bet+=num;
+		bet=num;
 	}
 };
 
@@ -274,7 +271,17 @@ class Game
 	int common[5];
 	int pot;
 	int bet;
-
+	
+	void startNewHand()
+	{
+		seats.clear();
+		turnState=TurnState_START;
+		bet=0;
+		pot=0;
+		for(auto iter=players.begin();iter!=players.end();iter++)
+			iter->second.bet=0;
+	}
+	
 	vector<Player*> seats;
 	int lastRaiseSeat;
 	int getAllInNum()
@@ -331,6 +338,15 @@ class Game
 		if(turnState>=TurnState_RIVER)
 			common[4]=river.getId();
 		return common;
+	}
+	void dobet(Player* pl,int bet)
+	{
+		pl->dobet(bet);
+		if(this->bet<bet)
+		{
+			lastRaiseSeat=pl->seat;
+			this->bet=bet;
+		}
 	}
 };
 
@@ -445,11 +461,13 @@ class MessageHandle
 			{
 				SimRes sim=simulator.stopAndGetRes();
 				LOG("sim:%d %d %f",sim.win,sim.sum,sim.rate);
-                handStrength=sim.rate*sqrt(1.0*sim.sum/10000);
+
 			}
-            else handStrength=game.getHandStrenth();
-            strangeStrategy(handStrength);
-            //cowBoyStrategy();
+			strangeStrategy(handStrength);
+			//smartRaise();
+			//goodAllInStrategy();
+			//cowBoyStrategy();
+
 			//call();
 		}
         void strangeStrategy(float handStrength){
@@ -635,14 +653,13 @@ class MessageHandle
 		void handleSeat(){
 			HandCount++;
 		//	LOG("handle seat");
-			game.seats.clear();
-			game.turnState=TurnState_START;
+			game.startNewHand();
 			for(auto iter=game.players.begin();iter!=game.players.end();iter++)
 			{
 				iter->second.state=PlayerState_GAME_OVER;
 			}
 			result.reset();
-
+			game.bet=0;
 			LOOP_MSG_UNTIL("/seat"){
 				char *p=msg;
 				int pid,jetton,monney;
@@ -662,6 +679,7 @@ class MessageHandle
 				{
 					game.me.jetton=jetton;
 					game.me.monney=monney;
+					game.me.bet=0;
 					game.me.state=PlayerState_JOIN;
 					game.me.lastAction=ACTION_UNDO;
 					game.me.seat=game.seats.size();
@@ -673,6 +691,7 @@ class MessageHandle
 						game.players[pid]=Player();
 					Player& player=game.players[pid];
 					player.pid=pid;
+					player.bet=0;
 					player.jetton=jetton;
 					player.monney=monney;
 					player.state=PlayerState_JOIN;
@@ -689,7 +708,8 @@ class MessageHandle
 			{
 				int pid,bet;
 				sscanf(msg,"%d: %d",&pid,&bet);
-				game.getPlayer(pid)->dobet(bet);
+				Player* pl=game.getPlayer(pid);
+				game.dobet(pl,bet);
 			}
 		//	LOG("handle blind end");
 		}
@@ -799,8 +819,7 @@ class MessageHandle
 					Player* np=game.getPlayer(pid);
 					np->jetton=jetton;
 					np->monney=monney;
-					np->bet=bet;
-					game.bet=max(game.bet,bet);
+					game.dobet(np,bet);
 					if(Action::getAction(act)==ACTION_FOLD){
 						if(bet==0)np->foldtimes++;
 						else np->droptimes++,np->totalFoldBet+=bet;
