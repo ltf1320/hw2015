@@ -503,6 +503,10 @@ class MessageHandle
             	else check_or_fold();
             }
             else{
+            	 if(HandCount<10){
+            	 	check_or_fold();
+            	 	return;
+            	 }
             	 int G=-1;//期望最大下注筹码
             	 int minRestJetton=4000*8,minBet=4000*8,maxBet=-1,maxRestJetton=-1,betNext=0;
             	 int radicals=0,conversatives=0,unkowns=0;
@@ -554,7 +558,10 @@ class MessageHandle
             	 else{
             	 	if(mywinrate<0.2)check_or_fold();
             	 	else if(mywinrate<0.4)call();
-					else raise(maxBet);            	 	
+					else {
+						if(maxBet==-1)raise(100);
+						else raise(maxBet);
+					}            	 	
             	 }
             	 
             	 
