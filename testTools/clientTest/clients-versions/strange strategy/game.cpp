@@ -13,6 +13,7 @@
 #include <map>
 #include <signal.h>
 #include <math.h>
+#include <netinet/tcp.h>
 
 #include "ThreadSafeQueue.h"
 #include "dila.hpp"
@@ -655,8 +656,10 @@ class MessageHandle
 		void sendAction(const char* action)
 		{
 			LOG("Action:%s",action);
-			send(sock,action,strlen(action),0);
-			send(sock," \n",2,0);
+			char a[100];
+			sprintf(a,"%s \n",action);
+			send(sock,a,strlen(a)+1,0);
+		//	send(sock," \n",2,0);
 		}
 
 		void check_or_fold()
@@ -859,6 +862,7 @@ class MessageHandle
 				pres.hold[0].getCard(ct1,pt1);
 				pres.hold[1].getCard(ct2,pt2);
 				pres.player=game.getPlayer(pid);
+				pres.rank=rank;
 				pres.win=0;
 				result.result[pid]=pres;
 			}
@@ -968,7 +972,7 @@ void init()
 {
 	signal(SIGTERM, killhandler);
     signal(SIGINT, killhandler);
-	signal(SIGSEGV,killhandler);
+	//signal(SIGSEGV,killhandler);
 	NutHand::initMp();
 	HoldRank::init();
 	Action::init();
@@ -1001,6 +1005,7 @@ int main(int argc,char**argv){
 	/* 设置socket选项，地址重复使用，防止程序非正常退出，下次启动时bind失败 */
 	int is_reuse_addr = 1;
 	setsockopt(m_socket_id, SOL_SOCKET, SO_REUSEADDR, (const char*)&is_reuse_addr, sizeof(is_reuse_addr));
+	setsockopt(m_socket_id, IPPROTO_TCP, TCP_NODELAY, (const char *)&is_reuse_addr, sizeof(is_reuse_addr));
 
 	/* 绑定指定ip和port，不然会被server拒绝 */
 	struct sockaddr_in my_addr;
